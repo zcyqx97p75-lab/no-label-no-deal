@@ -214,7 +214,7 @@ body {
 }
 
 .hero-text-rotation {
-    min-height: 80px;
+    min-height: 140px;
     position: relative;
     margin-top: 0;
 }
@@ -284,16 +284,16 @@ body {
 
 .hero-petition-cta {
     position: relative;
-    width: 100%;
-    min-height: 68px;
-    height: 68px;
-    padding: 0.875rem 1rem;
+    width: fit-content;
+    max-width: min(92vw, 900px);
+    min-height: 52px;
+    padding: 0.7rem 2.4rem 0.7rem 1.2rem;
     background: linear-gradient(180deg, #f8f8f8 0%, #e2e2e2 100%);
     color: #111111;
     border: 2px solid #bdbdbd;
-    border-bottom-width: 5px;
+    border-bottom-width: 4px;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     text-align: center;
@@ -301,9 +301,10 @@ body {
     transition: all 0.3s ease;
     z-index: 10;
     white-space: normal;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin: clamp(0.9rem, 2.4vw, 1.4rem) auto 0;
     box-shadow:
         0 10px 24px rgba(0, 0, 0, 0.6),
         0 5px 0 #8f8f8f,
@@ -339,18 +340,22 @@ body {
     border-color: var(--accent);
 }
 
+.hero-petition-cta::after {
+    content: ">";
+    position: absolute;
+    right: 0.9rem;
+    font-weight: 900;
+}
+
 @media (min-width: 768px) {
     .hero-petition-cta {
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 2rem);
+        max-width: min(70vw, 640px);
     }
 }
 
 @media (max-width: 767px) {
     .hero-petition-cta {
-        padding: 0.875rem 1rem;
+        padding: 0.7rem 2.1rem 0.7rem 1rem;
         font-size: 0.9rem;
     }
 }
