@@ -160,12 +160,7 @@ function updateUITexts(lang) {
         if (container) {
             currentTextIndex = 0;
             const firstText = rotatingTexts[0];
-            if (typeof firstText === 'object' && firstText.role) {
-                container.innerHTML = `<p class="rotating-text active">${firstText.text}<br><span class="rotating-cta">${firstText.cta}</span></p>`;
-            } else {
-                // Fallback für alte Struktur
-                container.innerHTML = `<p class="rotating-text active">${firstText}</p>`;
-            }
+            renderRotatingText(container, firstText);
         }
     }
     
@@ -389,7 +384,13 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTextIndex = 0; // Start mit erstem Text
             const firstText = rotatingTexts[0];
             if (typeof firstText === 'object' && firstText.role) {
-                container.innerHTML = `<p class="rotating-text active"><strong class="rotating-role">${firstText.role}</strong> ${firstText.text} <span class="rotating-cta">${firstText.cta}</span></p>`;
+                container.innerHTML = `
+                    <p class="rotating-text active">
+                        <strong class="rotating-role">${firstText.role}</strong>
+                        ${firstText.text}<br>
+                        <button type="button" class="rotating-cta-btn">${firstText.cta}</button>
+                    </p>
+                `;
             } else {
                 // Fallback für alte Struktur
                 container.innerHTML = `<p class="rotating-text active">${firstText}</p>`;
@@ -529,6 +530,19 @@ function initEventListeners() {
     const scrollIndicator = document.getElementById('scrollIndicator');
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
+            const languageCountrySection = document.getElementById('languageCountrySection');
+            if (languageCountrySection) {
+                languageCountrySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+    // Rotating CTA Button
+    const textRotation = document.getElementById('textRotation');
+    if (textRotation) {
+        textRotation.addEventListener('click', (event) => {
+            const target = event.target.closest('.rotating-cta-btn');
+            if (!target) return;
             const languageCountrySection = document.getElementById('languageCountrySection');
             if (languageCountrySection) {
                 languageCountrySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1102,6 +1116,21 @@ function showSentenceFeedback() {
 
 // Text-Rotation
 let currentTextIndex = 0;
+function renderRotatingText(container, textObj) {
+    if (!container || !textObj) return;
+    if (typeof textObj === 'object' && textObj.role) {
+        container.innerHTML = `
+            <p class="rotating-text active">
+                ${textObj.text}<br>
+                <button type="button" class="rotating-cta-btn">${textObj.cta}</button>
+            </p>
+        `;
+    } else {
+        // Fallback für alte Struktur
+        container.innerHTML = `<p class="rotating-text active">${textObj}</p>`;
+    }
+}
+
 function startTextRotation() {
     setInterval(() => {
         const container = document.getElementById('textRotation');
@@ -1125,7 +1154,10 @@ function startTextRotation() {
         newText.className = 'rotating-text active';
         
         if (typeof textObj === 'object' && textObj.role) {
-            newText.innerHTML = `${textObj.text}<br><span class="rotating-cta">${textObj.cta}</span>`;
+            newText.innerHTML = `
+                ${textObj.text}<br>
+                <button type="button" class="rotating-cta-btn">${textObj.cta}</button>
+            `;
         } else {
             // Fallback für alte Struktur
             newText.textContent = textObj;
