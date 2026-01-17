@@ -117,9 +117,10 @@ body {
 .hero-text-box {
     max-width: 900px;
     width: 100%;
-    text-align: left;
+    text-align: center;
     position: relative;
     overflow: visible;
+    margin: 0 auto;
 }
 
 .hero-bottom-text {
@@ -133,7 +134,7 @@ body {
     color: #f2f2f2;
     font-size: clamp(0.75rem, 2.4vw, 0.95rem);
     line-height: 1.5;
-    margin: clamp(0.75rem, 2.5vw, 1.4rem) 0 0;
+    margin: 0 auto clamp(1rem, 2.8vw, 1.8rem);
 }
 
 .hero-bottom-text p {
@@ -154,32 +155,43 @@ body {
 .hero-alarm {
     font-size: clamp(0.85rem, 2vw, 1.1rem);
     font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
-    color: #ff4444;
+    letter-spacing: 0.04em;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+    color: #ffdddd;
     text-transform: uppercase;
-    line-height: 1.4;
+    line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+.hero-alarm-box {
+    display: inline-block;
+    padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 1.6rem);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
 .hero-accent-line {
-    width: 60px;
-    height: 4px;
-    background: #ff4444;
-    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    display: none;
 }
 
 .hero-headline {
     font-size: clamp(3rem, 12vw, 7rem);
     font-weight: 900;
     letter-spacing: -0.02em;
-    margin-bottom: clamp(1rem, 3vw, 1.75rem);
+    margin-bottom: clamp(0.85rem, 2.5vw, 1.4rem);
     line-height: 0.9;
     color: #ffffff;
     text-transform: uppercase;
     text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.hero-headline-centered {
+    align-items: center;
 }
 
 .hero-headline-line1,
@@ -192,9 +204,9 @@ body {
 }
 
 .hero-subline {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-size: clamp(1rem, 2.6vw, 1.4rem);
     font-weight: 400;
-    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(1.1rem, 2.8vw, 1.8rem);
     color: #e0e0e0;
     line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -203,7 +215,7 @@ body {
 .hero-text-rotation {
     min-height: 80px;
     position: relative;
-    margin-top: clamp(1.5rem, 3vw, 2rem);
+    margin-top: 0;
 }
 
 .scroll-indicator {

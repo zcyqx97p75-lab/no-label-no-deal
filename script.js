@@ -146,6 +146,11 @@ function updateUITexts(lang) {
     if (heroBottomText) {
         heroBottomText.textContent = getTranslation(lang, 'heroBottomText');
     }
+
+    const heroSubline = document.getElementById('heroSubline');
+    if (heroSubline) {
+        heroSubline.textContent = getTranslation(lang, 'heroSubline');
+    }
     
     // Rotierende Texte aktualisieren
     const langData = translations[lang] || translations.en;
@@ -343,6 +348,29 @@ function updateUITexts(lang) {
 
 // Initialisierung
 document.addEventListener('DOMContentLoaded', () => {
+    const homeFab = document.getElementById('homeFab');
+    let homeFabTimer;
+    if (homeFab) {
+        homeFab.style.opacity = '0';
+        homeFab.style.pointerEvents = 'none';
+        homeFab.style.transition = 'opacity 0.2s ease';
+        const showHomeFab = () => {
+            homeFab.style.opacity = '1';
+            homeFab.style.pointerEvents = 'auto';
+            if (homeFabTimer) {
+                clearTimeout(homeFabTimer);
+            }
+            homeFabTimer = setTimeout(() => {
+                homeFab.style.opacity = '0';
+                homeFab.style.pointerEvents = 'none';
+            }, 2000);
+        };
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                showHomeFab();
+            }
+        }, { passive: true });
+    }
     // Browser-Sprache erkennen und setzen
     selectedLanguage = detectBrowserLanguage();
     console.log('Erkannte Sprache:', selectedLanguage);
