@@ -180,7 +180,8 @@ body {
     font-size: clamp(3rem, 12vw, 7rem);
     font-weight: 900;
     letter-spacing: -0.02em;
-    margin-bottom: clamp(0.85rem, 2.5vw, 1.4rem);
+    margin-top: clamp(0.75rem, 3vw, 1.6rem);
+    margin-bottom: clamp(0.9rem, 3vw, 1.6rem);
     line-height: 0.9;
     color: #ffffff;
     text-transform: uppercase;
@@ -206,7 +207,7 @@ body {
 .hero-subline {
     font-size: clamp(1rem, 2.6vw, 1.4rem);
     font-weight: 400;
-    margin-bottom: clamp(1.1rem, 2.8vw, 1.8rem);
+    margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
     color: #e0e0e0;
     line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
