@@ -217,6 +217,7 @@ body {
     min-height: 140px;
     position: relative;
     margin-top: 0;
+    margin-bottom: clamp(0.9rem, 2.4vw, 1.4rem);
 }
 
 .scroll-indicator {
@@ -284,8 +285,7 @@ body {
 
 .hero-petition-cta {
     position: relative;
-    width: fit-content;
-    max-width: min(92vw, 900px);
+    width: min(92vw, 640px);
     min-height: 52px;
     padding: 0.7rem 2.4rem 0.7rem 1.2rem;
     background: linear-gradient(180deg, #f8f8f8 0%, #e2e2e2 100%);
@@ -301,10 +301,10 @@ body {
     transition: all 0.3s ease;
     z-index: 10;
     white-space: normal;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: clamp(0.9rem, 2.4vw, 1.4rem) auto 0;
+    margin: 0 auto;
     box-shadow:
         0 10px 24px rgba(0, 0, 0, 0.6),
         0 5px 0 #8f8f8f,
@@ -349,7 +349,7 @@ body {
 
 @media (min-width: 768px) {
     .hero-petition-cta {
-        max-width: min(70vw, 640px);
+        width: min(70vw, 640px);
     }
 }
 
@@ -449,6 +449,7 @@ body {
     margin-top: 0.85rem;
     padding: 0.65rem 2.4rem 0.65rem 1.2rem;
     min-height: 46px;
+    width: min(92vw, 640px);
     background: linear-gradient(180deg, #f8f8f8 0%, #e2e2e2 100%);
     color: #111111;
     border: 2px solid #bdbdbd;
@@ -458,10 +459,12 @@ body {
     font-weight: 700;
     letter-spacing: 0.02em;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow:
         0 10px 24px rgba(0, 0, 0, 0.6),
         0 5px 0 #8f8f8f,
