@@ -141,6 +141,11 @@ function updateUITexts(lang) {
     if (heroAlarm) {
         heroAlarm.textContent = getTranslation(lang, 'heroAlarm');
     }
+
+    const heroBottomText = document.getElementById('heroBottomText');
+    if (heroBottomText) {
+        heroBottomText.textContent = getTranslation(lang, 'heroBottomText');
+    }
     
     // Rotierende Texte aktualisieren
     const langData = translations[lang] || translations.en;

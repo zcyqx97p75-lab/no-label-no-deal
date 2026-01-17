@@ -123,11 +123,7 @@ body {
 }
 
 .hero-bottom-text {
-    position: absolute;
-    left: 50%;
-    bottom: clamp(0.75rem, 3vw, 2rem);
-    transform: translateX(-50%);
-    width: min(92vw, 1100px);
+    width: min(92vw, 900px);
     text-align: center;
     padding: clamp(0.75rem, 2.5vw, 1.4rem);
     background: rgba(0, 0, 0, 0.6);
@@ -137,8 +133,7 @@ body {
     color: #f2f2f2;
     font-size: clamp(0.75rem, 2.4vw, 0.95rem);
     line-height: 1.5;
-    max-height: 46vh;
-    overflow-y: auto;
+    margin: clamp(0.75rem, 2.5vw, 1.4rem) 0 0;
 }
 
 .hero-bottom-text p {
