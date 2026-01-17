@@ -1261,7 +1261,7 @@ function loadPetitionContent() {
         <h2>NO LABEL, NO DEAL – Mandatory Origin Labelling for Processed Foods in the EU</h2>
         <p style="font-style: italic; font-size: 1.2em; margin-bottom: 1.5em;">No origin, no future.</p>
         
-        <p id="petitionDescription" class="petition-description blink-attention">This website is dedicated to the European petition <strong>"NO LABEL, NO DEAL – Mandatory Origin Labelling for Processed Foods in the EU."</strong> Its purpose is to provide citizens with a clear, simple, and effective way to demand transparency in food origin labelling across the European Union.</p>
+        <p id="petitionDescription" class="petition-description">This website is dedicated to the European petition <strong>"NO LABEL, NO DEAL – Mandatory Origin Labelling for Processed Foods in the EU."</strong> Its purpose is to provide citizens with a clear, simple, and effective way to demand transparency in food origin labelling across the European Union.</p>
         
         <p>On this website, you can:</p>
         <ul>
