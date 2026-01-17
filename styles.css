@@ -122,6 +122,40 @@ body {
     overflow: visible;
 }
 
+.hero-bottom-text {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(0.75rem, 3vw, 2rem);
+    transform: translateX(-50%);
+    width: min(92vw, 1100px);
+    text-align: center;
+    padding: clamp(0.75rem, 2.5vw, 1.4rem);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    color: #f2f2f2;
+    font-size: clamp(0.75rem, 2.4vw, 0.95rem);
+    line-height: 1.5;
+    max-height: 46vh;
+    overflow-y: auto;
+}
+
+.hero-bottom-text p {
+    margin-bottom: 0.65rem;
+}
+
+.hero-bottom-text p:last-child {
+    margin-bottom: 0;
+}
+
+.hero-bottom-text strong {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 0.35rem;
+    color: #ffffff;
+}
+
 .hero-alarm {
     font-size: clamp(0.85rem, 2vw, 1.1rem);
     font-weight: 700;
