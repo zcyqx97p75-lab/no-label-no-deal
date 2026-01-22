@@ -96,6 +96,11 @@
         if (overlay) {
             overlay.style.display = 'none';
         }
+        // Ensure Share Bar is visible after closing overlay
+        const shareBar = document.getElementById('shareBar');
+        if (shareBar) {
+            shareBar.style.display = 'flex';
+        }
     }
 
     // Scroll to target section
