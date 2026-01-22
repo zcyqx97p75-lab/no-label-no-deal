@@ -54,10 +54,10 @@
         document.getElementById('vicClaim').textContent = getVictoryTranslation('vicClaim');
         document.getElementById('vicExplain').textContent = getVictoryTranslation('vicExplain');
         document.getElementById('btnStartLobby').textContent = getVictoryTranslation('btnStartLobby');
-        document.getElementById('btnViberChannelOverlay').textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
         document.getElementById('btnCloseOverlay').textContent = getVictoryTranslation('btnCloseOverlay');
         document.getElementById('btnShareWhatsApp').textContent = getVictoryTranslation('btnShareWhatsApp');
         document.getElementById('btnCopyLink').textContent = getVictoryTranslation('btnCopyLink');
+        document.getElementById('btnViberChannelOverlay').textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
 
         // Initialize canvas animation
         initFireworksAnimation();
