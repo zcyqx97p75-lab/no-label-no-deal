@@ -1176,7 +1176,7 @@ function loadCounter() {
         const savedConsumer = localStorage.getItem('campaignCounterConsumer');
         
         // Startwerte definieren
-        const startConsumer = 842;
+        const startConsumer = 1142; // 842 + 300
         const startFarmer = 174;
         
         // Werte aus localStorage laden oder Startwerte verwenden
