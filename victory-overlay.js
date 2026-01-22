@@ -296,6 +296,8 @@
             } else {
                 console.warn('WhatsApp button span not found');
             }
+            // Remove old listener if exists, then add new one
+            shareBtn.onclick = null;
             shareBtn.addEventListener('click', shareOnWhatsApp);
         } else {
             console.warn('WhatsApp button not found');
@@ -309,6 +311,8 @@
             } else {
                 console.warn('Copy Link button span not found');
             }
+            // Remove old listener if exists, then add new one
+            copyBtn.onclick = null;
             copyBtn.addEventListener('click', copyLink);
         } else {
             console.warn('Copy Link button not found');
@@ -322,6 +326,8 @@
             } else {
                 console.warn('Viber button span not found');
             }
+            // Remove old listener if exists, then add new one
+            viberBtnShareBar.onclick = null;
             viberBtnShareBar.addEventListener('click', () => {
                 window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
             });
