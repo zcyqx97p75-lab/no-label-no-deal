@@ -55,9 +55,21 @@
         document.getElementById('vicExplain').textContent = getVictoryTranslation('vicExplain');
         document.getElementById('btnStartLobby').textContent = getVictoryTranslation('btnStartLobby');
         document.getElementById('btnCloseOverlay').textContent = getVictoryTranslation('btnCloseOverlay');
-        document.getElementById('btnShareWhatsApp').textContent = getVictoryTranslation('btnShareWhatsApp');
-        document.getElementById('btnCopyLink').textContent = getVictoryTranslation('btnCopyLink');
-        document.getElementById('btnViberChannelOverlay').textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+        const btnShareWhatsApp = document.getElementById('btnShareWhatsApp');
+        if (btnShareWhatsApp) {
+            const span = btnShareWhatsApp.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('btnShareWhatsApp');
+        }
+        const btnCopyLink = document.getElementById('btnCopyLink');
+        if (btnCopyLink) {
+            const span = btnCopyLink.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('btnCopyLink');
+        }
+        const btnViberChannelOverlay = document.getElementById('btnViberChannelOverlay');
+        if (btnViberChannelOverlay) {
+            const span = btnViberChannelOverlay.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+        }
 
         // Initialize canvas animation
         initFireworksAnimation();
@@ -252,15 +264,18 @@
 
         if (title) title.textContent = getVictoryTranslation('shareBarTitle');
         if (shareBtn) {
-            shareBtn.textContent = getVictoryTranslation('shareWhatsAppMain');
+            const span = shareBtn.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('shareWhatsAppMain');
             shareBtn.addEventListener('click', shareOnWhatsApp);
         }
         if (copyBtn) {
-            copyBtn.textContent = getVictoryTranslation('copyLinkMain');
+            const span = copyBtn.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('copyLinkMain');
             copyBtn.addEventListener('click', copyLink);
         }
         if (viberBtnShareBar) {
-            viberBtnShareBar.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+            const span = viberBtnShareBar.querySelector('span');
+            if (span) span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
             viberBtnShareBar.addEventListener('click', () => {
                 window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
             });

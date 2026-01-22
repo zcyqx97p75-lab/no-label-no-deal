@@ -1602,17 +1602,41 @@ body {
 }
 
 .btn-victory-share:hover {
-    background: #128c7e;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-victory-share.btn-whatsapp {
+    background: #25d366;
+}
+
+.btn-victory-share.btn-whatsapp:hover {
+    background: #128c7e;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
-.btn-victory-share:last-of-type {
+.btn-victory-share.btn-copy-link {
     background: var(--accent);
 }
 
-.btn-victory-share:last-of-type:hover {
+.btn-victory-share.btn-copy-link:hover {
     background: #5a6b7d;
+    box-shadow: 0 4px 12px rgba(90, 107, 125, 0.4);
+}
+
+.btn-victory-share.btn-viber {
+    background: #665CAC; /* Viber Blau */
+}
+
+.btn-victory-share.btn-viber:hover {
+    background: #554a9a;
+    box-shadow: 0 4px 12px rgba(102, 92, 172, 0.4);
+}
+
+.btn-victory-share svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
 }
 
 /* Share Bar Styles */
