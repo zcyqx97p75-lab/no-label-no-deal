@@ -290,25 +290,28 @@
         }
 
         // Share Bar ausblenden, wenn Footer im Viewport ist
-        const footer = document.querySelector('.footer');
-        if (footer) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Footer ist sichtbar - Share Bar ausblenden
-                        shareBar.style.display = 'none';
-                    } else {
-                        // Footer ist nicht sichtbar - Share Bar einblenden
-                        shareBar.style.display = 'flex';
-                    }
+        // Warte kurz, damit die Share Bar zuerst angezeigt wird
+        setTimeout(() => {
+            const footer = document.querySelector('.footer');
+            if (footer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Footer ist sichtbar - Share Bar ausblenden
+                            shareBar.style.display = 'none';
+                        } else {
+                            // Footer ist nicht sichtbar - Share Bar einblenden
+                            shareBar.style.display = 'flex';
+                        }
+                    });
+                }, {
+                    threshold: 0.1, // Auslösen, wenn 10% des Footers sichtbar sind
+                    rootMargin: '0px 0px -50px 0px' // Etwas früher auslösen
                 });
-            }, {
-                threshold: 0.1, // Auslösen, wenn 10% des Footers sichtbar sind
-                rootMargin: '0px 0px -50px 0px' // Etwas früher auslösen
-            });
 
-            observer.observe(footer);
-        }
+                observer.observe(footer);
+            }
+        }, 500); // Kurze Verzögerung, damit Share Bar zuerst sichtbar ist
     }
 
     // Initialize Viber CTA on main page
