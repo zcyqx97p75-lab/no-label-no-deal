@@ -272,51 +272,39 @@
 
         if (title) {
             title.textContent = getVictoryTranslation('shareBarTitle');
-            console.log('Share Bar Title:', title.textContent);
         }
         if (shareBtn) {
             const span = shareBtn.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('shareWhatsAppMain');
-                console.log('WhatsApp Button Text:', span.textContent);
             }
             // Remove existing listeners to avoid duplicates
-            shareBtn.replaceWith(shareBtn.cloneNode(true));
-            const newShareBtn = document.getElementById('shareWhatsAppMain');
-            if (newShareBtn) {
-                newShareBtn.addEventListener('click', shareOnWhatsApp);
-            }
+            const newShareBtn = shareBtn.cloneNode(true);
+            shareBtn.parentNode.replaceChild(newShareBtn, shareBtn);
+            document.getElementById('shareWhatsAppMain').addEventListener('click', shareOnWhatsApp);
         }
         if (copyBtn) {
             const span = copyBtn.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('copyLinkMain');
-                console.log('Copy Link Button Text:', span.textContent);
             }
             // Remove existing listeners to avoid duplicates
-            copyBtn.replaceWith(copyBtn.cloneNode(true));
-            const newCopyBtn = document.getElementById('copyLinkMain');
-            if (newCopyBtn) {
-                newCopyBtn.addEventListener('click', copyLink);
-            }
+            const newCopyBtn = copyBtn.cloneNode(true);
+            copyBtn.parentNode.replaceChild(newCopyBtn, copyBtn);
+            document.getElementById('copyLinkMain').addEventListener('click', copyLink);
         }
         if (viberBtnShareBar) {
             const span = viberBtnShareBar.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
-                console.log('Viber Button Text:', span.textContent);
             }
             // Remove existing listeners to avoid duplicates
-            viberBtnShareBar.replaceWith(viberBtnShareBar.cloneNode(true));
-            const newViberBtn = document.getElementById('btnViberChannelShareBar');
-            if (newViberBtn) {
-                newViberBtn.addEventListener('click', () => {
-                    window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
-                });
-            }
+            const newViberBtn = viberBtnShareBar.cloneNode(true);
+            viberBtnShareBar.parentNode.replaceChild(newViberBtn, viberBtnShareBar);
+            document.getElementById('btnViberChannelShareBar').addEventListener('click', () => {
+                window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
+            });
         }
-        
-        console.log('Share Bar initialized, display:', shareBar.style.display);
 
         // Share Bar ausblenden, wenn Footer im Viewport ist
         // Warte kurz, damit die Share Bar zuerst angezeigt wird
