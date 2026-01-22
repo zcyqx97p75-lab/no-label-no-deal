@@ -1669,6 +1669,42 @@ body {
     background: #5a6b7d;
 }
 
+/* Viber CTA Section */
+.viber-cta-section {
+    padding: var(--spacing-large) 0;
+    text-align: center;
+    background-color: var(--bg-dark);
+}
+
+.btn-viber-channel {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(180deg, #7b68ee 0%, #6a5acd 100%);
+    color: white;
+    border: 2px solid #6a5acd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(123, 104, 238, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.btn-viber-channel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 104, 238, 0.6);
+    background: linear-gradient(180deg, #6a5acd 0%, #5a4fcf 100%);
+}
+
+.viber-helper-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 /* Toast Notification */
 .toast-notification {
     position: fixed;
@@ -1800,6 +1836,23 @@ body {
         max-width: 100%;
         min-height: 48px; /* Touch-friendly */
         padding: 0.875rem 1.25rem;
+    }
+
+    .viber-cta-section {
+        padding: var(--spacing-medium) 0;
+    }
+
+    .btn-viber-channel {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        min-height: 48px; /* Touch-friendly */
+    }
+
+    .viber-helper-text {
+        font-size: 0.8rem;
+        padding: 0 1rem;
     }
 
     .toast-notification {

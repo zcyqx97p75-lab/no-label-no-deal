@@ -2,6 +2,9 @@
 (function() {
     'use strict';
 
+    // Viber Channel URL - central constant, reused everywhere
+    const VIBER_CHANNEL_URL = "https://invite.viber.com/?g2=AQBNQ0jEeiZmnFX5wLjxHb92YUzC%2Futi0p11vHwaQWRDnuVZaJu6BeMV4m047%2BcV";
+
     // Get current language from script.js or default to 'de'
     function getCurrentLanguage() {
         // Use global selectedLanguage from script.js if available
@@ -51,6 +54,7 @@
         document.getElementById('vicClaim').textContent = getVictoryTranslation('vicClaim');
         document.getElementById('vicExplain').textContent = getVictoryTranslation('vicExplain');
         document.getElementById('btnStartLobby').textContent = getVictoryTranslation('btnStartLobby');
+        document.getElementById('btnViberChannelOverlay').textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
         document.getElementById('btnCloseOverlay').textContent = getVictoryTranslation('btnCloseOverlay');
         document.getElementById('btnShareWhatsApp').textContent = getVictoryTranslation('btnShareWhatsApp');
         document.getElementById('btnCopyLink').textContent = getVictoryTranslation('btnCopyLink');
@@ -63,11 +67,12 @@
             closeOverlay();
             scrollToTarget();
         });
-
         document.getElementById('btnCloseOverlay').addEventListener('click', closeOverlay);
-
         document.getElementById('btnShareWhatsApp').addEventListener('click', shareOnWhatsApp);
         document.getElementById('btnCopyLink').addEventListener('click', copyLink);
+        document.getElementById('btnViberChannelOverlay').addEventListener('click', () => {
+            window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
+        });
 
         // Show overlay immediately
         overlay.style.display = 'flex';
@@ -243,6 +248,7 @@
         const title = document.getElementById('shareBarTitle');
         const shareBtn = document.getElementById('shareWhatsAppMain');
         const copyBtn = document.getElementById('copyLinkMain');
+        const viberBtnShareBar = document.getElementById('btnViberChannelShareBar');
 
         if (title) title.textContent = getVictoryTranslation('shareBarTitle');
         if (shareBtn) {
@@ -252,6 +258,12 @@
         if (copyBtn) {
             copyBtn.textContent = getVictoryTranslation('copyLinkMain');
             copyBtn.addEventListener('click', copyLink);
+        }
+        if (viberBtnShareBar) {
+            viberBtnShareBar.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+            viberBtnShareBar.addEventListener('click', () => {
+                window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
+            });
         }
 
         // Share Bar ausblenden, wenn Footer im Viewport ist
@@ -276,6 +288,23 @@
         }
     }
 
+    // Initialize Viber CTA on main page
+    function initViberCTA() {
+        const btnViberChannel = document.getElementById('btnViberChannel');
+        const helperText = document.querySelector('.viber-helper-text');
+        
+        if (btnViberChannel) {
+            btnViberChannel.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+            btnViberChannel.addEventListener('click', () => {
+                window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
+            });
+        }
+        
+        if (helperText) {
+            helperText.textContent = getVictoryTranslation('VIBER_HELPER_TEXT');
+        }
+    }
+
     // Initialize when DOM is ready
     // Wait a bit to ensure script.js has set selectedLanguage
     function initializeVictory() {
@@ -283,6 +312,7 @@
         setTimeout(() => {
             initVictoryOverlay();
             initShareBar();
+            initViberCTA();
         }, 100);
     }
     
