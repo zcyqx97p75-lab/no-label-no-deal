@@ -1163,6 +1163,7 @@ body {
 /* Footer */
 .footer {
     padding: var(--spacing-large) 0;
+    padding-bottom: calc(var(--spacing-large) + 100px); /* Platz für Share Bar */
     background-color: var(--bg-darker);
     border-top: 1px solid var(--accent);
     text-align: center;
@@ -1780,6 +1781,10 @@ body {
     .btn-victory-primary {
         font-size: 1.05rem;
         letter-spacing: 0.5px;
+    }
+
+    .footer {
+        padding-bottom: calc(var(--spacing-large) + 180px); /* Mehr Platz für vertikale Share Bar auf Mobile */
     }
 
     .share-bar {
