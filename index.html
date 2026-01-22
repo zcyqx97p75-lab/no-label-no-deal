@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.no-label-no-deal.eu/">
     <title>no label no deal</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Google Translate Widget -->
@@ -36,7 +37,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-    <a href="index.html" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
+    <a href="/" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
     <!-- Hero-Bereich -->
     <section class="hero notranslate" id="hero">
         <div class="hero-overlay"></div>
@@ -238,7 +239,7 @@
             <p><strong>Datenquelle:</strong> Europäisches Parlament (öffentlich)</p>
             <p>Keine personenbezogenen Daten werden gespeichert.</p>
             <div class="footer-links">
-                <a href="index.html" class="footer-link" id="homeLink">Home</a>
+                <a href="/" class="footer-link" id="homeLink">Home</a>
                 <span class="footer-separator">|</span>
                 <a href="herkunftskennzeichnung-verarbeitete-lebensmittel.html" class="footer-link">Herkunftskennzeichnung</a>
                 <span class="footer-separator">|</span>
@@ -267,8 +268,40 @@
         </div>
     </footer>
 
+    <!-- Victory Overlay -->
+    <div id="victoryOverlay" class="victory-overlay">
+        <canvas id="victoryFxCanvas"></canvas>
+        <div class="victory-content">
+            <h1 id="vicHeadline"></h1>
+            <p id="vicSubline1"></p>
+            <p id="vicSubline2"></p>
+            <p id="vicClaim"></p>
+            <p id="vicExplain"></p>
+            <span id="vicDomainLabel">no-label-no-deal.eu</span>
+            <div class="victory-buttons">
+                <button id="btnStartLobby" class="btn-victory-primary"></button>
+                <button id="btnCloseOverlay" class="btn-victory-secondary"></button>
+            </div>
+            <div class="victory-share-buttons">
+                <button id="btnShareWhatsApp" class="btn-victory-share"></button>
+                <button id="btnCopyLink" class="btn-victory-share"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Bar -->
+    <div id="shareBar" class="share-bar">
+        <span class="share-bar-title" id="shareBarTitle"></span>
+        <button id="shareWhatsAppMain" class="btn-share"></button>
+        <button id="copyLinkMain" class="btn-share"></button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification" style="display: none;"></div>
+
     <script src="translations.js"></script>
     <script src="script.js"></script>
+    <script src="victory-overlay.js"></script>
 </body>
 </html>
 

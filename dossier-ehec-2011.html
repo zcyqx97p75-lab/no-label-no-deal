@@ -42,7 +42,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-    <a href="index.html" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
+    <a href="/" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
 
     <section class="petition-section">
         <div class="petition-container">
@@ -220,7 +220,7 @@
             <p><strong>Datenquelle:</strong> Europäisches Parlament (öffentlich)</p>
             <p>Keine personenbezogenen Daten werden gespeichert.</p>
             <div class="footer-links">
-                <a href="index.html" class="footer-link">Home</a>
+                <a href="/" class="footer-link">Home</a>
                 <span class="footer-separator">|</span>
                 <a href="herkunftskennzeichnung-verarbeitete-lebensmittel.html" class="footer-link">Herkunftskennzeichnung</a>
                 <span class="footer-separator">|</span>
@@ -232,5 +232,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Share Bar -->
+    <div id="shareBar" class="share-bar">
+        <span class="share-bar-title" id="shareBarTitle"></span>
+        <button id="shareWhatsAppMain" class="btn-share"></button>
+        <button id="copyLinkMain" class="btn-share"></button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification" style="display: none;"></div>
+
+    <script src="translations.js"></script>
+    <script src="victory-overlay.js"></script>
 </body>
 </html>

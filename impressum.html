@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.no-label-no-deal.eu/impressum.html">
     <title>Impressum - no label no deal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html" class="home-fab" aria-label="Home">Home</a>
+    <a href="/" class="home-fab" aria-label="Home">Home</a>
     <div class="legal-page">
         <div class="container">
             <h1>Impressum</h1>
@@ -27,7 +28,7 @@
             <h2>Zusatzhinweis</h2>
             <p>Diese Website dient der sachlichen Information und Sensibilisierung und stellt keine Wahlempfehlung dar.</p>
             
-            <a href="index.html" class="back-link">Zurück zur Startseite</a>
+            <a href="/" class="back-link">Zurück zur Startseite</a>
         </div>
     </div>
     
@@ -36,7 +37,7 @@
             <p><strong>Datenquelle:</strong> Europäisches Parlament (öffentlich)</p>
             <p>Keine personenbezogenen Daten werden gespeichert.</p>
             <div class="footer-links">
-                <a href="index.html" class="footer-link">Home</a>
+                <a href="/" class="footer-link">Home</a>
                 <span class="footer-separator">|</span>
                 <a href="impressum.html" class="footer-link">Impressum</a>
                 <span class="footer-separator">|</span>
@@ -44,6 +45,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Share Bar -->
+    <div id="shareBar" class="share-bar">
+        <span class="share-bar-title" id="shareBarTitle"></span>
+        <button id="shareWhatsAppMain" class="btn-share"></button>
+        <button id="copyLinkMain" class="btn-share"></button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification" style="display: none;"></div>
+
+    <script src="translations.js"></script>
+    <script src="victory-overlay.js"></script>
 </body>
 </html>
 

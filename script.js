@@ -314,7 +314,7 @@ function updateUITexts(lang) {
             noDataStored.textContent = getTranslation(lang, 'noDataStored');
         }
         
-        const homeLink = footer.querySelector('a[href="index.html"]');
+        const homeLink = footer.querySelector('a[href="/"], a[href="index.html"]');
         if (homeLink) homeLink.textContent = getTranslation(lang, 'home');
         
         const impressumLink = footer.querySelector('a[href="impressum.html"]');
