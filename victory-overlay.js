@@ -260,50 +260,73 @@
     // Initialize Share Bar
     function initShareBar() {
         const shareBar = document.getElementById('shareBar');
-        if (!shareBar) return;
+        if (!shareBar) {
+            console.warn('Share Bar element not found');
+            return;
+        }
         
         // Ensure Share Bar is visible by default
         shareBar.style.display = 'flex';
+        console.log('Share Bar initialized, display:', shareBar.style.display);
 
         const title = document.getElementById('shareBarTitle');
         const shareBtn = document.getElementById('shareWhatsAppMain');
         const copyBtn = document.getElementById('copyLinkMain');
         const viberBtnShareBar = document.getElementById('btnViberChannelShareBar');
+        
+        console.log('Share Bar elements found:', {
+            title: !!title,
+            shareBtn: !!shareBtn,
+            copyBtn: !!copyBtn,
+            viberBtn: !!viberBtnShareBar
+        });
 
         if (title) {
             title.textContent = getVictoryTranslation('shareBarTitle');
+            console.log('Share Bar Title set:', title.textContent);
+        } else {
+            console.warn('Share Bar Title element not found');
         }
+        
         if (shareBtn) {
             const span = shareBtn.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('shareWhatsAppMain');
+                console.log('WhatsApp button text set:', span.textContent);
+            } else {
+                console.warn('WhatsApp button span not found');
             }
-            // Remove existing listeners to avoid duplicates
-            const newShareBtn = shareBtn.cloneNode(true);
-            shareBtn.parentNode.replaceChild(newShareBtn, shareBtn);
-            document.getElementById('shareWhatsAppMain').addEventListener('click', shareOnWhatsApp);
+            shareBtn.addEventListener('click', shareOnWhatsApp);
+        } else {
+            console.warn('WhatsApp button not found');
         }
+        
         if (copyBtn) {
             const span = copyBtn.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('copyLinkMain');
+                console.log('Copy Link button text set:', span.textContent);
+            } else {
+                console.warn('Copy Link button span not found');
             }
-            // Remove existing listeners to avoid duplicates
-            const newCopyBtn = copyBtn.cloneNode(true);
-            copyBtn.parentNode.replaceChild(newCopyBtn, copyBtn);
-            document.getElementById('copyLinkMain').addEventListener('click', copyLink);
+            copyBtn.addEventListener('click', copyLink);
+        } else {
+            console.warn('Copy Link button not found');
         }
+        
         if (viberBtnShareBar) {
             const span = viberBtnShareBar.querySelector('span');
             if (span) {
                 span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
+                console.log('Viber button text set:', span.textContent);
+            } else {
+                console.warn('Viber button span not found');
             }
-            // Remove existing listeners to avoid duplicates
-            const newViberBtn = viberBtnShareBar.cloneNode(true);
-            viberBtnShareBar.parentNode.replaceChild(newViberBtn, viberBtnShareBar);
-            document.getElementById('btnViberChannelShareBar').addEventListener('click', () => {
+            viberBtnShareBar.addEventListener('click', () => {
                 window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
             });
+        } else {
+            console.warn('Viber button not found');
         }
 
         // Share Bar ausblenden, wenn Footer im Viewport ist
