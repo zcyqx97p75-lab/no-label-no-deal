@@ -261,6 +261,9 @@
     function initShareBar() {
         const shareBar = document.getElementById('shareBar');
         if (!shareBar) return;
+        
+        // Ensure Share Bar is visible by default
+        shareBar.style.display = 'flex';
 
         const title = document.getElementById('shareBarTitle');
         const shareBtn = document.getElementById('shareWhatsAppMain');
