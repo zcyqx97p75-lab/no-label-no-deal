@@ -8,6 +8,9 @@ let counter = 0;
 let counterFarmer = 0;
 let counterConsumer = 0;
 
+// Viber-Kanal-URL (Kontaktseite Teilen/Drucken)
+const VIBER_CHANNEL_URL = "https://invite.viber.com/?g2=AQBNQ0jEeiZmnFX5wLjxHb92YUzC%2Futi0p11vHwaQWRDnuVZaJu6BeMV4m047%2BcV";
+
 // Übersetzungs-Helper (global, stabil)
 const getTranslation = (lang, key, vars = {}) => {
     const langData = (typeof translations !== 'undefined' && translations[lang]) || (translations && translations.en) || {};
@@ -292,6 +295,27 @@ function updateUITexts(lang) {
         const showTextSuggestionsBtn = document.getElementById('showTextSuggestionsBtn');
         if (showTextSuggestionsBtn) showTextSuggestionsBtn.textContent = getTranslation(lang, 'showTextSuggestions');
         
+        // Fixer Block: Viber + Teilen & Drucken
+        const contactsShareTitle = document.getElementById('contactsShareTitle');
+        if (contactsShareTitle) contactsShareTitle.textContent = getTranslation(lang, 'shareBarTitle');
+        const btnViberContacts = document.getElementById('btnViberChannelContacts');
+        if (btnViberContacts) btnViberContacts.textContent = getTranslation(lang, 'BTN_VIBER_CHANNEL');
+        const btnShareWaContacts = document.getElementById('btnShareWhatsAppContacts');
+        if (btnShareWaContacts) {
+            const span = btnShareWaContacts.querySelector('span');
+            if (span) span.textContent = getTranslation(lang, 'shareWhatsAppMain');
+        }
+        const btnCopyContacts = document.getElementById('btnCopyLinkContacts');
+        if (btnCopyContacts) {
+            const span = btnCopyContacts.querySelector('span');
+            if (span) span.textContent = getTranslation(lang, 'copyLinkMain');
+        }
+        const btnPrintLabel = document.getElementById('btnPrintContactsLabel');
+        if (btnPrintLabel) {
+            const printText = getTranslation(lang, 'btnPrint');
+            btnPrintLabel.textContent = (printText && printText !== 'btnPrint') ? printText : 'Print';
+        }
+        
         const textSuggestionsHint = contactsSection.querySelector('.text-suggestions-hint-small p');
         if (textSuggestionsHint) {
             const hintText = getTranslation(lang, 'textSuggestionsHint');
@@ -526,6 +550,9 @@ function initEventListeners() {
         showTextSuggestionsBtn.addEventListener('click', scrollToTextSuggestions);
     }
     
+    // Kontaktseite: Fixer Block Viber + Teilen & Drucken
+    initContactsFixedActions();
+    
     // Scroll Indicator
     const scrollIndicator = document.getElementById('scrollIndicator');
     if (scrollIndicator) {
@@ -707,6 +734,66 @@ function toggleAllCountries() {
         btn.textContent = getTranslation(lang, 'showAllMEPs');
     }
     filterMandatare();
+}
+
+let contactsFixedActionsInitialized = false;
+function initContactsFixedActions() {
+    if (contactsFixedActionsInitialized) return;
+    const viberBtn = document.getElementById('btnViberChannelContacts');
+    const shareWaBtn = document.getElementById('btnShareWhatsAppContacts');
+    const copyBtn = document.getElementById('btnCopyLinkContacts');
+    const printBtn = document.getElementById('btnPrintContacts');
+    if (!viberBtn && !shareWaBtn) return;
+    contactsFixedActionsInitialized = true;
+    if (viberBtn) {
+        viberBtn.addEventListener('click', () => {
+            window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
+        });
+    }
+    if (shareWaBtn) {
+        shareWaBtn.addEventListener('click', () => {
+            const lang = selectedLanguage || detectBrowserLanguage();
+            const shareText = (translations[lang] && translations[lang].ui && translations[lang].ui.shareTextWhatsApp) || (translations.en && translations.en.ui && translations.en.ui.shareTextWhatsApp) || '';
+            const text = encodeURIComponent(shareText);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        });
+    }
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const url = window.location.href;
+            const lang = selectedLanguage || detectBrowserLanguage();
+            navigator.clipboard.writeText(url).then(() => {
+                const toast = document.getElementById('toastNotification');
+                if (toast) {
+                    toast.textContent = getTranslation(lang, 'toastCopied');
+                    toast.style.display = 'block';
+                    setTimeout(() => { toast.style.display = 'none'; }, 3000);
+                }
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const toast = document.getElementById('toastNotification');
+                    if (toast) {
+                        toast.textContent = getTranslation(lang, 'toastCopied');
+                        toast.style.display = 'block';
+                        setTimeout(() => { toast.style.display = 'none'; }, 3000);
+                    }
+                } catch (e) {}
+                document.body.removeChild(textArea);
+            });
+        });
+    }
+    if (printBtn) {
+        printBtn.addEventListener('click', () => {
+            window.print();
+        });
+    }
 }
 
 function showContactsSection() {
@@ -1064,6 +1151,10 @@ function showTextSuggestions() {
         `;
         sentenceList.appendChild(item);
     });
+    
+    // Ersten Textvorschlag je nach Rolle (Konsument/Landwirt) vorauswählen
+    const firstCheckbox = sentenceList.querySelector('input[type="checkbox"]');
+    if (firstCheckbox) firstCheckbox.checked = true;
     
     // Event Listeners für Kopier-Buttons
     document.getElementById('copySelectedSentences').addEventListener('click', copySelectedSentences);

@@ -101,7 +101,8 @@ const translations = {
             "copyLinkMain": "Link kopieren",
             "shareTextWhatsApp": "🎉 Erster Teilerfolg: Ein EuGH-Gutachten zum Mercosur-Abkommen wird eingeholt. Das Abkommen tritt vorerst nicht in Kraft. 💪 Jetzt Herkunftskennzeichnung für verarbeitete Lebensmittel durchsetzen. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Im Viber-Kanal mitmachen",
-            "VIBER_HELPER_TEXT": "Nur wichtige Updates und konkrete Handlungsaufrufe. Kein Spam."
+            "VIBER_HELPER_TEXT": "Nur wichtige Updates und konkrete Handlungsaufrufe. Kein Spam.",
+            "btnPrint": "Seite drucken"
         },
         "consumer": [
             "Die regionale Landwirtschaft ist mir ein zentrales Anliegen. Ich fordere Sie daher auf, die EU-Kommission zum Thema Herkunftskennzeichnung bei verarbeiteten Lebensmitteln zu kontaktieren und sich aktiv für eine verpflichtende Herkunftskennzeichnung bei verarbeiteten Lebensmitteln einzusetzen.",
@@ -222,6 +223,7 @@ const translations = {
             "copyLinkMain": "Copy link",
             "shareTextWhatsApp": "🎉 First partial success: An ECJ opinion on the Mercosur agreement is being obtained. The agreement will not enter into force for the time being. 💪 Now enforce origin labelling for processed foods. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Join the Viber channel",
+            "btnPrint": "Print page",
             "VIBER_HELPER_TEXT": "Only important updates and concrete calls to action. No spam."
         },
         "consumer": [
