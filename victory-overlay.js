@@ -58,11 +58,23 @@
         // Initialize canvas animation
         initFireworksAnimation();
 
-        // Button event listeners
-        document.getElementById('btnStartLobby').addEventListener('click', () => {
-            closeOverlay();
-            scrollToTarget();
-        });
+        // Button „Werde Lobbyist“ – direkt zur Auswahl Sprache & Land (Listener nur einmal anlegen)
+        const btnStartLobby = document.getElementById('btnStartLobby');
+        if (btnStartLobby && !btnStartLobby.dataset.lobbyistBound) {
+            btnStartLobby.dataset.lobbyistBound = '1';
+            btnStartLobby.addEventListener('click', function() {
+                const target = document.getElementById('languageCountrySection');
+                if (target) target.style.display = 'block';
+                closeOverlay();
+                window.location.hash = 'languageCountrySection';
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    const ctaBtn = document.getElementById('petitionHeroCTA');
+                    if (ctaBtn) ctaBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
 
         // Show overlay immediately
         overlay.style.display = 'flex';
@@ -81,13 +93,13 @@
         }
     }
 
-    // Scroll to target section
+    // Scroll to target section (Sprache & Land)
     function scrollToTarget() {
         const target = document.getElementById('languageCountrySection');
         if (target) {
+            target.style.display = 'block';
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-            // Fallback to main CTA button
             const ctaBtn = document.getElementById('petitionHeroCTA');
             if (ctaBtn) {
                 ctaBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
