@@ -8,9 +8,6 @@ let counter = 0;
 let counterFarmer = 0;
 let counterConsumer = 0;
 
-// Viber-Kanal-URL (Kontaktseite Teilen/Drucken)
-const VIBER_CHANNEL_URL = "https://invite.viber.com/?g2=AQBNQ0jEeiZmnFX5wLjxHb92YUzC%2Futi0p11vHwaQWRDnuVZaJu6BeMV4m047%2BcV";
-
 // Übersetzungs-Helper (global, stabil)
 const getTranslation = (lang, key, vars = {}) => {
     const langData = (typeof translations !== 'undefined' && translations[lang]) || (translations && translations.en) || {};
@@ -295,11 +292,9 @@ function updateUITexts(lang) {
         const showTextSuggestionsBtn = document.getElementById('showTextSuggestionsBtn');
         if (showTextSuggestionsBtn) showTextSuggestionsBtn.textContent = getTranslation(lang, 'showTextSuggestions');
         
-        // Fixer Block: Viber + Teilen & Drucken
+        // Fixer Block: Teilen & Drucken
         const contactsShareTitle = document.getElementById('contactsShareTitle');
         if (contactsShareTitle) contactsShareTitle.textContent = getTranslation(lang, 'shareBarTitle');
-        const btnViberContacts = document.getElementById('btnViberChannelContacts');
-        if (btnViberContacts) btnViberContacts.textContent = getTranslation(lang, 'BTN_VIBER_CHANNEL');
         const btnShareWaContacts = document.getElementById('btnShareWhatsAppContacts');
         if (btnShareWaContacts) {
             const span = btnShareWaContacts.querySelector('span');
@@ -739,17 +734,11 @@ function toggleAllCountries() {
 let contactsFixedActionsInitialized = false;
 function initContactsFixedActions() {
     if (contactsFixedActionsInitialized) return;
-    const viberBtn = document.getElementById('btnViberChannelContacts');
     const shareWaBtn = document.getElementById('btnShareWhatsAppContacts');
     const copyBtn = document.getElementById('btnCopyLinkContacts');
     const printBtn = document.getElementById('btnPrintContacts');
-    if (!viberBtn && !shareWaBtn) return;
+    if (!shareWaBtn) return;
     contactsFixedActionsInitialized = true;
-    if (viberBtn) {
-        viberBtn.addEventListener('click', () => {
-            window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
-        });
-    }
     if (shareWaBtn) {
         shareWaBtn.addEventListener('click', () => {
             const lang = selectedLanguage || detectBrowserLanguage();
