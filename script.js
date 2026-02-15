@@ -790,6 +790,10 @@ function showContactsSection() {
     document.getElementById('contactsSection').style.display = 'block';
     document.getElementById('counterSection').style.display = 'block';
     
+    // Sticky Share Bar („Teilen & Druck machen“) auf der Mandatare-Seite ausblenden
+    const shareBar = document.getElementById('shareBar');
+    if (shareBar) shareBar.style.display = 'none';
+    
     // Counter wird jetzt nur noch beim E-Mail-Versand erhöht, nicht mehr beim Öffnen der Kontaktseite
     
     // Filter befüllen, falls noch nicht geschehen (mit kurzer Verzögerung, damit DOM bereit ist)
@@ -1416,6 +1420,8 @@ function showPetitionSection() {
         petitionSection.style.display = 'block';
         updatePetitionTexts();
         updatePetitionButtons();
+        const shareBar = document.getElementById('shareBar');
+        if (shareBar) shareBar.style.display = 'flex';
         
         // Smooth scroll zur Section
         setTimeout(() => {
@@ -1438,6 +1444,8 @@ function showHomeSection() {
     if (roleSection) roleSection.style.display = 'none';
     if (contactsSection) contactsSection.style.display = 'none';
     if (petitionSection) petitionSection.style.display = 'none';
+    const shareBar = document.getElementById('shareBar');
+    if (shareBar) shareBar.style.display = 'flex';
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
