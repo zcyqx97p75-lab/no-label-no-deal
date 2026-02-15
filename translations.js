@@ -102,7 +102,18 @@ const translations = {
             "shareTextWhatsApp": "🎉 Erster Teilerfolg: Ein EuGH-Gutachten zum Mercosur-Abkommen wird eingeholt. Das Abkommen tritt vorerst nicht in Kraft. 💪 Jetzt Herkunftskennzeichnung für verarbeitete Lebensmittel durchsetzen. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Im Viber-Kanal mitmachen",
             "VIBER_HELPER_TEXT": "Nur wichtige Updates und konkrete Handlungsaufrufe. Kein Spam.",
-            "btnPrint": "Seite drucken"
+            "btnPrint": "Seite drucken",
+            "fractionNames": {
+                "epp": "Europäische Volkspartei (EVP)",
+                "sd": "Progressive Allianz der Sozialdemokraten (S&D)",
+                "renew": "Renew Europe",
+                "greens": "Die Grünen/EFA",
+                "ecr": "Europäische Konservativen und Reformer (ECR)",
+                "id": "Europa der Souveränen Nationen (ID)",
+                "gue": "Die Linke im Europäischen Parlament (GUE/NGL)",
+                "ni": "Fraktionslos",
+                "patriots": "Patrioten für Europa"
+            }
         },
         "consumer": [
             "Die regionale Landwirtschaft ist mir ein zentrales Anliegen. Ich fordere Sie daher auf, die EU-Kommission zum Thema Herkunftskennzeichnung bei verarbeiteten Lebensmitteln zu kontaktieren und sich aktiv für eine verpflichtende Herkunftskennzeichnung bei verarbeiteten Lebensmitteln einzusetzen.",
@@ -224,7 +235,18 @@ const translations = {
             "shareTextWhatsApp": "🎉 First partial success: An ECJ opinion on the Mercosur agreement is being obtained. The agreement will not enter into force for the time being. 💪 Now enforce origin labelling for processed foods. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Join the Viber channel",
             "btnPrint": "Print page",
-            "VIBER_HELPER_TEXT": "Only important updates and concrete calls to action. No spam."
+            "VIBER_HELPER_TEXT": "Only important updates and concrete calls to action. No spam.",
+            "fractionNames": {
+                "epp": "European People's Party (EPP)",
+                "sd": "Progressive Alliance of Socialists and Democrats (S&D)",
+                "renew": "Renew Europe",
+                "greens": "Greens/European Free Alliance",
+                "ecr": "European Conservatives and Reformists (ECR)",
+                "id": "Identity and Democracy (ID)",
+                "gue": "The Left in the European Parliament (GUE/NGL)",
+                "ni": "Non-attached",
+                "patriots": "Patriots for Europe"
+            }
         },
         "consumer": [
             "Regional agriculture is a key concern for me. I therefore urge you to contact the European Commission on country-of-origin labelling for processed foods and actively advocate for mandatory country-of-origin labelling for processed foods.",
@@ -343,7 +365,8 @@ const translations = {
             "copyLinkMain": "Copier le lien",
             "shareTextWhatsApp": "🎉 Premier succès partiel : un avis de la CJUE sur l'accord Mercosur est demandé. L'accord n'entrera pas en vigueur pour le moment. 💪 Imposons maintenant l'étiquetage de l'origine des aliments transformés. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Rejoindre le canal Viber",
-            "VIBER_HELPER_TEXT": "Uniquement des mises à jour importantes et des appels à l'action concrets. Pas de spam."
+            "VIBER_HELPER_TEXT": "Uniquement des mises à jour importantes et des appels à l'action concrets. Pas de spam.",
+            "fractionNames": {"epp": "Parti populaire européen (PPE)", "sd": "Alliance progressiste des socialistes et démocrates (S&D)", "renew": "Renew Europe", "greens": "Verts/Alliance libre européenne", "ecr": "Conservateurs et réformistes européens (CRE)", "id": "Identité et démocratie (ID)", "gue": "La Gauche au Parlement européen (GUE/NGL)", "ni": "Non-inscrits", "patriots": "Patriotes pour l'Europe"}
         },
         "consumer": [
             "L’agriculture régionale est une préoccupation centrale pour moi. Je vous demande donc de contacter la Commission européenne au sujet de l’étiquetage de l’origine pour les aliments transformés et de vous engager activement en faveur d’un étiquetage obligatoire de l’origine pour les aliments transformés.",
@@ -462,7 +485,8 @@ const translations = {
             "copyLinkMain": "Copiar enlace",
             "shareTextWhatsApp": "🎉 Primer éxito parcial: se solicita un dictamen del TJUE sobre el acuerdo Mercosur. El acuerdo no entrará en vigor por el momento. 💪 Ahora imponer el etiquetado de origen para alimentos procesados. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Unirse al canal de Viber",
-            "VIBER_HELPER_TEXT": "Solo actualizaciones importantes y llamadas a la acción concretas. Sin spam."
+            "VIBER_HELPER_TEXT": "Solo actualizaciones importantes y llamadas a la acción concretas. Sin spam.",
+            "fractionNames": {"epp": "Partido Popular Europeo (PPE)", "sd": "Alianza Progresista de Socialistas y Demócratas (S&D)", "renew": "Renew Europe", "greens": "Verdes/Alianza Libre Europea", "ecr": "Conservadores y Reformistas Europeos (ECR)", "id": "Identidad y Democracia (ID)", "gue": "La Izquierda en el Parlamento Europeo (GUE/NGL)", "ni": "No inscritos", "patriots": "Patriotas por Europa"}
         },
         "consumer": [
             "La agricultura regional es una prioridad fundamental para mí. Por ello, le solicito que contacte a la Comisión Europea sobre el etiquetado de origen en los alimentos procesados y que se comprometa activamente con un etiquetado obligatorio de origen en los alimentos procesados.",
@@ -581,7 +605,8 @@ const translations = {
             "copyLinkMain": "Copia link",
             "shareTextWhatsApp": "🎉 Primo successo parziale: viene richiesto un parere della Corte di giustizia UE sull'accordo Mercosur. L'accordo non entrerà in vigore per il momento. 💪 Ora imponiamo l'etichettatura dell'origine per gli alimenti trasformati. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Unisciti al canale Viber",
-            "VIBER_HELPER_TEXT": "Solo aggiornamenti importanti e azioni concrete. Niente spam."
+            "VIBER_HELPER_TEXT": "Solo aggiornamenti importanti e azioni concrete. Niente spam.",
+            "fractionNames": {"epp": "Partito Popolare Europeo (PPE)", "sd": "Alleanza progressista dei Socialisti e Democratici (S&D)", "renew": "Renew Europe", "greens": "Verdi/Alleanza libera europea", "ecr": "Conservatori e Riformisti Europei (ECR)", "id": "Identità e Democrazia (ID)", "gue": "La Sinistra nel Parlamento europeo (GUE/NGL)", "ni": "Non iscritti", "patriots": "Patrioti per l'Europa"}
         },
         "consumer": [
             "L’agricoltura regionale è per me una priorità centrale. Le chiedo pertanto di contattare la Commissione europea sul tema dell’etichettatura dell’origine per gli alimenti trasformati e di impegnarsi attivamente per un’etichettatura obbligatoria dell’origine per gli alimenti trasformati.",
@@ -700,7 +725,8 @@ const translations = {
             "copyLinkMain": "Skopiuj link",
             "shareTextWhatsApp": "🎉 Pierwszy częściowy sukces: zostanie uzyskana opinia TSUE w sprawie umowy Mercosur. Umowa na razie nie wejdzie w życie. 💪 Teraz wprowadźmy oznaczanie pochodzenia przetworzonej żywności. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Dołącz do kanału Viber",
-            "VIBER_HELPER_TEXT": "Tylko ważne aktualizacje i konkretne wezwania do działania. Bez spamu."
+            "VIBER_HELPER_TEXT": "Tylko ważne aktualizacje i konkretne wezwania do działania. Bez spamu.",
+            "fractionNames": {"epp": "Europejska Partia Ludowa (EPL)", "sd": "Postępowy Sojusz Socjalistów i Demokratów (S&D)", "renew": "Odnowa Europy", "greens": "Zieloni/Wolny Sojusz Europejski", "ecr": "Europejscy Konserwatyści i Reformatorzy (ECR)", "id": "Tożsamość i Demokracja (ID)", "gue": "Lewica w Parlamencie Europejskim (GUE/NGL)", "ni": "Niezarzuceni", "patriots": "Patrioci dla Europy"}
         },
         "consumer": [
             "Rolnictwo regionalne jest dla mnie sprawą kluczową. Zwracam się zatem z prośbą o skontaktowanie się z Komisją Europejską w sprawie oznaczania pochodzenia w przypadku żywności przetworzonej oraz o aktywne poparcie obowiązkowego oznaczania pochodzenia w przypadku żywności przetworzonej.",
@@ -819,7 +845,8 @@ const translations = {
             "copyLinkMain": "Link kopiëren",
             "shareTextWhatsApp": "🎉 Eerste gedeeltelijke overwinning: er wordt een advies gevraagd aan het HvJ-EU over het Mercosur-akkoord. Het akkoord treedt voorlopig niet in werking. 💪 Nu herkomstetikettering voor bewerkte voedingsmiddelen afdwingen. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Word lid van het Viber-kanaal",
-            "VIBER_HELPER_TEXT": "Alleen belangrijke updates en concrete oproepen tot actie. Geen spam."
+            "VIBER_HELPER_TEXT": "Alleen belangrijke updates en concrete oproepen tot actie. Geen spam.",
+            "fractionNames": {"epp": "Europese Volkspartij (EVP)", "sd": "Progressieve Alliantie van Socialisten en Democraten (S&D)", "renew": "Renew Europe", "greens": "De Groenen/Vrij Europese Alliantie", "ecr": "Europese Conservatieven en Hervormers (ECR)", "id": "Identiteit en Democratie (ID)", "gue": "Links in het Europees Parlement (GUE/NGL)", "ni": "Niet-fractiegebonden", "patriots": "Patriotten voor Europa"}
         },
         "consumer": [
             "Regionale landbouw is voor mij van groot belang. Ik verzoek u daarom om contact op te nemen met de Europese Commissie over oorsprongsetikettering bij verwerkte levensmiddelen en u actief in te zetten voor een verplichte oorsprongsetikettering bij verwerkte levensmiddelen.",
@@ -938,7 +965,8 @@ const translations = {
             "copyLinkMain": "Copiar link",
             "shareTextWhatsApp": "🎉 Primeiro sucesso parcial: será solicitado um parecer do TJUE sobre o acordo Mercosur. O acordo não entrará em vigor por enquanto. 💪 Impor agora a rotulagem de origem dos alimentos transformados. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Juntar-se ao canal Viber",
-            "VIBER_HELPER_TEXT": "Apenas atualizações importantes e ações concretas. Sem spam."
+            "VIBER_HELPER_TEXT": "Apenas atualizações importantes e ações concretas. Sem spam.",
+            "fractionNames": {"epp": "Partido Popular Europeu (PPE)", "sd": "Aliança Progressista dos Socialistas e Democratas (S&D)", "renew": "Renew Europe", "greens": "Verdes/Aliança Livre Europeia", "ecr": "Conservadores e Reformistas Europeus (ECR)", "id": "Identidade e Democracia (ID)", "gue": "A Esquerda no Parlamento Europeu (GUE/NGL)", "ni": "Não inscritos", "patriots": "Patriotas pela Europa"}
         },
         "consumer": [
             "A agricultura regional é uma preocupação central para mim. Solicito, por isso, que contacte a Comissão Europeia sobre a rotulagem da origem nos alimentos transformados e que se empenhe ativamente por uma rotulagem obrigatória da origem nos alimentos transformados.",
@@ -1057,7 +1085,8 @@ const translations = {
             "copyLinkMain": "Kopírovat odkaz",
             "shareTextWhatsApp": "🎉 První dílčí úspěch: bude vyžádáno stanovisko Soudního dvora EU k dohodě Mercosur. Dohoda zatím nevstoupí v platnost. 💪 Prosadíme označování původu zpracovaných potravin. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Připojit se ke kanálu Viber",
-            "VIBER_HELPER_TEXT": "Pouze důležité aktualizace a konkrétní výzvy k akci. Žádný spam."
+            "VIBER_HELPER_TEXT": "Pouze důležité aktualizace a konkrétní výzvy k akci. Žádný spam.",
+            "fractionNames": {"epp": "Evropská lidová strana (EPP)", "sd": "Progresivní aliance socialistů a demokratů (S&D)", "renew": "Renew Europe", "greens": "Zelení/Evolní evropská aliance", "ecr": "Evropští konzervativci a reformisté (ECR)", "id": "Identita a demokracie (ID)", "gue": "Levice v Evropském parlamentu (GUE/NGL)", "ni": "Nezařazení", "patriots": "Patrioti pro Evropu"}
         },
         "consumer": [
             "Regionální zemědělství je pro mě zásadní otázkou. Proto Vás žádám, abyste kontaktoval/a Evropskou komisi k tématu označování původu u zpracovaných potravin a aktivně se zasadil/a o povinné označování původu u zpracovaných potravin.",
@@ -1176,7 +1205,8 @@ const translations = {
             "copyLinkMain": "Link másolása",
             "shareTextWhatsApp": "🎉 Első részsiker: az EUB véleményét kérik ki a Mercosur-megállapodásról. A megállapodás egyelőre nem lép hatályba. 💪 Vezessük be a származásjelölést a feldolgozott élelmiszerekre. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Csatlakozás a Viber csatornához",
-            "VIBER_HELPER_TEXT": "Csak fontos frissítések és konkrét cselekvési felhívások. Nincs spam."
+            "VIBER_HELPER_TEXT": "Csak fontos frissítések és konkrét cselekvési felhívások. Nincs spam.",
+            "fractionNames": {"epp": "Európai Néppárt (EPP)", "sd": "Szoci democraták és Demokraták Progresszív Szövetsége (S&D)", "renew": "Renew Europe", "greens": "Zöldek/Szabad Európai Szövetség", "ecr": "Európai Konzervatívok és Reformisták (ECR)", "id": "Identitás és Demokrácia (ID)", "gue": "Baloldal az Európai Parlamentben (GUE/NGL)", "ni": "Nem frakcióhoz tartozók", "patriots": "Patrióták Európáért"}
         },
         "consumer": [
             "A regionális mezőgazdaság kiemelten fontos számomra. Ezért kérem, hogy a származásjelölés a feldolgozott élelmiszereknél ügyében vegye fel a kapcsolatot az Európai Bizottsággal, és aktívan álljon ki a kötelező származásjelölés a feldolgozott élelmiszereknél mellett.",
@@ -1313,7 +1343,8 @@ const translations = {
             "copyLinkMain": "Kopírovať odkaz",
             "shareTextWhatsApp": "🎉 Prvý čiastočný úspech: vyžiada sa stanovisko Súdneho dvora EÚ k dohode Mercosur. Dohoda zatiaľ nevstúpi do platnosti. 💪 Presaďme označovanie pôvodu spracovaných potravín. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Pripojiť sa ku kanálu Viber",
-            "VIBER_HELPER_TEXT": "Len dôležité aktualizácie a konkrétne výzvy na konanie. Žiadny spam."
+            "VIBER_HELPER_TEXT": "Len dôležité aktualizácie a konkrétne výzvy na konanie. Žiadny spam.",
+            "fractionNames": {"epp": "Európska ľudová strana (EPP)", "sd": "Progresívna aliancia socialistov a demokratov (S&D)", "renew": "Renew Europe", "greens": "Zelení/Európska slobodná aliancia", "ecr": "Európski konzervatívci a reformisti (ECR)", "id": "Identita a demokracia (ID)", "gue": "Ľavica v Európskom parlamente (GUE/NGL)", "ni": "Nezaradení", "patriots": "Patrioti pre Európu"}
         },
         "consumer": [
             "Regionálne poľnohospodárstvo je pre mňa kľúčovou otázkou. Žiadam Vás preto, aby ste kontaktovali Európsku komisiu k téme označovania pôvodu pri spracovaných potravinách a aktívne sa zasadili za povinné označovanie pôvodu pri spracovaných potravinách.",
@@ -1450,7 +1481,8 @@ const translations = {
             "copyLinkMain": "Kopiraj povezavo",
             "shareTextWhatsApp": "🎉 Prvi delni uspeh: pridobljeno bo mnenje Sodišča EU o sporazumu Mercosur. Sporazum za zdaj ne bo stopil v veljavo. 💪 Uvedimo označevanje porekla predelanih živil. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Pridruži se kanalu Viber",
-            "VIBER_HELPER_TEXT": "Samo pomembne posodobitve in konkretni pozivi k ukrepanju. Brez spama."
+            "VIBER_HELPER_TEXT": "Samo pomembne posodobitve in konkretni pozivi k ukrepanju. Brez spama.",
+            "fractionNames": {"epp": "Evropska ljudska stranka (EPP)", "sd": "Progresivna zveza socialistov in demokratov (S&D)", "renew": "Renew Europe", "greens": "Zeleni/Evropska svobodna zveza", "ecr": "Evropski konservativci in reformisti (ECR)", "id": "Identiteta in demokracija (ID)", "gue": "Levica v Evropskem parlamentu (GUE/NGL)", "ni": "Neopredeljeni", "patriots": "Patrioti za Evropo"}
         },
         "consumer": [
             "Regionalno kmetijstvo mi je zelo pomembno. Zato vas prosim, da kontaktirate Evropsko komisijo glede označevanja porekla pri predelanih živilih in se aktivno zavzamete za obvezno označevanje porekla pri predelanih živilih.",
@@ -1548,7 +1580,8 @@ const translations = {
             "copyLinkMain": "Kopiraj poveznicu",
             "shareTextWhatsApp": "🎉 Prvi djelomični uspjeh: zatražit će se mišljenje Suda EU o sporazumu Mercosur. Sporazum zasad neće stupiti na snagu. 💪 Uvedimo označavanje podrijetla prerađene hrane. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Pridruži se Viber kanalu",
-            "VIBER_HELPER_TEXT": "Samo važne informacije i konkretni pozivi na djelovanje. Bez spama."
+            "VIBER_HELPER_TEXT": "Samo važne informacije i konkretni pozivi na djelovanje. Bez spama.",
+            "fractionNames": {"epp": "Europska pučka stranka (EPP)", "sd": "Progresivni savez socijalista i demokrata (S&D)", "renew": "Renew Europe", "greens": "Zeleni/Europski slobodni savez", "ecr": "Europski konzervativci i reformisti (ECR)", "id": "Identitet i demokracija (ID)", "gue": "Ljevica u Europskom parlamentu (GUE/NGL)", "ni": "Neovisni", "patriots": "Patrioti za Europu"}
         }
     },
     "ro": {
@@ -1670,7 +1703,8 @@ const translations = {
             "copyLinkMain": "Copiază linkul",
             "shareTextWhatsApp": "🎉 Primul succes parțial: se solicită un aviz al CJUE privind acordul Mercosur. Acordul nu va intra în vigoare deocamdată. 💪 Impunem etichetarea originii pentru alimentele procesate. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Alătură-te canalului Viber",
-            "VIBER_HELPER_TEXT": "Doar actualizări importante și apeluri concrete la acțiune. Fără spam."
+            "VIBER_HELPER_TEXT": "Doar actualizări importante și apeluri concrete la acțiune. Fără spam.",
+            "fractionNames": {"epp": "Partidul Popular European (PPE)", "sd": "Alianța Progresistă a Socialiștilor și Democraților (S&D)", "renew": "Renew Europe", "greens": "Verzii/Alianța Liberă Europeană", "ecr": "Conservatorii și Reformiștii Europeni (ECR)", "id": "Identitate și Democrație (ID)", "gue": "Stânga în Parlamentul European (GUE/NGL)", "ni": "Neînscriși", "patriots": "Patrioții pentru Europa"}
         },
         "consumer": [
             "Agricultura regională este o preocupare centrală pentru mine. Prin urmare, vă solicit să contactați Comisia Europeană cu privire la etichetarea originii pentru produsele alimentare procesate și să vă implicați activ pentru introducerea etichetării obligatorii a originii pentru produsele alimentare procesate.",
@@ -1807,7 +1841,8 @@ const translations = {
             "copyLinkMain": "Копирай линка",
             "shareTextWhatsApp": "🎉 Първи частичен успех: ще бъде поискано становище на Съда на ЕС за споразумението Меркосур. Споразумението засега няма да влезе в сила. 💪 Да наложим обозначаване на произхода на преработените храни. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Присъедини се към Viber канала",
-            "VIBER_HELPER_TEXT": "Само важни актуализации и конкретни призиви за действие. Без спам."
+            "VIBER_HELPER_TEXT": "Само важни актуализации и конкретни призиви за действие. Без спам.",
+            "fractionNames": {"epp": "Европейска народна партия (ЕНП)", "sd": "Прогресивен съюз на социалистите и демократите (S&D)", "renew": "Обновяване на Европа", "greens": "Зелените/Европейски свободен съюз", "ecr": "Европейски консерватори и реформисти (ECR)", "id": "Идентичност и демокрация (ID)", "gue": "Левицата в Европейския парламент (GUE/NGL)", "ni": "Независими", "patriots": "Патриоти за Европа"}
         },
         "consumer": [
             "Регионалното земеделие е от централно значение за мен. Затова Ви моля да се свържете с Европейската комисия по темата за обозначаването на произхода при преработени храни и да се ангажирате активно за задължително обозначаване на произхода при преработени храни.",
@@ -1944,7 +1979,8 @@ const translations = {
             "copyLinkMain": "Kopiér link",
             "shareTextWhatsApp": "🎉 Første delsejr: En udtalelse fra EU-Domstolen om Mercosur-aftalen indhentes. Aftalen træder foreløbig ikke i kraft. 💪 Gennemtving nu oprindelsesmærkning af forarbejdede fødevarer. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Deltag i Viber-kanalen",
-            "VIBER_HELPER_TEXT": "Kun vigtige opdateringer og konkrete opfordringer til handling. Ingen spam."
+            "VIBER_HELPER_TEXT": "Kun vigtige opdateringer og konkrete opfordringer til handling. Ingen spam.",
+            "fractionNames": {"epp": "Det Europæiske Folkeparti (EPP)", "sd": "Den Progressive Alliance af Socialdemokraterne (S&D)", "renew": "Renew Europe", "greens": "De Grønne/Den Europæiske Frie Alliance", "ecr": "Europæiske Konservative og Reformister (ECR)", "id": "Identitet og Demokrati (ID)", "gue": "Venstrefløjen i Europa-Parlamentet (GUE/NGL)", "ni": "Uden for grupper", "patriots": "Patrioter for Europa"}
         },
         "consumer": [
             "Det regionale landbrug er en central bekymring for mig. Jeg anmoder derfor om, at De kontakter Europa-Kommissionen om oprindelsesmærkning for forarbejdede fødevarer og aktivt arbejder for en obligatorisk oprindelsesmærkning for forarbejdede fødevarer.",
@@ -2081,7 +2117,8 @@ const translations = {
             "copyLinkMain": "Kopiera länk",
             "shareTextWhatsApp": "🎉 Första delframgång: ett yttrande från EU-domstolen om Mercosuravtalet inhämtas. Avtalet träder tills vidare inte i kraft. 💪 Inför nu ursprungsmärkning för bearbetade livsmedel. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Gå med i Viber-kanalen",
-            "VIBER_HELPER_TEXT": "Endast viktiga uppdateringar och konkreta uppmaningar till handling. Ingen spam."
+            "VIBER_HELPER_TEXT": "Endast viktiga uppdateringar och konkreta uppmaningar till handling. Ingen spam.",
+            "fractionNames": {"epp": "Europeiska folkpartiet (EPP)", "sd": "Progressiva alliansen av socialdemokrater (S&D)", "renew": "Renew Europe", "greens": "Gröna/Europeiska fria alliansen", "ecr": "Europeiska konservativa och reformister (ECR)", "id": "Identitet och demokrati (ID)", "gue": "Vänstern i Europaparlamentet (GUE/NGL)", "ni": "Obundna", "patriots": "Patrioter för Europa"}
         },
         "consumer": [
             "Det regionala jordbruket är en central fråga för mig. Jag ber er därför att kontakta Europeiska kommissionen i frågan om ursprungsmärkning för bearbetade livsmedel och aktivt verka för obligatorisk ursprungsmärkning för bearbetade livsmedel.",
@@ -2218,7 +2255,8 @@ const translations = {
             "copyLinkMain": "Kopioi linkki",
             "shareTextWhatsApp": "🎉 Ensimmäinen osavoitto: EU-tuomioistuimen lausunto Mercosur-sopimuksesta pyydetään. Sopimus ei toistaiseksi tule voimaan. 💪 Ajetaan nyt alkuperämerkintä jalostetuille elintarvikkeille. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Liity Viber-kanavalle",
-            "VIBER_HELPER_TEXT": "Vain tärkeitä päivityksiä ja konkreettisia toimintakehotuksia. Ei roskapostia."
+            "VIBER_HELPER_TEXT": "Vain tärkeitä päivityksiä ja konkreettisia toimintakehotuksia. Ei roskapostia.",
+            "fractionNames": {"epp": "Euroopan kansanpuolue (EPP)", "sd": "Sosialistien ja demokraattien progressiivinen allianssi (S&D)", "renew": "Renew Europe", "greens": "Vihreät/European vapaaliitto", "ecr": "Euroopan konservatiivit ja reformistit (ECR)", "id": "Identiteetti ja demokratia (ID)", "gue": "Vasenryhmä Euroopan parlamentissa (GUE/NGL)", "ni": "Sitoutumattomat", "patriots": "Patriotit Euroopalle"}
         },
         "consumer": [
             "Alueellinen maatalous on minulle keskeinen huolenaihe. Pyydänkin Teitä ottamaan yhteyttä Euroopan komissioon alkuperämerkintöjen osalta jalostetuissa elintarvikkeissa ja edistämään aktiivisesti pakollista alkuperämerkintää jalostetuissa elintarvikkeissa.",
@@ -2355,7 +2393,8 @@ const translations = {
             "copyLinkMain": "Kopijuoti nuorodą",
             "shareTextWhatsApp": "🎉 Pirmoji dalinė pergalė: bus prašoma ESTT nuomonės dėl Mercosur susitarimo. Susitarimas kol kas neįsigalios. 💪 Įveskime perdirbtų maisto produktų kilmės ženklinimą. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Prisijungti prie Viber kanalo",
-            "VIBER_HELPER_TEXT": "Tik svarbūs atnaujinimai ir konkretūs raginimai veikti veiksmus. Be šlamšto."
+            "VIBER_HELPER_TEXT": "Tik svarbūs atnaujinimai ir konkretūs raginimai veikti veiksmus. Be šlamšto.",
+            "fractionNames": {"epp": "Europos liaudies partija (EPP)", "sd": "Socialdemokratų ir demokratų progresyvusis aljansas (S&D)", "renew": "Renew Europe", "greens": "Žalieji/Europos laisvoji aljansas", "ecr": "Europos konservatoriai ir reformatoriai (ECR)", "id": "Tapatybė ir demokratija (ID)", "gue": "Kairieji Europos parlamente (GUE/NGL)", "ni": "Nepriklausomi", "patriots": "Patriotai Europos"}
         },
         "consumer": [
             "Regioninė žemdirbystė man yra labai svarbi. Todėl raginu Jus susisiekti su Europos Komisija dėl kilmės ženklinimo perdirbtuose maisto produktuose ir aktyviai pasisakyti už privalomą kilmės ženklinimą perdirbtuose maisto produktuose.",
@@ -2399,7 +2438,8 @@ const translations = {
             "copyLinkMain": "Kopēt saiti",
             "shareTextWhatsApp": "🎉 Pirmais daļējais panākums: tiks pieprasīts ES Tiesas atzinums par Mercosur nolīgumu. Nolīgums pagaidām nestāsies spēkā. 💪 Panāksim izcelsmes marķējumu pārstrādātiem pārtikas produktiem. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Pievienoties Viber kanālam",
-            "VIBER_HELPER_TEXT": "Tikai svarīgi jaunumi un konkrēti aicinājumi rīkoties. Bez surogātpasta."
+            "VIBER_HELPER_TEXT": "Tikai svarīgi jaunumi un konkrēti aicinājumi rīkoties. Bez surogātpasta.",
+            "fractionNames": {"epp": "Eiropas Tautas partija (EPP)", "sd": "Sociāldemokrātu un demokrātu progresīvā alianse (S&D)", "renew": "Renew Europe", "greens": "Zaļie/Eiropas Brīvā alianse", "ecr": "Eiropas Konservatīvie un Reformisti (ECR)", "id": "Identitāte un demokrātija (ID)", "gue": "Kreisie Eiropas Parlamentā (GUE/NGL)", "ni": "Neievērotie", "patriots": "Patrioti Eiropai"}
         },
         "rotatingTexts": [
             {
@@ -2568,7 +2608,8 @@ const translations = {
             "copyLinkMain": "Kopeeri link",
             "shareTextWhatsApp": "🎉 Esimene osaline edu: taotletakse Euroopa Kohtu arvamust Mercosuri lepingu kohta. Leping ei jõustu esialgu. 💪 Kehtestame päritolumärgistuse töödeldud toiduainetele. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Liitu Viberi kanaliga",
-            "VIBER_HELPER_TEXT": "Ainult olulised uuendused ja konkreetsed tegevuskutsed. Ei rämpsposti."
+            "VIBER_HELPER_TEXT": "Ainult olulised uuendused ja konkreetsed tegevuskutsed. Ei rämpsposti.",
+            "fractionNames": {"epp": "Euroopa Rahvapartei (EPP)", "sd": "Sotsiaaldemokraatide ja demokraatide progressiivne liit (S&D)", "renew": "Renew Europe", "greens": "Rohelised/Euroopa Vaba Liit", "ecr": "Euroopa Konservatiivid ja Reformistid (ECR)", "id": "Identiteet ja demokraatia (ID)", "gue": "Vasak Euroopa Parlamendis (GUE/NGL)", "ni": "Fraktsioonituta", "patriots": "Patrioodid Euroopa eest"}
         },
         "consumer": [
             "Piirkondlik põllumajandus on mulle väga oluline. Seetõttu kutsun Teid üles võtma ühendust Euroopa Komisjoniga päritolumärgistuse teemal töödeldud toiduainete puhul ning seisma aktiivselt kohustusliku päritolumärgistuse eest töödeldud toiduainete puhul.",
@@ -2705,7 +2746,8 @@ const translations = {
             "copyLinkMain": "Ikkopja l-link",
             "shareTextWhatsApp": "🎉 L-ewwel suċċess parzjali: se tintalab opinjoni mill-Qorti tal-Ġustizzja tal-UE dwar il-ftehim Mercosur. Il-ftehim mhux se jidħol fis-seħħ għalissa. 💪 Inġiegħlu tikkettar tal-oriġini għall-ikel ipproċessat. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Ingħaqad mal-kanal Viber",
-            "VIBER_HELPER_TEXT": "Biss aġġornamenti importanti u sejħiet konkreti għall-azzjoni. L-ebda spam."
+            "VIBER_HELPER_TEXT": "Biss aġġornamenti importanti u sejħiet konkreti għall-azzjoni. L-ebda spam.",
+            "fractionNames": {"epp": "Partit Popolari Ewropew (EPP)", "sd": "Alleanza Progressiva tas-Soċjalisti u d-Demokratiċi (S&D)", "renew": "Renew Europe", "greens": "Il-Ħodor/Alleanza Ħielsa Ewropea", "ecr": "Konservattivi u Riformisti Ewropej (ECR)", "id": "Identità u Demokrazija (ID)", "gue": "Il-Left fil-Parlament Ewropew (GUE/NGL)", "ni": "Mhux affiljati", "patriots": "Patrioti għall-Ewropa"}
         },
         "consumer": [
             "L-agrikoltura reġjonali hija kwistjoni ċentrali għalija. Għalhekk inħeġġiġkom tikkuntattjaw lill-Kummissjoni Ewropea dwar it-tikkettar tal-oriġini għall-ikel ipproċessat u tieħdu azzjoni attiva favur tikkettar obbligatorju tal-oriġini għall-ikel ipproċessat.",
@@ -2842,7 +2884,8 @@ const translations = {
             "copyLinkMain": "Αντιγραφή συνδέσμου",
             "shareTextWhatsApp": "🎉 Πρώτη μερική επιτυχία: θα ζητηθεί γνωμοδότηση του ΔΕΕ για τη συμφωνία Mercosur. Η συμφωνία δεν θα τεθεί προς το παρόν σε ισχύ. 💪 Να επιβάλουμε επισήμανση προέλευσης στα επεξεργασμένα τρόφιμα. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Συμμετοχή στο κανάλι Viber",
-            "VIBER_HELPER_TEXT": "Μόνο σημαντικές ενημερώσεις και συγκεκριμένες εκκλήσεις για δράση. Χωρίς ανεπιθύμητα μηνύματα."
+            "VIBER_HELPER_TEXT": "Μόνο σημαντικές ενημερώσεις και συγκεκριμένες εκκλήσεις για δράση. Χωρίς ανεπιθύμητα μηνύματα.",
+            "fractionNames": {"epp": "Ευρωπαϊκό Λαϊκό Κόμμα (ΕΛΚ)", "sd": "Προοδευτική Συμμαχία Σοσιαλιστών και Δημοκρατών (S&D)", "renew": "Renew Europe", "greens": "Οι Πράσινοι/Ευρωπαϊκή Ελεύθερη Συμμαχία", "ecr": "Ευρωπαίοι Συντηρητικοί και Μεταρρυθμιστές (ECR)", "id": "Ταυτότητα και Δημοκρατία (ID)", "gue": "Η Αριστερά στο Ευρωπαϊκό Κοινοβούλιο (GUE/NGL)", "ni": "Μη εγγεγραμμένοι", "patriots": "Πατριώτες για την Ευρώπη"}
         },
         "consumer": [
             "Η περιφερειακή γεωργία αποτελεί βασικό ζήτημα για μένα. Σας ζητώ, επομένως, να επικοινωνήσετε με την Ευρωπαϊκή Επιτροπή για το θέμα της επισήμανσης προέλευσης στα επεξεργασμένα τρόφιμα και να υποστηρίξετε ενεργά την υποχρεωτική επισήμανση προέλευσης στα επεξεργασμένα τρόφιμα.",
@@ -2979,7 +3022,8 @@ const translations = {
             "copyLinkMain": "Cóipeáil an nasc",
             "shareTextWhatsApp": "🎉 Céad rath páirteach: iarrfar tuairim ó Chúirt Bhreithiúnais an AE faoin gcomhaontú Mercosur. Ní thiocfaidh an comhaontú i bhfeidhm go fóill. 💪 Cuirimis lipéadú tionscnaimh i bhfeidhm ar bhia próiseáilte. 🌍 www.no-label-no-deal.eu",
             "BTN_VIBER_CHANNEL": "Glac páirt sa chainéal Viber",
-            "VIBER_HELPER_TEXT": "Nuashonruithe tábhachtacha agus glaonna gnímh amháin. Gan turscar."
+            "VIBER_HELPER_TEXT": "Nuashonruithe tábhachtacha agus glaonna gnímh amháin. Gan turscar.",
+            "fractionNames": {"epp": "An Páirtí Poblachtach Eorpach (EPP)", "sd": "Comhghuaillacht Fheidhmeach na Sóisialaithe agus na NDaonlathaithe (S&D)", "renew": "Renew Europe", "greens": "Na Glasaigh/Comhghuaillacht Saor Eorpach", "ecr": "Na Coimeádaigh agus na Leasaitheoirí Eorpacha (ECR)", "id": "Féiniúlacht agus Daonlathas (ID)", "gue": "An Chlé sa Pharlaimint Eorpach (GUE/NGL)", "ni": "Neamhcheangalaithe", "patriots": "Paitriótaí don Eoraip"}
         },
         "consumer": [
             "Tá talmhaíocht réigiúnach thar a bheith tábhachtach dom. Dá bhrí sin, iarraim ort teagmháil a dhéanamh leis an gCoimisiún Eorpach maidir le lipéadú tionscnaimh do bhianna próiseáilte agus seasamh go gníomhach ar son lipéadú éigeantach tionscnaimh do bhianna próiseáilte.",

@@ -8,6 +8,27 @@ let counter = 0;
 let counterFarmer = 0;
 let counterConsumer = 0;
 
+// Fraktionsnamen aus CSV (i. d. R. Deutsch) auf Anzeigenamen in Landessprache
+const FRACTION_KEY = {
+    'der Europäischen Volkspartei (Christdemokraten)': 'epp',
+    'der Progressiven Allianz der Sozialdemokraten im Europäischen Parlament': 'sd',
+    'Renew Europe': 'renew',
+    'der Grünen / Freie Europäische Allianz': 'greens',
+    'der Europäischen Konservativen und Reformer': 'ecr',
+    'Europa der Souveränen Nationen': 'id',
+    'Die Linke im Europäischen Parlament - GUE/NGL': 'gue',
+    'Fraktionslos': 'ni',
+    'Patrioten für Europa': 'patriots',
+    'Fraktion': 'ni'
+};
+function getFractionDisplayName(fraktion, lang) {
+    if (!fraktion) return '';
+    const key = FRACTION_KEY[fraktion];
+    const langData = translations[lang] || translations.en || {};
+    const names = langData.ui?.fractionNames || translations.en?.ui?.fractionNames || {};
+    return (key && names[key]) || names[fraktion] || fraktion;
+}
+
 // Übersetzungs-Helper (global, stabil)
 const getTranslation = (lang, key, vars = {}) => {
     const langData = (typeof translations !== 'undefined' && translations[lang]) || (translations && translations.en) || {};
@@ -248,10 +269,13 @@ function updateUITexts(lang) {
             if (allOption) allOption.textContent = getTranslation(lang, 'allFractions');
             const label = contactsSection.querySelector('label[for="fractionFilter"]');
             if (label) {
-                // Fraktion Label - verwende "allFractions" ohne "Alle"
                 const labelText = getTranslation(lang, 'allFractions').replace(/^Alle\s+/i, '');
                 label.textContent = labelText;
             }
+            // Fraktionsoptionen in Landessprache
+            Array.from(fractionFilter.querySelectorAll('option[value]')).forEach(opt => {
+                if (opt.value) opt.textContent = getFractionDisplayName(opt.value, lang);
+            });
         }
         
         const sortSelect = document.getElementById('sortSelect');
@@ -489,10 +513,11 @@ function populateFilters() {
         countryFilter.appendChild(option);
     });
     
+    const lang = selectedLanguage || detectBrowserLanguage();
     fractions.forEach(fraction => {
         const option = document.createElement('option');
         option.value = fraction;
-        option.textContent = fraction;
+        option.textContent = getFractionDisplayName(fraction, lang);
         fractionFilter.appendChild(option);
     });
 }
@@ -884,7 +909,7 @@ function displayMandatare(mandatareList) {
             <input type="checkbox" id="mandatar-${index}" data-email="${email.replace(/"/g, '&quot;')}">
             <div class="mandatar-info">
                 <div class="mandatar-name">${m.vorname} ${m.name}</div>
-                <div class="mandatar-details">${m.land} • ${m.fraktion}</div>
+                <div class="mandatar-details">${m.land} • ${getFractionDisplayName(m.fraktion, selectedLanguage || detectBrowserLanguage())}</div>
                 ${emailDisplay}
             </div>
         `;
