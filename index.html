@@ -8,7 +8,7 @@
     <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://www.no-label-no-deal.eu/">
     <title>no label no deal</title>
-    <link rel="stylesheet" href="styles.css?v=20260122">
+    <link rel="stylesheet" href="styles.css?v=20260402">
     <!-- Google Translate Widget -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -41,8 +41,8 @@
 </head>
 <body>
     <a href="/" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
-    <!-- Hero-Bereich -->
-    <section class="hero notranslate" id="hero">
+    <!-- Hero-Bereich (Protest-/Kampagnenphase bis Umschaltung) -->
+    <section class="hero notranslate hero--legacy" id="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text-box">
@@ -60,6 +60,78 @@
             </div>
         </div>
     </section>
+
+    <!-- Hero nach Demo (ab 2.4.2026) -->
+    <section class="hero-post-demo notranslate" id="heroPostDemo" hidden aria-hidden="true">
+        <div class="hero-post-demo-inner">
+            <div class="hero-post-demo-text">
+                <h1 class="hero-post-demo-headline" id="postHeroHeadline"></h1>
+                <p class="hero-post-demo-subline" id="postHeroSubline"></p>
+                <p class="hero-post-demo-body" id="postHeroBody"></p>
+                <div class="hero-post-demo-buttons">
+                    <button type="button" class="btn-hero-post-demo" id="postHeroBtnLearn"></button>
+                    <button type="button" class="btn-hero-post-demo btn-hero-post-demo--outline" id="postHeroBtnWhy"></button>
+                </div>
+            </div>
+            <div class="hero-post-demo-visual">
+                <div class="hero-post-demo-img-wrap">
+                    <img src="Honig.png" alt="" class="hero-post-demo-img" id="postHeroImg" width="640" height="640" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story: Honig, Bio, Botschaft, Verantwortung, CTA (ab 2.4.2026) -->
+    <div class="story-sections notranslate" id="storySections" hidden aria-hidden="true">
+        <hr class="story-rule" aria-hidden="true">
+        <section class="story-block story-block--honey" id="storySectionHoney">
+            <div class="story-honey-visual">
+                <div class="story-honey-img-wrap">
+                    <img src="Honig.png" alt="" class="story-honey-img" id="storyHoneyImg" loading="lazy">
+                </div>
+            </div>
+            <div class="story-honey-copy">
+                <p class="story-badge" id="storyHoneyBadge"></p>
+                <h2 class="story-title" id="storyHoneyTitle"></h2>
+                <ul class="story-bullets" id="storyHoneyBullets"></ul>
+                <p class="story-key" id="storyHoneyKey"></p>
+            </div>
+        </section>
+        <hr class="story-rule" aria-hidden="true">
+        <section class="story-block" id="storySectionBio">
+            <p class="story-badge" id="storyBioBadge"></p>
+            <h2 class="story-title" id="storyBioTitle"></h2>
+            <p class="story-intro" id="storyBioIntro"></p>
+            <p class="story-highlight" id="storyBioHighlight"></p>
+            <ul class="story-bullets" id="storyBioBullets"></ul>
+            <p class="story-key" id="storyBioKey"></p>
+        </section>
+        <hr class="story-rule" aria-hidden="true">
+        <section class="story-block" id="storySectionMessage">
+            <p class="story-badge" id="storyMessageBadge"></p>
+            <h2 class="story-title" id="storyMessageTitle"></h2>
+            <p class="story-intro" id="storyMessageBody"></p>
+            <p class="story-key" id="storyMessageKey"></p>
+        </section>
+        <hr class="story-rule" aria-hidden="true">
+        <section class="story-block" id="storySectionShared">
+            <p class="story-badge" id="storySharedBadge"></p>
+            <h2 class="story-title" id="storySharedTitle"></h2>
+            <ul class="story-bullets" id="storySharedBullets"></ul>
+            <p class="story-key" id="storySharedKey"></p>
+        </section>
+        <hr class="story-rule" aria-hidden="true">
+        <section class="story-block story-block--cta" id="storySectionCta">
+            <p class="story-badge" id="storyCtaBadge"></p>
+            <h2 class="story-title" id="storyCtaTitle"></h2>
+            <p class="story-intro" id="storyCtaBody"></p>
+            <div class="story-cta-buttons">
+                <button type="button" class="btn-story-cta" id="storyCtaBtnShop"></button>
+                <button type="button" class="btn-story-cta" id="storyCtaBtnFarm"></button>
+                <button type="button" class="btn-story-cta btn-story-cta--outline" id="storyCtaBtnShare"></button>
+            </div>
+        </section>
+    </div>
 
     <!-- Petition CTA (above counter) -->
 
@@ -300,18 +372,22 @@
         </div>
     </footer>
 
-    <!-- Victory Overlay -->
+    <!-- Protest-Overlay (bis 2.4.2026) -->
     <div id="victoryOverlay" class="victory-overlay">
-        <canvas id="victoryFxCanvas"></canvas>
-        <div class="victory-content">
-            <h1 id="vicHeadline"></h1>
-            <p id="vicSubline1"></p>
-            <p id="vicSubline2"></p>
-            <p id="vicClaim"></p>
-            <p id="vicExplain"></p>
-            <span id="vicDomainLabel">no-label-no-deal.eu</span>
-            <div class="victory-buttons">
-                <button id="btnStartLobby" class="btn-victory-primary"></button>
+        <div class="victory-inner">
+            <div class="victory-poster">
+                <img src="Bild.jpg" alt="" class="victory-poster-img" id="vicPosterImg" width="520" height="auto" loading="eager">
+            </div>
+            <div class="victory-content">
+                <h1 id="vicHeadline"></h1>
+                <p id="vicSubline1"></p>
+                <p id="vicSubline2"></p>
+                <p id="vicClaim"></p>
+                <p id="vicExplain"></p>
+                <span id="vicDomainLabel">no-label-no-deal.eu</span>
+                <div class="victory-buttons">
+                    <button id="btnStartLobby" class="btn-victory-primary"></button>
+                </div>
             </div>
         </div>
     </div>
@@ -343,9 +419,9 @@
     <!-- Toast Notification -->
     <div id="toastNotification" class="toast-notification" style="display: none;"></div>
 
-    <script src="translations.js?v=20260122"></script>
-    <script src="script.js?v=20260122"></script>
-    <script src="victory-overlay.js?v=20260122"></script>
+    <script src="translations.js?v=20260402"></script>
+    <script src="script.js?v=20260402"></script>
+    <script src="victory-overlay.js?v=20260402"></script>
 </body>
 </html>
 

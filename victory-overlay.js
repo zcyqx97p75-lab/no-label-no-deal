@@ -47,6 +47,14 @@
             return;
         }
 
+        // Nach 2.4.2026: Protest-Overlay nicht mehr (Hero + Story auf der Seite)
+        if (typeof window.isPostDemoPhase === 'function' && window.isPostDemoPhase()) {
+            overlay.style.display = 'none';
+            const shareBar = document.getElementById('shareBar');
+            if (shareBar) shareBar.style.display = 'flex';
+            return;
+        }
+
         // Update text content
         document.getElementById('vicHeadline').textContent = getVictoryTranslation('vicHeadline');
         document.getElementById('vicSubline1').textContent = getVictoryTranslation('vicSubline1');
@@ -55,10 +63,13 @@
         document.getElementById('vicExplain').textContent = getVictoryTranslation('vicExplain');
         document.getElementById('btnStartLobby').textContent = getVictoryTranslation('btnStartLobby');
 
-        // Initialize canvas animation
-        initFireworksAnimation();
+        const posterImg = document.getElementById('vicPosterImg');
+        if (posterImg) {
+            const alt = getVictoryTranslation('vicPosterAlt');
+            if (alt && alt !== 'vicPosterAlt') posterImg.alt = alt;
+        }
 
-        // Button „Werde Lobbyist“ – direkt zur Auswahl Sprache & Land (Listener nur einmal anlegen)
+        // Button „Jetzt mitmachen“ – direkt zur Auswahl Sprache & Land (Listener nur einmal anlegen)
         const btnStartLobby = document.getElementById('btnStartLobby');
         if (btnStartLobby && !btnStartLobby.dataset.lobbyistBound) {
             btnStartLobby.dataset.lobbyistBound = '1';
@@ -163,90 +174,6 @@
         }, 3000);
     }
 
-    // Fireworks/Confetti Animation
-    function initFireworksAnimation() {
-        const canvas = document.getElementById('victoryFxCanvas');
-        if (!canvas) return;
-
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 150;
-
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.vx = (Math.random() - 0.5) * 8;
-                this.vy = (Math.random() - 0.5) * 8;
-                this.life = 1.0;
-                this.decay = Math.random() * 0.02 + 0.01;
-                this.size = Math.random() * 4 + 2;
-                this.color = `hsl(${Math.random() * 60 + 15}, 100%, ${Math.random() * 30 + 50}%)`;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.vy += 0.1; // gravity
-                this.life -= this.decay;
-            }
-
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.life;
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        // Initial burst
-        function createBurst() {
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle(centerX, centerY));
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = particles.length - 1; i >= 0; i--) {
-                const particle = particles[i];
-                particle.update();
-                particle.draw();
-
-                if (particle.life <= 0) {
-                    particles.splice(i, 1);
-                }
-            }
-
-            // Add occasional new particles for subtle effect
-            if (Math.random() < 0.1 && particles.length < 50) {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height * 0.5;
-                particles.push(new Particle(x, y));
-            }
-
-            requestAnimationFrame(animate);
-        }
-
-        createBurst();
-        animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    }
-
     // Initialize Share Bar
     function initShareBar() {
         const shareBar = document.getElementById('shareBar');
@@ -255,8 +182,9 @@
             return;
         }
         
-        // Ensure Share Bar is visible by default
-        shareBar.style.display = 'flex';
+        const contactsSection = document.getElementById('contactsSection');
+        const onContactsPage = contactsSection && contactsSection.style.display !== 'none';
+        shareBar.style.display = onContactsPage ? 'none' : 'flex';
         console.log('Share Bar initialized, display:', shareBar.style.display);
 
         const title = document.getElementById('shareBarTitle');
@@ -325,29 +253,32 @@
             console.warn('Viber button not found');
         }
 
-        // Share Bar ausblenden, wenn Footer im Viewport ist
-        // Warte kurz, damit die Share Bar zuerst angezeigt wird
+        // Share Bar ausblenden, wenn Footer im Viewport ist – aber nie auf der Mandatare-Kontaktseite anzeigen
         setTimeout(() => {
             const footer = document.querySelector('.footer');
+            const contactsSection = document.getElementById('contactsSection');
             if (footer) {
                 const observer = new IntersectionObserver((entries) => {
+                    const onContactsPage = contactsSection && contactsSection.style.display !== 'none';
+                    if (onContactsPage) {
+                        shareBar.style.display = 'none';
+                        return;
+                    }
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            // Footer ist sichtbar - Share Bar ausblenden
                             shareBar.style.display = 'none';
                         } else {
-                            // Footer ist nicht sichtbar - Share Bar einblenden
                             shareBar.style.display = 'flex';
                         }
                     });
                 }, {
-                    threshold: 0.1, // Auslösen, wenn 10% des Footers sichtbar sind
-                    rootMargin: '0px 0px -50px 0px' // Etwas früher auslösen
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
                 });
 
                 observer.observe(footer);
             }
-        }, 500); // Kurze Verzögerung, damit Share Bar zuerst sichtbar ist
+        }, 500);
     }
 
     // Initialize Viber CTA on main page
@@ -390,7 +321,6 @@
         if (originalUpdateUI) {
             window.updateUI = function() {
                 originalUpdateUI();
-                // Re-initialize overlay and share bar with new language
                 const overlay = document.getElementById('victoryOverlay');
                 if (overlay && overlay.style.display !== 'none') {
                     initVictoryOverlay();

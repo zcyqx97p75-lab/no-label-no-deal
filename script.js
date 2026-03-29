@@ -45,6 +45,115 @@ if (typeof window !== 'undefined') {
     window.getTranslation = getTranslation;
 }
 
+// Ab 2.4.2026: Protest-Overlay aus, neuer Hero + Story-Sektionen
+const PROTEST_PHASE_END = new Date('2026-04-02T00:00:00');
+function isPostDemoPhase() {
+    return new Date() >= PROTEST_PHASE_END;
+}
+if (typeof window !== 'undefined') {
+    window.isPostDemoPhase = isPostDemoPhase;
+}
+
+function getPostDemoObject(lang) {
+    const pd = translations[lang] && translations[lang].ui && translations[lang].ui.postDemo;
+    const enPd = translations.en && translations.en.ui && translations.en.ui.postDemo;
+    return pd || enPd || {};
+}
+
+function getPostDemoText(lang, key) {
+    const o = getPostDemoObject(lang);
+    const eno = translations.en && translations.en.ui && translations.en.ui.postDemo;
+    const v = o[key];
+    if (v !== undefined && v !== '') return v;
+    return eno && eno[key] !== undefined ? eno[key] : '';
+}
+
+function escapeHtmlForStory(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function fillStoryBulletList(elementId, items) {
+    const el = document.getElementById(elementId);
+    if (!el || !Array.isArray(items)) return;
+    el.innerHTML = items.map(t => `<li>${escapeHtmlForStory(t)}</li>`).join('');
+}
+
+function applyPostDemoUI(lang) {
+    if (!isPostDemoPhase()) return;
+    const o = getPostDemoObject(lang);
+    const eno = translations.en.ui.postDemo;
+    const g = (k) => (o[k] !== undefined && o[k] !== '' ? o[k] : (eno[k] !== undefined ? eno[k] : ''));
+
+    const setText = (id, key) => {
+        const node = document.getElementById(id);
+        if (node) node.textContent = g(key);
+    };
+
+    setText('postHeroHeadline', 'heroHeadline');
+    setText('postHeroSubline', 'heroSubline');
+    setText('postHeroBody', 'heroBody');
+    setText('postHeroBtnLearn', 'btnLearnMore');
+    setText('postHeroBtnWhy', 'btnWhyBeginning');
+
+    const heroImg = document.getElementById('postHeroImg');
+    const honeyImg = document.getElementById('storyHoneyImg');
+    const altH = g('imgHeroAlt');
+    if (heroImg) heroImg.alt = altH;
+    if (honeyImg) honeyImg.alt = g('imgHoneyAlt');
+
+    setText('storyHoneyBadge', 'honeyBadge');
+    setText('storyHoneyTitle', 'honeyTitle');
+    fillStoryBulletList('storyHoneyBullets', Array.isArray(o.honeyBullets) ? o.honeyBullets : eno.honeyBullets);
+    setText('storyHoneyKey', 'honeyKey');
+
+    setText('storyBioBadge', 'bioBadge');
+    setText('storyBioTitle', 'bioTitle');
+    setText('storyBioIntro', 'bioIntro');
+    setText('storyBioHighlight', 'bioHighlight');
+    fillStoryBulletList('storyBioBullets', Array.isArray(o.bioBullets) ? o.bioBullets : eno.bioBullets);
+    setText('storyBioKey', 'bioKey');
+
+    setText('storyMessageBadge', 'messageBadge');
+    setText('storyMessageTitle', 'messageTitle');
+    setText('storyMessageBody', 'messageBody');
+    setText('storyMessageKey', 'messageKey');
+
+    setText('storySharedBadge', 'sharedBadge');
+    setText('storySharedTitle', 'sharedTitle');
+    fillStoryBulletList('storySharedBullets', Array.isArray(o.sharedBullets) ? o.sharedBullets : eno.sharedBullets);
+    setText('storySharedKey', 'sharedKey');
+
+    setText('storyCtaBadge', 'ctaBadge');
+    setText('storyCtaTitle', 'ctaTitle');
+    setText('storyCtaBody', 'ctaBody');
+    setText('storyCtaBtnShop', 'ctaBtnShop');
+    setText('storyCtaBtnFarm', 'ctaBtnFarm');
+    setText('storyCtaBtnShare', 'ctaBtnShare');
+}
+
+function initPostDemoPhaseLayout() {
+    if (!isPostDemoPhase()) return;
+    document.body.classList.add('post-demo-phase');
+    const heroLegacy = document.getElementById('hero');
+    const heroPost = document.getElementById('heroPostDemo');
+    const story = document.getElementById('storySections');
+    if (heroLegacy) {
+        heroLegacy.hidden = true;
+        heroLegacy.setAttribute('aria-hidden', 'true');
+    }
+    if (heroPost) {
+        heroPost.hidden = false;
+        heroPost.removeAttribute('aria-hidden');
+    }
+    if (story) {
+        story.hidden = false;
+        story.removeAttribute('aria-hidden');
+    }
+}
+
 // Petition-Konfiguration
 const petitionStatus = 'pending'; // 'pending' oder 'approved'
 const PETITION_SIGNATURE_URL = 'https://placeholder-url.com/sign'; // Externe URL für Unterzeichnung
@@ -382,6 +491,10 @@ function updateUITexts(lang) {
         counterDetail.textContent = `(${farmerLabel}: ${formattedFarmer}, ${consumerLabel}: ${formattedConsumer})`;
         counterDetail.style.display = 'block';
     }
+
+    if (isPostDemoPhase()) {
+        applyPostDemoUI(lang);
+    }
 }
 
 // Initialisierung
@@ -409,6 +522,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
     }
+
+    initPostDemoPhaseLayout();
+
     // Browser-Sprache erkennen und setzen
     selectedLanguage = detectBrowserLanguage();
     console.log('Erkannte Sprache:', selectedLanguage);
@@ -418,25 +534,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // UI-Texte sofort übersetzen
     updateUITexts(selectedLanguage);
     
-    // Rotierende Texte sofort in der richtigen Sprache anzeigen
-    const langData = translations[selectedLanguage] || translations.en;
-    const rotatingTexts = langData.rotatingTexts || translations.en.rotatingTexts;
-    if (rotatingTexts && rotatingTexts.length > 0) {
-        const container = document.getElementById('textRotation');
-        if (container) {
-            currentTextIndex = 0; // Start mit erstem Text
-            const firstText = rotatingTexts[0];
-            if (typeof firstText === 'object' && firstText.role) {
-                container.innerHTML = `
+    // Rotierende Texte (nur wenn klassischer Hero sichtbar)
+    if (!isPostDemoPhase()) {
+        const langData = translations[selectedLanguage] || translations.en;
+        const rotatingTexts = langData.rotatingTexts || translations.en.rotatingTexts;
+        if (rotatingTexts && rotatingTexts.length > 0) {
+            const container = document.getElementById('textRotation');
+            if (container) {
+                currentTextIndex = 0;
+                const firstText = rotatingTexts[0];
+                if (typeof firstText === 'object' && firstText.role) {
+                    container.innerHTML = `
                     <p class="rotating-text active">
                         <strong class="rotating-role">${firstText.role}</strong>
                         ${firstText.text}<br>
                         <button type="button" class="rotating-cta-btn">${firstText.cta}</button>
                     </p>
                 `;
-            } else {
-                // Fallback für alte Struktur
-                container.innerHTML = `<p class="rotating-text active">${firstText}</p>`;
+                } else {
+                    container.innerHTML = `<p class="rotating-text active">${firstText}</p>`;
+                }
             }
         }
     }
@@ -693,6 +810,35 @@ function initEventListeners() {
             }
         });
     }
+
+    if (isPostDemoPhase()) {
+        const scrollToId = (targetId) => {
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+        const postLearn = document.getElementById('postHeroBtnLearn');
+        const postWhy = document.getElementById('postHeroBtnWhy');
+        if (postLearn) postLearn.addEventListener('click', () => scrollToId('storySectionHoney'));
+        if (postWhy) postWhy.addEventListener('click', () => scrollToId('storySectionMessage'));
+        const goLang = () => {
+            const sec = document.getElementById('languageCountrySection');
+            if (sec) {
+                sec.style.display = 'block';
+                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+        const shop = document.getElementById('storyCtaBtnShop');
+        const farm = document.getElementById('storyCtaBtnFarm');
+        if (shop) shop.addEventListener('click', goLang);
+        if (farm) farm.addEventListener('click', goLang);
+        const shareBtn = document.getElementById('storyCtaBtnShare');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const copyBtn = document.getElementById('copyLinkMain');
+                if (copyBtn) copyBtn.click();
+            });
+        }
+    }
 }
 
 function checkTranslateDom() {
@@ -737,7 +883,15 @@ function handleContinue() {
     selectedCountry = document.getElementById('country').value;
     
     // Hero ausblenden, Rollenabfrage anzeigen
-    document.getElementById('hero').style.display = 'none';
+    if (isPostDemoPhase()) {
+        const hp = document.getElementById('heroPostDemo');
+        const ss = document.getElementById('storySections');
+        if (hp) hp.style.display = 'none';
+        if (ss) ss.style.display = 'none';
+    } else {
+        const heroEl = document.getElementById('hero');
+        if (heroEl) heroEl.style.display = 'none';
+    }
     document.getElementById('languageCountrySection').style.display = 'none';
     document.getElementById('roleSection').style.display = 'block';
     
@@ -1241,6 +1395,7 @@ function renderRotatingText(container, textObj) {
 }
 
 function startTextRotation() {
+    if (isPostDemoPhase()) return;
     setInterval(() => {
         const container = document.getElementById('textRotation');
         if (!container) return;
@@ -1433,7 +1588,14 @@ function initPetitionNavigation() {
 
 function showPetitionSection() {
     // Alle anderen Sections verstecken
-    document.getElementById('hero').style.display = 'none';
+    const heroEl = document.getElementById('hero');
+    if (heroEl) heroEl.style.display = 'none';
+    if (isPostDemoPhase()) {
+        const hp = document.getElementById('heroPostDemo');
+        const ss = document.getElementById('storySections');
+        if (hp) hp.style.display = 'none';
+        if (ss) ss.style.display = 'none';
+    }
     document.getElementById('counterSection').style.display = 'none';
     document.getElementById('languageCountrySection').style.display = 'none';
     document.getElementById('roleSection').style.display = 'none';
@@ -1463,7 +1625,14 @@ function showHomeSection() {
     const contactsSection = document.getElementById('contactsSection');
     const petitionSection = document.getElementById('petitionSection');
 
-    if (hero) hero.style.display = 'block';
+    if (isPostDemoPhase()) {
+        const hp = document.getElementById('heroPostDemo');
+        const ss = document.getElementById('storySections');
+        if (hp) hp.style.display = '';
+        if (ss) ss.style.display = '';
+    } else if (hero) {
+        hero.style.display = 'block';
+    }
     if (counterSection) counterSection.style.display = 'block';
     if (languageCountrySection) languageCountrySection.style.display = 'block';
     if (roleSection) roleSection.style.display = 'none';
@@ -1563,3 +1732,7 @@ function updatePetitionButtons() {
         }
     }
 }
+
+window.updateUI = function() {
+    updateUITexts(selectedLanguage || detectBrowserLanguage());
+};
