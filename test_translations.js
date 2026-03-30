@@ -13,7 +13,7 @@ console.log(`Gefundene Sprachen: ${languages.length}/24\n`);
 
 // Erwartete UI-Keys (aus de)
 const expectedUIKeys = [
-    'heroAlarm', 'selectLanguageCountry', 'language', 'pleaseSelect', 'country',
+    'introLobbyTitle', 'introLobbyP1', 'introLobbyP2', 'introLobbyP3', 'introLobbyContinue', 'selectLanguageCountry', 'language', 'pleaseSelect', 'country',
     'continue', 'hintSelection', 'selectRole', 'farmer', 'consumer', 'hintRole',
     'contactMEPs', 'showAllMEPs', 'showOnlyCountry', 'searchByName', 'allCountries',
     'allFractions', 'sortByName', 'sortByCountry', 'selectAllVisible', 'semicolon',

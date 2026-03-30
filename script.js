@@ -266,11 +266,17 @@ function updateUITexts(lang) {
     // HTML lang Attribut setzen
     document.documentElement.lang = lang;
     
-    // Hero-Bereich: Alarm-Zeile und rotierende Texte aktualisieren
-    const heroAlarm = document.getElementById('heroAlarm');
-    if (heroAlarm) {
-        heroAlarm.textContent = getTranslation(lang, 'heroAlarm');
-    }
+    // Hero-Bereich und Intro Lobby
+    const introLobbyTitle = document.getElementById('introLobbyTitle');
+    if (introLobbyTitle) introLobbyTitle.textContent = getTranslation(lang, 'introLobbyTitle');
+    const introLobbyP1 = document.getElementById('introLobbyP1');
+    if (introLobbyP1) introLobbyP1.textContent = getTranslation(lang, 'introLobbyP1');
+    const introLobbyP2 = document.getElementById('introLobbyP2');
+    if (introLobbyP2) introLobbyP2.textContent = getTranslation(lang, 'introLobbyP2');
+    const introLobbyP3 = document.getElementById('introLobbyP3');
+    if (introLobbyP3) introLobbyP3.textContent = getTranslation(lang, 'introLobbyP3');
+    const introLobbyContinue = document.getElementById('introLobbyContinue');
+    if (introLobbyContinue) introLobbyContinue.textContent = getTranslation(lang, 'introLobbyContinue');
 
     const heroBottomText = document.getElementById('heroBottomText');
     if (heroBottomText) {
@@ -649,7 +655,18 @@ function initEventListeners() {
     });
     document.getElementById('country').addEventListener('change', checkContinueButton);
     document.getElementById('continueBtn').addEventListener('click', handleContinue);
-    
+
+    const introLobbyContinue = document.getElementById('introLobbyContinue');
+    if (introLobbyContinue) {
+        introLobbyContinue.addEventListener('click', () => {
+            const sec = document.getElementById('languageCountrySection');
+            if (sec) {
+                sec.style.display = 'block';
+                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
     // Rollenauswahl
     document.querySelectorAll('.btn-role').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -821,8 +838,13 @@ function initEventListeners() {
         if (postLearn) postLearn.addEventListener('click', () => scrollToId('storySectionHoney'));
         if (postWhy) postWhy.addEventListener('click', () => scrollToId('storySectionMessage'));
         const goLang = () => {
+            const intro = document.getElementById('introLobbySection');
             const sec = document.getElementById('languageCountrySection');
-            if (sec) {
+            if (sec) sec.style.display = 'none';
+            window.location.hash = 'introLobbySection';
+            if (intro) {
+                intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (sec) {
                 sec.style.display = 'block';
                 sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }

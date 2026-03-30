@@ -69,17 +69,20 @@
             if (alt && alt !== 'vicPosterAlt') posterImg.alt = alt;
         }
 
-        // Button „Jetzt mitmachen“ – direkt zur Auswahl Sprache & Land (Listener nur einmal anlegen)
+        // „Jetzt mitmachen“ – zuerst Erklärungstext, dann Sprache & Land
         const btnStartLobby = document.getElementById('btnStartLobby');
         if (btnStartLobby && !btnStartLobby.dataset.lobbyistBound) {
             btnStartLobby.dataset.lobbyistBound = '1';
             btnStartLobby.addEventListener('click', function() {
-                const target = document.getElementById('languageCountrySection');
-                if (target) target.style.display = 'block';
+                const intro = document.getElementById('introLobbySection');
+                const langSection = document.getElementById('languageCountrySection');
+                if (langSection) langSection.style.display = 'none';
                 closeOverlay();
-                window.location.hash = 'languageCountrySection';
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.location.hash = 'introLobbySection';
+                if (intro) {
+                    intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (langSection) {
+                    langSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     const ctaBtn = document.getElementById('petitionHeroCTA');
                     if (ctaBtn) ctaBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });

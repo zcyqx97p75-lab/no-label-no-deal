@@ -275,7 +275,7 @@ def check_completeness():
     
     print("\n=== VOLLSTÄNDIGKEITSPRÜFUNG ===\n")
     
-    required_ui_keys = ['heroAlarm', 'selectLanguageCountry', 'language', 'country', 'continue', 
+    required_ui_keys = ['introLobbyTitle', 'introLobbyP1', 'introLobbyP2', 'introLobbyP3', 'introLobbyContinue', 'selectLanguageCountry', 'language', 'country', 'continue', 
                         'selectRole', 'farmer', 'consumer', 'contactMEPs', 'copyEmails', 'sendEmail',
                         'textSuggestions', 'counterText', 'home', 'impressum', 'datenschutz']
     

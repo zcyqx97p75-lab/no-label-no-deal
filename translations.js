@@ -33,9 +33,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Am 21.01.2026 wird im EU-Parlament die Entscheidung getroffen, ob ein Gutachten vom Europäischen Gerichtshof eingeholt werden soll. Die Abstimmung über Mercosur erfolgt frühestens im April. Bis dahin bleibt Zeit, die Mandatare davon zu überzeugen, Mercosur nur dann zuzustimmen, wenn gleichzeitig eine verpflichtende Herkunftskennzeichnung für verarbeitete Lebensmittel eingeführt wird.",
             "heroBottomText": "Auf dieser Seite können Bürgerinnen und Bürger ihre EU-Abgeordneten direkt kontaktieren und eine verpflichtende Herkunftskennzeichnung für verarbeitete Lebensmittel in der EU fordern. Die Aktion ist Teil der Initiative „No Label No Deal“.",
             "heroSubline": "für Mercosur und alle folgenden Abkommen",
+            "introLobbyTitle": "So funktioniert deine Lobbyarbeit",
+            "introLobbyP1": "Diese Webseite hilft dir, EU-Parlamentarier aller Länder in ihrer Muttersprache zu kontaktieren und so selbst aktiv Lobbyarbeit zu leisten.",
+            "introLobbyP2": "Es stehen verschiedene vorbereitete Texte zum Thema Herkunftskennzeichnung zur Verfügung, die du direkt verwenden kannst. Mit nur drei Klicks erreicht deine Nachricht den jeweiligen Mandatar.",
+            "introLobbyP3": "Natürlich kannst du auch einen eigenen Text verfassen. Viel Spaß bei der Lobbyarbeit!",
+            "introLobbyContinue": "Weiter zur Sprach- und Länderauswahl",
             "selectLanguageCountry": "Bitte wähle Sprache und Land",
             "language": "Sprache *",
             "pleaseSelect": "Bitte wählen",
@@ -213,9 +217,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "On 21/01/2026 the European Parliament will decide whether to request an opinion from the European Court of Justice. The vote on Mercosur will take place no earlier than April. Until then there is time to convince MEPs to approve Mercosur only if mandatory origin labelling for processed foods is introduced at the same time.",
             "heroBottomText": "On this page, citizens can directly contact their Members of the European Parliament and call for mandatory origin labelling for processed foods in the EU. The action is part of the “No Label No Deal” initiative.",
             "heroSubline": "for Mercosur and all agreements to follow",
+            "introLobbyTitle": "How to lobby with this site",
+            "introLobbyP1": "This website helps you contact Members of the European Parliament from every Member State in their own language, so you can do effective lobbying yourself.",
+            "introLobbyP2": "You will find ready-made texts on origin labelling that you can use as they are. In just three clicks your message reaches the MEP you choose.",
+            "introLobbyP3": "Of course you can also write your own message. Enjoy your lobbying!",
+            "introLobbyContinue": "Continue to language and country selection",
             "selectLanguageCountry": "Please select language and country",
             "language": "Language *",
             "pleaseSelect": "Please select",
@@ -393,9 +401,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Le 21/01/2026, le Parlement européen décidera s’il convient de demander un avis à la Cour de justice de l’Union européenne. Le vote sur le Mercosur n’aura lieu qu’au plus tôt en avril. D’ici là, il reste du temps pour convaincre les députés de n’approuver le Mercosur que si un étiquetage d’origine obligatoire pour les aliments transformés est instauré en même temps.",
             "heroBottomText": "Sur cette page, les citoyennes et citoyens peuvent contacter directement leurs députés européens et demander un étiquetage obligatoire de l’origine pour les denrées alimentaires transformées dans l’UE. Cette action fait partie de l’initiative « No Label No Deal ».",
             "heroSubline": "pour Mercosur et tous les accords à venir",
+            "introLobbyTitle": "Comment faire du lobbying ici",
+            "introLobbyP1": "Ce site vous aide à contacter les députés européens de tous les pays dans leur langue, pour mener vous-même une action de lobbying efficace.",
+            "introLobbyP2": "Plusieurs textes prêts à l’emploi sur l’étiquetage d’origine sont disponibles. En trois clics, votre message parvient au député choisi.",
+            "introLobbyP3": "Vous pouvez bien sûr rédiger votre propre message. Bonne action de lobbying !",
+            "introLobbyContinue": "Continuer vers le choix de la langue et du pays",
             "selectLanguageCountry": "Veuillez sélectionner la langue et le pays",
             "language": "Langue *",
             "pleaseSelect": "Veuillez sélectionner",
@@ -513,9 +525,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "El 21/01/2026 el Parlamento Europeo decidirá si solicita un dictamen del Tribunal de Justicia de la UE. La votación sobre Mercosur tendrá lugar como muy pronto en abril. Hasta entonces hay tiempo para convencer a los eurodiputados de aprobar Mercosur solo si al mismo tiempo se introduce un etiquetado obligatorio de origen para los alimentos procesados.",
             "heroBottomText": "En esta página, la ciudadanía puede ponerse en contacto directamente con sus eurodiputados y exigir un etiquetado obligatorio del origen para los alimentos procesados en la UE. La acción forma parte de la iniciativa “No Label No Deal”.",
             "heroSubline": "para Mercosur y todos los acuerdos que sigan",
+            "introLobbyTitle": "Cómo hacer lobby con esta web",
+            "introLobbyP1": "Esta página te ayuda a contactar a eurodiputados de todos los países en su propio idioma para hacer lobby de forma efectiva.",
+            "introLobbyP2": "Hay textos preparados sobre el etiquetado de origen que puedes usar tal cual. Con solo tres clics, tu mensaje llega al eurodiputado elegido.",
+            "introLobbyP3": "También puedes redactar tu propio texto. ¡Mucho ánimo con el lobby!",
+            "introLobbyContinue": "Continuar a idioma y país",
             "selectLanguageCountry": "Por favor, seleccione idioma y país",
             "language": "Idioma *",
             "pleaseSelect": "Por favor, seleccione",
@@ -633,9 +649,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Il 21/01/2026 il Parlamento europeo deciderà se richiedere un parere alla Corte di giustizia dell’UE. La votazione su Mercosur avverrà al più presto ad aprile. Fino ad allora c’è tempo per convincere i deputati ad approvare Mercosur solo se viene introdotta contemporaneamente un’etichettatura obbligatoria di origine per gli alimenti trasformati.",
             "heroBottomText": "In questa pagina i cittadini possono contattare direttamente i loro deputati al Parlamento europeo e chiedere un’etichettatura obbligatoria dell’origine per gli alimenti trasformati nell’UE. L’azione fa parte dell’iniziativa “No Label No Deal”.",
             "heroSubline": "per Mercosur e tutti gli accordi successivi",
+            "introLobbyTitle": "Come fare lobbying con questo sito",
+            "introLobbyP1": "Questo sito ti aiuta a contattare i deputati al Parlamento europeo di ogni Paese nella loro lingua, per fare lobbying in modo efficace.",
+            "introLobbyP2": "Trovi testi pronti sull’etichettatura d’origine da usare così come sono. In tre clic il messaggio arriva al deputato scelto.",
+            "introLobbyP3": "Puoi anche scrivere un testo tutto tuo. Buon lobbying!",
+            "introLobbyContinue": "Continua alla scelta di lingua e Paese",
             "selectLanguageCountry": "Si prega di selezionare lingua e paese",
             "language": "Lingua *",
             "pleaseSelect": "Si prega di selezionare",
@@ -753,9 +773,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 Parlament Europejski zdecyduje, czy zwrócić się o opinię do Trybunału Sprawiedliwości UE. Głosowanie nad Mercosurem odbędzie się najwcześniej w kwietniu. Do tego czasu można przekonywać europosłów, by poparli Mercosur tylko wtedy, gdy jednocześnie zostanie wprowadzony obowiązkowy znak pochodzenia dla żywności przetworzonej.",
             "heroBottomText": "Na tej stronie obywatele mogą bezpośrednio skontaktować się ze swoimi posłami do Parlamentu Europejskiego i domagać się obowiązkowego oznaczania pochodzenia przetworzonej żywności w UE. Akcja jest częścią inicjatywy „No Label No Deal“.",
             "heroSubline": "dla Mercosur oraz wszystkich kolejnych umów",
+            "introLobbyTitle": "Jak prowadzić lobbing na tej stronie",
+            "introLobbyP1": "Ta strona pomaga kontaktować się z europosłami ze wszystkich krajów w ich języku, aby skutecznie prowadzić lobbing.",
+            "introLobbyP2": "Dostępne są gotowe teksty o oznaczaniu pochodzenia — możesz je użyć od razu. W trzech kliknięciach wiadomość trafia do wybranego posła.",
+            "introLobbyP3": "Możesz też napisać własny tekst. Powodzenia w lobbowaniu!",
+            "introLobbyContinue": "Dalej: wybór języka i kraju",
             "selectLanguageCountry": "Proszę wybrać język i kraj",
             "language": "Język *",
             "pleaseSelect": "Proszę wybrać",
@@ -873,9 +897,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Op 21/01/2026 beslist het Europees Parlement of er advies wordt gevraagd aan het Hof van Justitie van de EU. De stemming over Mercosur vindt op zijn vroegst in april plaats. Tot die tijd is er ruimte om parlementsleden te overtuigen Mercosur alleen goed te keuren als er tegelijk verplichte oorsprongsetikettering voor bewerkte voedingsmiddelen wordt ingevoerd.",
             "heroBottomText": "Op deze pagina kunnen burgers rechtstreeks contact opnemen met hun Europarlementariërs en een verplichte oorsprongsetikettering voor bewerkte levensmiddelen in de EU eisen. De actie maakt deel uit van het initiatief “No Label No Deal”.",
             "heroSubline": "voor Mercosur en alle daaropvolgende overeenkomsten",
+            "introLobbyTitle": "Zo lobby je via deze site",
+            "introLobbyP1": "Deze site helpt je om Europarlementariërs uit alle landen in hun eigen taal te contacteren, zodat je zelf effectief kunt lobbyen.",
+            "introLobbyP2": "Er staan kant-en-klare teksten over herkomstetikettering klaar. In drie klikken bereikt je bericht de gekozen parlementariër.",
+            "introLobbyP3": "Je mag natuurlijk ook een eigen tekst schrijven. Veel succes met lobbyen!",
+            "introLobbyContinue": "Verder naar taal- en landkeuze",
             "selectLanguageCountry": "Selecteer alstublieft taal en land",
             "language": "Taal *",
             "pleaseSelect": "Selecteer alstublieft",
@@ -993,9 +1021,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Em 21/01/2026 o Parlamento Europeu decidirá se solicita um parecer ao Tribunal de Justiça da UE. A votação sobre o Mercosul ocorrerá o mais cedo em abril. Até lá há tempo para convencer os deputados a aprovarem o Mercosul apenas se, ao mesmo tempo, for introduzida a rotulagem obrigatória de origem para alimentos processados.",
             "heroBottomText": "Nesta página, os cidadãos podem contactar diretamente os seus deputados ao Parlamento Europeu e exigir a rotulagem obrigatória da origem dos alimentos transformados na UE. A ação faz parte da iniciativa “No Label No Deal”.",
             "heroSubline": "para o Mercosul e todos os acordos que se sigam",
+            "introLobbyTitle": "Como fazer lobbying neste site",
+            "introLobbyP1": "Este site ajuda-o a contactar deputados ao Parlamento Europeu de todos os países na respetiva língua, para fazer lobbying de forma eficaz.",
+            "introLobbyP2": "Há textos prontos sobre rotulagem de origem que pode usar diretamente. Em três cliques, a sua mensagem chega ao deputado escolhido.",
+            "introLobbyP3": "Também pode escrever a sua própria mensagem. Boa sorte no lobbying!",
+            "introLobbyContinue": "Continuar para língua e país",
             "selectLanguageCountry": "Por favor, selecione idioma e país",
             "language": "Idioma *",
             "pleaseSelect": "Por favor, selecione",
@@ -1113,9 +1145,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Dne 21/01/2026 rozhodne Evropský parlament, zda si vyžádá stanovisko Soudního dvora EU. Hlasování o Mercosuru proběhne nejdříve v dubnu. Do té doby je čas přesvědčit poslance, aby s Mercosurem souhlasili jen tehdy, pokud bude zároveň zavedeno povinné označování původu u zpracovaných potravin.",
             "heroBottomText": "Na této stránce mohou občané přímo kontaktovat své poslance Evropského parlamentu a požadovat povinné označování původu zpracovaných potravin v EU. Akce je součástí iniciativy „No Label No Deal“.",
             "heroSubline": "pro Mercosur a všechny následující dohody",
+            "introLobbyTitle": "Jak na lobbying prostřednictvím těchto stránek",
+            "introLobbyP1": "Tyto stránky vám pomohou kontaktovat poslance Evropského parlamentu ze všech zemí v jejich jazyce a vést tak vlastní lobbying.",
+            "introLobbyP2": "K dispozici jsou připravené texty k označování původu, které můžete použít přímo. Ve třech kliknutích zpráva dorazí k vybranému poslanci.",
+            "introLobbyP3": "Samozřejmě můžete napsat i vlastní text. Hodně úspěchů při lobbying!",
+            "introLobbyContinue": "Pokračovat k výběru jazyka a země",
             "selectLanguageCountry": "Prosím vyberte jazyk a zemi",
             "language": "Jazyk *",
             "pleaseSelect": "Prosím vyberte",
@@ -1233,9 +1269,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "2026.01.21-én dönt az Európai Parlament arról, hogy kér-e véleményt az Európai Bíróságtól. A Mercosur-szavazás legkorábban áprilisban lesz. Addig van idő meggyőzni a képviselőket, hogy csak akkor támogassák a Mercosurt, ha egyidejűleg bevezetik a feldolgozott élelmiszerek kötelező eredetmegjelölését.",
             "heroBottomText": "Ezen az oldalon az állampolgárok közvetlenül kapcsolatba léphetnek európai parlamenti képviselőikkel, és kötelező származásjelölést követelhetnek az EU-ban feldolgozott élelmiszerek esetében. Az akció a „No Label No Deal” kezdeményezés része.",
             "heroSubline": "a Mercosur és az azt követő valamennyi megállapodás esetében",
+            "introLobbyTitle": "Így lobbizhatsz ezen az oldalon",
+            "introLobbyP1": "Ez az oldal segít az összes tagállam európai parlamenti képviselőjét anyanyelvükön elérni, hogy hatékonyan lobbizhass.",
+            "introLobbyP2": "Kész szövegek állnak rendelkezésre a származásjelölésről, amelyeket közvetlenül használhatsz. Három kattintással üzeneted eljut a választott képviselőhöz.",
+            "introLobbyP3": "Természetesen saját szöveget is írhatsz. Jó lobbizást!",
+            "introLobbyContinue": "Tovább a nyelv és az ország kiválasztásához",
             "selectLanguageCountry": "Kérem, válasszon nyelvet és országot",
             "language": "Nyelv *",
             "pleaseSelect": "Kérem, válasszon",
@@ -1353,9 +1393,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 rozhodne Európsky parlament, či si vyžiada posudok od Súdneho dvora EÚ. Hlasovanie o Mercosure bude najskôr v apríli. Dovtedy je čas presvedčiť poslancov, aby Mercosur schválili len vtedy, ak sa zároveň zavedie povinné označovanie pôvodu spracovaných potravín.",
             "heroBottomText": "Na tejto stránke môžu občania priamo kontaktovať svojich poslancov Európskeho parlamentu a požadovať povinné označovanie pôvodu spracovaných potravin v EÚ. Táto akcia je súčasťou iniciatívy „No Label No Deal“.",
             "heroSubline": "pre Mercosur a všetky nasledujúce dohody",
+            "introLobbyTitle": "Ako lobovať cez túto stránku",
+            "introLobbyP1": "Táto stránka vám pomôže kontaktovať poslancov EP zo všetkých krajín v ich jazyku a viesť vlastný lobbying.",
+            "introLobbyP2": "Sú k dispozícii pripravené texty o označovaní pôvodu, ktoré môžete použiť priamo. Trojklikom sa správa dostane k vybranému poslancovi.",
+            "introLobbyP3": "Samozrejme môžete napísať aj vlastný text. Veľa úspechov pri lobovaní!",
+            "introLobbyContinue": "Pokračovať k výberu jazyka a krajiny",
             "additionalNote": "Doplňujúca poznámka",
             "allCountries": "Všetky krajiny",
             "allFractions": "Všetky politické frakcie",
@@ -1491,9 +1535,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 bo Evropski parlament odločil, ali bo zaprosil za mnenje Sodišče EU. Glasovanje o Mercosurju bo najprej aprila. Do takrat je čas prepričati poslance, naj Mercosur podprejo le, če se hkrati uvede obvezno označevanje porekla za predelano hrano.",
             "heroBottomText": "Na tej strani lahko državljani neposredno stopijo v stik s svojimi poslanci Evropskega parlamenta in zahtevajo obvezno označevanje porekla za predelana živila v EU. Akcija je del pobude »No Label No Deal«.",
             "heroSubline": "za Mercosur in vse nadaljnje sporazume",
+            "introLobbyTitle": "Kako lobirati na tej strani",
+            "introLobbyP1": "Ta stran vam pomaga stopiti v stik z evropskimi poslanci iz vseh držav v njihovem jeziku in tako učinkovito lobirati.",
+            "introLobbyP2": "Na voljo so pripravljeni besedila o označevanju porekla, ki jih lahko uporabite neposredno. S tremi kliki sporočilo doseže izbranega poslanca.",
+            "introLobbyP3": "Seveda lahko napišete tudi lastno besedilo. Veliko uspeha pri lobiranju!",
+            "introLobbyContinue": "Naprej k izbiri jezika in države",
             "additionalNote": "Dodatna opomba",
             "allCountries": "Vse države",
             "allFractions": "Vse politične skupine",
@@ -1647,9 +1695,13 @@ const translations = {
             "Označavanje podrijetla kod prerađene hrane nije dodatni zahtjev, već temeljni uvjet poštenog tržišnog natjecanja. Stoga vas molim da kontaktirate Europsku komisiju o pitanju označavanja podrijetla kod prerađene hrane i da se aktivno zauzmete za obvezno označavanje podrijetla kod prerađene hrane."
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 Europski parlament će odlučiti hoće li zatražiti mišljenje Suda EU. Glasanje o Mercosuru bit će najranije u travnju. Do tada ima vremena uvjeriti zastupnike da Mercosur odobre samo ako se istodobno uvede obvezno označavanje podrijetla za prerađenu hranu.",
             "heroBottomText": "Na ovoj stranici građani mogu izravno kontaktirati svoje zastupnike u Europskom parlamentu i zahtijevati obvezno označavanje podrijetla prerađene hrane u EU-u. Ova akcija dio je inicijative „No Label No Deal“.",
             "heroSubline": "za Mercosur i sve sljedeće sporazume",
+            "introLobbyTitle": "Kako lobirati putem ove stranice",
+            "introLobbyP1": "Ova stranica pomaže vam kontaktirati zastupnike u EP-u iz svih zemalja na njihovom jeziku kako biste učinkovito lobirali.",
+            "introLobbyP2": "Dostupni su pripremljeni tekstovi o označavanju podrijetla koje možete izravno koristiti. U tri klika poruka stiže odabranom zastupniku.",
+            "introLobbyP3": "Naravno možete napisati i vlastiti tekst. Sretno u lobiranju!",
+            "introLobbyContinue": "Nastavi na odabir jezika i države",
             "petitionHeroCTA": "Petition No Label – No Deal – Obvezno označavanje podrijetla prerađene hrane u EU",
             "petitionTitle": "Petition No Label – No Deal – Obvezno označavanje podrijetla prerađene hrane u EU",
             "signNow": "Potpiši sada",
@@ -1712,9 +1764,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "La 21/01/2026 Parlamentul European va decide dacă să solicite un aviz de la Curtea de Justiție a UE. Votul privind Mercosur va avea loc cel mai devreme în aprilie. Până atunci există timp să-i convingem pe deputați să aprobe Mercosur doar dacă se introduce simultan etichetarea obligatorie a originii pentru alimentele procesate.",
             "heroBottomText": "Pe această pagină, cetățenii pot contacta direct deputații lor din Parlamentul European și pot solicita etichetarea obligatorie a originii pentru alimentele procesate în UE. Acțiunea face parte din inițiativa „No Label No Deal”.",
             "heroSubline": "pentru Mercosur și toate acordurile care vor urma",
+            "introLobbyTitle": "Cum să faci lobby cu acest site",
+            "introLobbyP1": "Acest site te ajută să contactezi europarlamentari din toate țările în limba lor, pentru un lobby eficient.",
+            "introLobbyP2": "Sunt disponibile texte pregătite despre etichetarea originii pe care le poți folosi direct. În trei clicuri mesajul ajunge la europarlamentarul ales.",
+            "introLobbyP3": "Desigur poți redacta și un text propriu. Succes la lobby!",
+            "introLobbyContinue": "Continuă la limba și țara",
             "additionalNote": "Notă suplimentară",
             "allCountries": "Toate țările",
             "allFractions": "Toate grupurile politice",
@@ -1851,9 +1907,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "На 21/01/2026 Европейският парламент ще реши дали да поиска становище от Съда на ЕС. Гласуването за Меркосур ще бъде най-рано през април. Дотогава има време да убедим депутатите да одобрят Меркосур само ако едновременно се въведе задължително обозначаване на произхода за преработени храни.",
             "heroBottomText": "На тази страница гражданите могат директно да се свържат със своите членове на Европейския парламент и да поискат задължително обозначаване на произхода на преработените храни в ЕС. Кампанията е част от инициативата „No Label No Deal“.",
             "heroSubline": "за Меркосур и всички последващи споразумения",
+            "introLobbyTitle": "Как да лобирате чрез този сайт",
+            "introLobbyP1": "Този сайт ви помага да се свържете с членовете на ЕП от всички държави на техния език и да лобирате ефективно.",
+            "introLobbyP2": "Има готови текстове за обозначаване на произход, които можете да използвате директно. С три клика съобщението достига до избрания депутат.",
+            "introLobbyP3": "Разбира се, можете да напишете и собствен текст. Успех в лобирането!",
+            "introLobbyContinue": "Напред към избор на език и държава",
             "additionalNote": "Допълнителна бележка",
             "allCountries": "Всички държави",
             "allFractions": "Всички политически групи",
@@ -1989,9 +2049,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Den 21/01/2026 beslutter Europa-Parlamentet, om der skal indhentes en udtalelse fra EU-Domstolen. Afstemningen om Mercosur sker tidligst i april. Indtil da er der tid til at overbevise medlemmerne om kun at godkende Mercosur, hvis der samtidig indføres obligatorisk oprindelsesmærkning for forarbejdede fødevarer.",
             "heroBottomText": "På denne side kan borgere kontakte deres medlemmer af Europa-Parlamentet direkte og kræve obligatorisk oprindelsesmærkning af forarbejdede fødevarer i EU. Aktionen er en del af initiativet “No Label No Deal”.",
             "heroSubline": "for Mercosur og alle efterfølgende aftaler",
+            "introLobbyTitle": "Sådan lobbyer du via siden",
+            "introLobbyP1": "Denne side hjælper dig med at kontakte medlemmer af Europa-Parlamentet fra alle lande på deres eget sprog, så du selv kan lobby effektivt.",
+            "introLobbyP2": "Der findes færdige tekster om oprindelsesmærkning, som du kan bruge direkte. Med tre klik når din besked den valgte parlamentariker.",
+            "introLobbyP3": "Du kan selvfølgelig også skrive din egen tekst. God fornøjelse med lobbyarbejdet!",
+            "introLobbyContinue": "Fortsæt til valg af sprog og land",
             "additionalNote": "Supplerende note",
             "allCountries": "Alle lande",
             "allFractions": "Alle politiske grupper",
@@ -2127,9 +2191,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Den 21/01/2026 beslutar Europaparlamentet om man ska begära ett yttrande från EU-domstolen. Omröstningen om Mercosur sker tidigast i april. Fram till dess finns tid att övertyga ledamöterna att godkänna Mercosur bara om obligatorisk ursprungsmärkning för bearbetade livsmedel införs samtidigt.",
             "heroBottomText": "På denna sida kan medborgare kontakta sina ledamöter av Europaparlamentet direkt och kräva obligatorisk ursprungsmärkning för bearbetade livsmedel i EU. Aktionen är en del af initiativet “No Label No Deal”.",
             "heroSubline": "för Mercosur och alla efterföljande avtal",
+            "introLobbyTitle": "Så lobbyar du via sidan",
+            "introLobbyP1": "Den här sidan hjälper dig att kontakta Europaparlamentariker från alla länder på deras eget språk, så att du kan lobbya effektivt.",
+            "introLobbyP2": "Det finns färdiga texter om ursprungsmärkning som du kan använda direkt. Med tre klick når ditt meddelande den valda ledamoten.",
+            "introLobbyP3": "Du kan förstås också skriva egen text. Lycka till med lobbyarbetet!",
+            "introLobbyContinue": "Fortsätt till språk- och landsval",
             "additionalNote": "Ytterligare information",
             "allCountries": "Alla länder",
             "allFractions": "Alla politiska grupper",
@@ -2265,9 +2333,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 Euroopan parlamentti päättää, pyydetäänkö EU-tuomioistuimelta lausunto. Äänestys Mercosurista on aikaisintaan huhtikuussa. Siihen asti on aikaa vakuuttaa mepit hyväksymään Mercosur vain, jos samalla otetaan käyttöön pakollinen alkuperämerkintä jalostetuille elintarvikkeille.",
             "heroBottomText": "Tällä sivulla kansalaiset voivat ottaa suoraan yhteyttä Euroopan parlamentin jäseniin ja vaatia pakollista alkuperämerkintää EU:ssa jalostetuille elintarvikkeille. Kampanja on osa ”No Label No Deal” -aloitetta.",
             "heroSubline": "Mercosuria ja kaikkia tulevia sopimuksia varten",
+            "introLobbyTitle": "Näin lobbaat tällä sivustolla",
+            "introLobbyP1": "Tämä sivusto auttaa sinua olemaan yhteydessä europarlamentaarikkojen kanssa kaikista maista heidän omalla kielellään tehokasta lobbauksen tekemistä varten.",
+            "introLobbyP2": "Käytettävissä on valmiita tekstejä alkuperämerkinnästä, joita voit käyttää sellaisenaan. Kolmella klikkauksella viestisi menee valitulle edustajalle.",
+            "introLobbyP3": "Voit tietenkin kirjoittaa myös oman tekstisi. Hyvää lobbaukseen!",
+            "introLobbyContinue": "Jatka kielen ja maan valintaan",
             "additionalNote": "Lisähuomautus",
             "allCountries": "Kaikki maat",
             "allFractions": "Kaikki poliittiset ryhmät",
@@ -2403,9 +2475,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "2026-01-21 Europos Parlamentas spręs, ar kreiptis Europos Sąjungos Teisingumo Teismo nuomonės. Balsavimas dėl „Mercosur“ vyks anksčiausiai balandį. Iki tol yra laiko įtikinti deputatus pritarti „Mercosur“ tik tuo atveju, jei kartu bus įvesta privaloma perdirbtų maisto produktų kilmės ženklinimas.",
             "heroBottomText": "Šiame puslapyje piliečiai gali tiesiogiai susisiekti su savo Europos Parlamento nariais ir reikalauti privalomo perdirbtų maisto produktų kilmės ženklinimo ES. Ši akcija yra iniciatyvos „No Label No Deal“ dalis.",
             "heroSubline": "Mercosur ir visiems vėlesniems susitarimams",
+            "introLobbyTitle": "Kaip lobijuoti per šį puslapį",
+            "introLobbyP1": "Šis puslapis padeda susisiekti su EP nariais iš visų šalių jų kalba ir veiksmingai daryti lobizmą.",
+            "introLobbyP2": "Yra parengtų tekstų apie kilmės ženklinimą, kuriuos galite naudoti tiesiogiai. Trimis paspaudimais žinutė pasiekia pasirinktą narį.",
+            "introLobbyP3": "Žinoma, galite parašyti ir savo tekstą. Sėkmės lobijuojant!",
+            "introLobbyContinue": "Toliau – kalbos ir šalies pasirinkimas",
             "additionalNote": "Papildoma pastaba",
             "allCountries": "Visos šalys",
             "allFractions": "Visos politinės grupės",
@@ -2509,9 +2585,13 @@ const translations = {
     },
     "lv": {
         "ui": {
-            "heroAlarm": "21/01/2026 Eiropas Parlaments lems, vai pieprasīt atzinumu no ES Tiesas. Balsojums par Mercosur notiks ne agrāk kā aprīlī. Līdz tam ir laiks pārliecināt deputātus atbalstīt Mercosur tikai tad, ja vienlaikus tiek ieviesta obligāta izcelsmes marķēšana pārstrādātiem pārtikas produktiem.",
             "heroBottomText": "Šajā lapā iedzīvotāji var tieši sazināties ar saviem Eiropas Parlamenta deputātiem un pieprasīt obligātu izcelsmes marķējumu pārstrādātiem pārtikas produktiem ES. Šī akcija ir daļa no iniciatīvas “No Label No Deal”.",
             "heroSubline": "Mercosur un visiem turpmākajiem nolīgumiem",
+            "introLobbyTitle": "Kā lobēt, izmantojot šo vietni",
+            "introLobbyP1": "Šī vietne palīdz sazināties ar EP deputātiem no visām valstīm viņu valodā, lai veiktu efektīvu lobēšanu.",
+            "introLobbyP2": "Ir sagatavoti teksti par izcelsmes marķējumu, ko varat izmantot tieši. Ar trīs klikšķiem ziņa nonāk pie izvēlētā deputāta.",
+            "introLobbyP3": "Protams, varat rakstīt arī savu tekstu. Veiksmi lobēšanā!",
+            "introLobbyContinue": "Tālāk uz valodas un valsts izvēli",
             "petitionHeroCTA": "Petition No Label – No Deal – Obligāta izcelsmes marķēšana pārstrādātiem pārtikas produktiem ES",
             "petitionTitle": "Petition No Label – No Deal – Obligāta izcelsmes marķēšana pārstrādātiem pārtikas produktiem ES",
             "sendEmail": "Sūtīt e-pastu",
@@ -2618,9 +2698,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "21/01/2026 otsustab Euroopa Parlament, kas taotleda arvamust ELi kohtult. Hääletus Mercosuri üle toimub kõige varem aprillis. Seni on aega veenda saadikuid nõustuma Mercosuriga ainult siis, kui samaaegselt kehtestatakse kohustuslik päritolumärgistus töödeldud toiduainetele.",
             "heroBottomText": "Sellel lehel saavad kodanikud võtta otse ühendust oma Euroopa Parlamendi liikmetega ja nõuda ELis töödeldud toiduainete kohustuslikku päritolumärgistust. Algatus on osa kampaaniast „No Label No Deal“.",
             "heroSubline": "Mercosuri ja kõigi järgnevate lepingute jaoks",
+            "introLobbyTitle": "Kuidas selle saidi kaudu lobitööd teha",
+            "introLobbyP1": "See aitab sul ühendust võtta Euroopa Parlamendi liikmetega kõigist riikidest nende emakeeles, et tõhusalt lobitööd teha.",
+            "introLobbyP2": "Saadaval on valmis tekstid päritolumärgistuse kohta, mida saad otse kasutada. Kolme klõpsuga sõnum jõuab valitud saadikuni.",
+            "introLobbyP3": "Võid muidugi kirjutada ka oma teksti. Edukat lobitööd!",
+            "introLobbyContinue": "Edasi keele ja riigi valikusse",
             "additionalNote": "Lisamärkus",
             "allCountries": "Kõik riigid",
             "allFractions": "Kõik fraktsioonid",
@@ -2756,9 +2840,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Fis-21/01/2026 il-Parlament Ewropew se jiddeċiedi jekk jitlobx opinjoni mill-Qorti tal-Ġustizzja tal-UE. Il-votazzjoni dwar Mercosur se ssir kmieni f’April. Sa dakinhar hemm ħin biex nikkonvinċu lill-MPE japprovaw lil Mercosur biss jekk fl-istess ħin jiġi introdott it-tikkettar obbligatorju tal-oriġini għall-ikel ipproċessat.",
             "heroBottomText": "F’din il-paġna, iċ-ċittadini jistgħu jikkuntattjaw direttament lill-Membri tal-Parlament Ewropew tagħhom u jitolbu tikkettar obbligatorju tal-oriġini għall-ikel ipproċessat fl-UE. L-azzjoni hija parti mill-inizjattiva “No Label No Deal”.",
             "heroSubline": "għall-Mercosur u għall-ftehimiet kollha li ġejjin",
+            "introLobbyTitle": "Kif tagħmel lobbying permezz ta’ dan is-sit",
+            "introLobbyP1": "Dan is-sit jgħinok tikkuntattja lill-Membri tal-Parlament Ewropew minn kull pajjiż bil-lingwa tagħhom, sabiex tagħmel lobbying b’mod effettiv.",
+            "introLobbyP2": "Hemm testi lesti dwar it-tikkettar tal-oriġini li tista’ tuża direttament. Bi tliet klikks il-messaġġ jasal lill-MPE magħżul.",
+            "introLobbyP3": "Naturalment tista’ ukoll tikteb messaġġ tiegħek stess. Awguri għall-lobbying!",
+            "introLobbyContinue": "Kompli għall-għażla tal-lingwa u tal-pajjiż",
             "additionalNote": "Nota addizzjonali",
             "allCountries": "Il-pajjiżi kollha",
             "allFractions": "Il-gruppi politiċi kollha",
@@ -2894,9 +2982,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Στις 21/01/2026 το Ευρωπαϊκό Κοινοβούλιο θα αποφασίσει αν θα ζητήσει γνωμοδότηση από το Δικαστήριο της ΕΕ. Η ψηφοφορία για τη Mercosur θα γίνει το νωρίτερο τον Απρίλιο. Ως τότε υπάρχει χρόνος να πείσουμε τους ευρωβουλευτές να εγκρίνουν τη Mercosur μόνο αν ταυτόχρονα θεσπιστεί υποχρεωτική επισήμανση προέλευσης για τα μεταποιημένα τρόφιμα.",
             "heroBottomText": "Σε αυτή τη σελίδα οι πολίτες μπορούν να επικοινωνήσουν απευθείας με τους ευρωβουλευτές τους και να ζητήσουν υποχρεωτική επισήμανση της προέλευσης για τα επεξεργασμένα τρόφιμα στην ΕΕ. Η δράση αποτελεί μέρος της πρωτοβουλίας «No Label No Deal».",
             "heroSubline": "για τη Mercosur και όλες τις επόμενες συμφωνίες",
+            "introLobbyTitle": "Πώς να κάνετε lobbying μέσω αυτής της ιστοσελίδας",
+            "introLobbyP1": "Αυτός ο ιστότοπος σας βοηθά να επικοινωνήσετε με ευρωβουλευτές από όλες τις χώρες στη γλώσσα τους, για αποτελεσματικό lobbying.",
+            "introLobbyP2": "Υπάρχουν έτοιμα κείμενα για την επισήμανση προέλευσης που μπορείτε να χρησιμοποιήσετε απευθείας. Με τρία κλικ το μήνυμά σας φτάνει στον επιλεγμένο ευρωβουλευτή.",
+            "introLobbyP3": "Φυσικά μπορείτε να γράψετε και δικό σας κείμενο. Καλή επιτυχία στο lobbying!",
+            "introLobbyContinue": "Συνέχεια στην επιλογή γλώσσας και χώρας",
             "additionalNote": "Πρόσθετη σημείωση",
             "allCountries": "Όλες οι χώρες",
             "allFractions": "Όλες οι πολιτικές ομάδες",
@@ -3032,9 +3124,13 @@ const translations = {
             }
         ],
         "ui": {
-            "heroAlarm": "Ar 21/01/2026 cinnfidh Parlaimint na hEorpa an n-iarrfar tuairim ón Chúirt Bhreithiúnais AE. Ní bheidh an vóta ar Mercosur ar siúl go luath ná Aibreán. Go dtí sin tá am ann na Feisirí a chur ina luí Mercosur a cheadú ach amháin má chuirtear lipéadú éigeantach tionscnaimh do bhianna próiseáilte i bhfeidhm ag an am céanna.",
             "heroBottomText": "Ar an leathanach seo is féidir le saoránaigh teagmháil dhíreach a dhéanamh lena gcomhaltaí de Pharlaimint na hEorpa agus éileamh a dhéanamh ar lipéadú éigeantach tionscnaimh do bhianna próiseáilte san AE. Is cuid den tionscnamh “No Label No Deal” an gníomh seo.",
             "heroSubline": "do Mercosur agus gach comhaontú a leanfaidh",
+            "introLobbyTitle": "Conas lobaithe a dhéanamh tríd an suíomh seo",
+            "introLobbyP1": "Cuidíonn an suíomh seo leat teagmháil a dhéanamh le comhaltaí de Pharlaimint na hEorpa ó gach tír ina dteanga féin, chun lobaithe éifeachtach a dhéanamh.",
+            "introLobbyP2": "Tá téacsanna réamhdhéanta ar lipéadú tionscnaimh ar fáil is féidir leat a úsáid go díreach. I dtrí chliceáil, sroicheann do theachtaireacht an comhalta a roghnaíonn tú.",
+            "introLobbyP3": "Ar ndóigh is féidir leat do théacs féin a scríobh freisin. Go n-éirí go geal le do lobaithe!",
+            "introLobbyContinue": "Lean ar aghaidh go rogha teanga agus tíre",
             "additionalNote": "Nóta breise",
             "allCountries": "Gach tír",
             "allFractions": "Gach grúpa polaitiúil",
