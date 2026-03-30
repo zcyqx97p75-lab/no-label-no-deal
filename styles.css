@@ -1060,6 +1060,7 @@ body {
     display: grid;
     gap: var(--spacing-small);
     margin-bottom: var(--spacing-large);
+    scroll-margin-top: 1rem;
 }
 
 .mandatar-item {

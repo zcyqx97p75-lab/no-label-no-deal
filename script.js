@@ -1005,6 +1005,10 @@ function showContactsSection() {
         updateCounter();
         filterMandatare();
         showTextSuggestions();
+        const listEl = document.getElementById('mandatareList');
+        if (listEl) {
+            listEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }, 100);
 }
 
