@@ -8,12 +8,12 @@
     <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://www.no-label-no-deal.eu/">
     <title>no label no deal</title>
-    <link rel="stylesheet" href="styles.css?v=20260728c">
+    <link rel="stylesheet" href="styles.css?v=20260728e">
 </head>
-<body class="theme-friendly">
+<body class="theme-friendly post-demo-phase">
     <a href="/" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
-    <!-- Hero-Bereich (Protest-/Kampagnenphase bis Umschaltung) -->
-    <section class="hero notranslate hero--legacy" id="hero">
+    <!-- Legacy-Hero (historisch; in Post-Demo-Phase ausgeblendet, kein FOUC) -->
+    <section class="hero notranslate hero--legacy" id="hero" hidden aria-hidden="true">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text-box">
@@ -31,21 +31,43 @@
         </div>
     </section>
 
-    <!-- Hero nach Demo (ab 2.4.2026) – freundlicher Einstieg -->
-    <section class="hero-friendly notranslate" id="heroPostDemo" hidden aria-hidden="true">
-        <div class="hero-friendly-inner">
-            <p class="hero-friendly-brand" id="friendlyBrand">NO LABEL – NO DEAL</p>
-            <h1 class="hero-friendly-headline" id="friendlyHeroHeadline">Du hast ein Recht zu wissen, woher dein Essen kommt.</h1>
-            <p class="hero-friendly-subline" id="friendlyHeroSubline">Schreib deinen EU-Abgeordneten und fordere eine verpflichtende Herkunftskennzeichnung für verarbeitete Lebensmittel.</p>
-            <button type="button" class="btn-friendly-primary" id="friendlyHeroCTA">Jetzt Abgeordneten kontaktieren</button>
-            <p class="hero-friendly-trust" id="friendlyHeroTrust">Keine Anmeldung · Keine Datensammlung · Direkt an die Politik</p>
-            <p class="hero-friendly-note" id="friendlyHeroNote">Ein unabhängiges Werkzeug für Bürger und Produzenten in der Europäischen Union.</p>
-            <p class="hero-friendly-mercosur" id="friendlyHeroMercosur">No Label – No Deal gilt für Mercosur und für alle Handelsabkommen, bei denen europäische Produzenten und Konsumenten ohne klare Herkunftsangaben im Dunkeln gelassen werden.</p>
+    <!-- Heller Startbereich -->
+    <section class="hero-friendly notranslate" id="heroPostDemo">
+        <div class="hero-friendly-layout">
+            <div class="hero-friendly-copy">
+                <p class="hero-friendly-brand" id="friendlyBrand">NO LABEL – NO DEAL</p>
+                <h1 class="hero-friendly-headline" id="friendlyHeroHeadline">Du hast ein Recht zu wissen, woher dein Essen kommt.</h1>
+                <p class="hero-friendly-subline" id="friendlyHeroSubline">Schreib deinen EU-Abgeordneten und fordere eine verpflichtende Herkunftskennzeichnung für verarbeitete Lebensmittel.</p>
+                <button type="button" class="btn-friendly-primary" id="friendlyHeroCTA">Jetzt Abgeordneten kontaktieren</button>
+                <p class="hero-friendly-trust" id="friendlyHeroTrust">Keine Anmeldung · Keine Datensammlung · Direkt an die Politik</p>
+                <p class="hero-friendly-note" id="friendlyHeroNote">Ein unabhängiges Werkzeug für Bürger und Produzenten in der Europäischen Union.</p>
+                <p class="hero-friendly-mercosur" id="friendlyHeroMercosur">No Label – No Deal gilt für Mercosur und für alle Handelsabkommen, bei denen europäische Produzenten und Konsumenten ohne klare Herkunftsangaben im Dunkeln gelassen werden.</p>
+            </div>
+            <div class="hero-friendly-visual" aria-hidden="true">
+                <div class="hero-mep-preview" id="heroMepPreview">
+                    <article class="hero-mep-card">
+                        <img src="https://www.europarl.europa.eu/mepphoto/197490.jpg" alt="" width="96" height="96" loading="lazy" decoding="async">
+                        <span>Magdalena Adamowicz</span>
+                    </article>
+                    <article class="hero-mep-card">
+                        <img src="https://www.europarl.europa.eu/mepphoto/256810.jpg" alt="" width="96" height="96" loading="lazy" decoding="async">
+                        <span>Mika Aaltola</span>
+                    </article>
+                    <article class="hero-mep-card">
+                        <img src="https://www.europarl.europa.eu/mepphoto/257043.jpg" alt="" width="96" height="96" loading="lazy" decoding="async">
+                        <span>Maravillas Abadía Jover</span>
+                    </article>
+                    <article class="hero-mep-card">
+                        <img src="https://www.europarl.europa.eu/mepphoto/256820.jpg" alt="" width="96" height="96" loading="lazy" decoding="async">
+                        <span>Georgios Aftias</span>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Drei Schritte -->
-    <section class="how-steps-section notranslate" id="howStepsSection" hidden aria-hidden="true">
+    <section class="how-steps-section notranslate" id="how-it-works">
         <div class="container">
             <div class="how-steps-grid">
                 <article class="how-step-card">
@@ -68,7 +90,7 @@
     </section>
 
     <!-- Privacy Vorteil -->
-    <section class="privacy-advantage-section notranslate" id="privacyAdvantageSection" hidden aria-hidden="true">
+    <section class="privacy-advantage-section notranslate" id="privacyAdvantageSection">
         <div class="container">
             <div class="privacy-advantage-card">
                 <h2 id="privacyAdvTitle">Direkter Kontakt statt Datensammlung</h2>
@@ -85,7 +107,7 @@
     </section>
 
     <!-- Story: Honig, Bio, Botschaft, Verantwortung, CTA (ab 2.4.2026) -->
-    <div class="story-sections notranslate" id="storySections" hidden aria-hidden="true">
+    <div class="story-sections notranslate" id="storySections">
         <hr class="story-rule" aria-hidden="true">
         <section class="story-block story-block--honey" id="storySectionHoney">
             <div class="story-honey-visual">
@@ -168,10 +190,10 @@
     </section>
 
     <!-- Sprache & Land Auswahl -->
-    <section class="selection-section notranslate" id="languageCountrySection">
+    <section class="selection-section notranslate" id="step-language-country" tabindex="-1">
         <div class="container">
             <p class="flow-progress" id="flowProgressLang" aria-live="polite">Schritt 1 von 3</p>
-            <h2>Bitte wähle Sprache und Land</h2>
+            <h2 id="stepLanguageCountryHeading">Bitte wähle Sprache und Land</h2>
             <div class="selection-grid">
                 <div class="selection-group">
                     <label for="language">Sprache *</label>
@@ -243,10 +265,10 @@
     </section>
 
     <!-- Rollenabfrage -->
-    <section class="role-section notranslate" id="roleSection" style="display: none;">
+    <section class="role-section notranslate" id="step-role" style="display: none;" tabindex="-1">
         <div class="container">
             <p class="flow-progress" id="flowProgressRole" aria-live="polite">Schritt 2 von 3</p>
-            <h2>In welcher Rolle sprichst du?</h2>
+            <h2 id="stepRoleHeading">In welcher Rolle sprichst du?</h2>
             <div class="role-buttons">
                 <button class="btn-role" data-role="farmer">Landwirt / Produzent</button>
                 <button class="btn-role" data-role="consumer">Konsument</button>
@@ -256,11 +278,11 @@
     </section>
 
     <!-- Kontaktseite -->
-    <section class="contacts-section notranslate" id="contactsSection" style="display: none;">
+    <section class="contacts-section notranslate" id="mep-selection" style="display: none;" tabindex="-1">
         <div class="contacts-container">
             <p class="flow-progress" id="flowProgressContacts" aria-live="polite">Schritt 3 von 3</p>
             <div class="contacts-header">
-                <h2>EU-Abgeordnete kontaktieren</h2>
+                <h2 id="mepSelectionHeading">EU-Abgeordnete kontaktieren</h2>
                 <button id="toggleAllBtn" class="btn-toggle-country">Alle EU-Mandatare anzeigen</button>
             </div>
 
@@ -324,7 +346,7 @@
             <div id="copyFeedback" class="copy-feedback" style="display: none;">E-Mail-Adressen kopiert</div>
 
             <!-- Compose Panel -->
-            <div class="compose-panel" id="composePanel" hidden>
+            <div class="compose-panel" id="message-editor" hidden tabindex="-1">
                 <div class="compose-selected" id="composeSelected">
                     <img src="assets/mep-placeholder.svg" alt="" class="compose-photo" id="composePhoto" width="72" height="72">
                     <div>
@@ -356,15 +378,15 @@
     </section>
 
     <!-- Petition Section -->
-    <section class="petition-section" id="petitionSection" style="display: none;">
+    <section class="petition-section" id="petition" style="display: none;" tabindex="-1">
         <div class="container">
             <div class="petition-container">
                 <h2 class="petition-title notranslate" id="petitionTitle">Petition beim Europäischen Parlament</h2>
                 <p class="petition-status-text notranslate" id="petitionStatusText">Die Petition für eine verpflichtende Herkunftskennzeichnung wurde beim Europäischen Parlament eingereicht und befindet sich derzeit in Prüfung. Sobald sie offiziell zur Unterstützung freigegeben ist, wird sie hier direkt verlinkt.</p>
                 <p class="petition-disclaimer notranslate" id="petitionDisclaimer" style="display: none;">Englische Version ist maßgeblich; andere Sprachen sind automatische Übersetzungen.</p>
                 
-                <button id="petitionSignTop" class="btn-petition-primary notranslate" disabled>Unterstützung nach offizieller Freigabe möglich</button>
-                <p class="petition-pending-notice notranslate" id="petitionPendingNotice" style="display: none;">Unterstützung nach offizieller Freigabe möglich</p>
+                <p class="petition-pending-notice petition-pending-notice--visible notranslate" id="petitionPendingNotice" role="status">Unterstützung nach offizieller Freigabe möglich</p>
+                <button id="petitionSignTop" class="btn-petition-primary notranslate" type="button" disabled hidden aria-hidden="true">Unterstützung nach offizieller Freigabe möglich</button>
                 
                 <div class="google-translate-panel notranslate" id="googleTranslatePanel">
                     <p class="google-translate-optin" id="googleTranslateOptin">Für die automatische Übersetzung kann Google Translate geladen werden. Dabei können Cookies oder Datenübertragungen an Google erfolgen.</p>
@@ -379,13 +401,13 @@
                     <!-- Petitionstext wird hier eingefügt -->
                 </div>
                 
-                <button id="petitionSignBottom" class="btn-petition-secondary notranslate" disabled>Unterstützung nach offizieller Freigabe möglich</button>
+                <button id="petitionSignBottom" class="btn-petition-secondary notranslate" type="button" disabled hidden aria-hidden="true">Unterstützung nach offizieller Freigabe möglich</button>
             </div>
         </div>
     </section>
 
     <!-- Über die Initiative -->
-    <section class="about-section notranslate" id="aboutSection">
+    <section class="about-section notranslate" id="about" tabindex="-1">
         <div class="container">
             <div class="about-card about-card--with-photo">
                 <div class="about-photo-wrap">
@@ -482,9 +504,9 @@
     <!-- Toast Notification -->
     <div id="toastNotification" class="toast-notification" style="display: none;"></div>
 
-    <script src="translations.js?v=20260728c"></script>
-    <script src="script.js?v=20260728c"></script>
-    <script src="victory-overlay.js?v=20260728c"></script>
+    <script src="translations.js?v=20260728e"></script>
+    <script src="script.js?v=20260728e"></script>
+    <script src="victory-overlay.js?v=20260728e"></script>
 </body>
 </html>
 

@@ -140,21 +140,60 @@ function initPostDemoPhaseLayout() {
     const heroLegacy = document.getElementById('hero');
     const heroPost = document.getElementById('heroPostDemo');
     const story = document.getElementById('storySections');
-    const howSteps = document.getElementById('howStepsSection');
+    const howSteps = document.getElementById('how-it-works');
     const privacyAdv = document.getElementById('privacyAdvantageSection');
     if (heroLegacy) {
         heroLegacy.hidden = true;
+        heroLegacy.style.display = 'none';
         heroLegacy.setAttribute('aria-hidden', 'true');
     }
     if (heroPost) {
         heroPost.hidden = false;
         heroPost.removeAttribute('aria-hidden');
+        heroPost.style.display = '';
     }
     [howSteps, privacyAdv, story].forEach((el) => {
         if (!el) return;
         el.hidden = false;
         el.removeAttribute('aria-hidden');
+        el.style.display = '';
     });
+}
+
+function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) {
+        console.warn('Scroll target not found:', id);
+        return;
+    }
+    const raw = getComputedStyle(document.documentElement).getPropertyValue('--header-offset').trim();
+    const offset = parseInt(raw, 10) || 88;
+    const top = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - offset);
+    window.scrollTo({ top, behavior: 'smooth' });
+    requestAnimationFrame(() => {
+        if (typeof el.focus === 'function') {
+            try { el.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+        }
+    });
+}
+window.scrollToSection = scrollToSection;
+
+function handleHashNavigation() {
+    const hash = (window.location.hash || '').replace(/^#/, '');
+    const allowed = ['step-language-country', 'mep-selection', 'petition', 'about', 'how-it-works', 'step-role', 'message-editor'];
+    if (!hash || !allowed.includes(hash)) return;
+    const el = document.getElementById(hash);
+    if (!el) return;
+    if (hash === 'step-role') el.style.display = 'block';
+    if (hash === 'mep-selection' || hash === 'message-editor') {
+        const mep = document.getElementById('mep-selection');
+        if (mep) mep.style.display = 'block';
+    }
+    if (hash === 'petition') {
+        const pet = document.getElementById('petition');
+        if (pet) pet.style.display = 'block';
+    }
+    setTimeout(() => scrollToSection(hash), 80);
 }
 
 const COUNTRY_FLAGS = {
@@ -358,7 +397,7 @@ function updateUITexts(lang) {
     }
     
     // Sprache & Land Auswahl
-    const langSection = document.getElementById('languageCountrySection');
+    const langSection = document.getElementById('step-language-country');
     if (langSection) {
         const h2 = langSection.querySelector('h2');
         if (h2) h2.textContent = getTranslation(lang, 'selectLanguageCountry');
@@ -380,7 +419,7 @@ function updateUITexts(lang) {
     }
     
     // Rollenabfrage
-    const roleSection = document.getElementById('roleSection');
+    const roleSection = document.getElementById('step-role');
     if (roleSection) {
         const h2 = roleSection.querySelector('h2');
         if (h2) h2.textContent = getTranslation(lang, 'selectRole');
@@ -396,7 +435,7 @@ function updateUITexts(lang) {
     }
     
     // Kontaktseite
-    const contactsSection = document.getElementById('contactsSection');
+    const contactsSection = document.getElementById('mep-selection');
     if (contactsSection) {
         const h2 = contactsSection.querySelector('h2');
         if (h2) h2.textContent = getTranslation(lang, 'contactMEPs');
@@ -629,6 +668,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     refreshShareBarVisibility();
 
+    handleHashNavigation();
+    window.addEventListener('hashchange', handleHashNavigation);
+
     // Rate-Limit UI alle 60s aktualisieren
     setInterval(updateRateLimitUI, 60000);
 });
@@ -718,10 +760,10 @@ function initEventListeners() {
     const introLobbyContinue = document.getElementById('introLobbyContinue');
     if (introLobbyContinue) {
         introLobbyContinue.addEventListener('click', () => {
-            const sec = document.getElementById('languageCountrySection');
+            const sec = document.getElementById('step-language-country');
             if (sec) {
                 sec.style.display = 'block';
-                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToSection('step-language-country');
             }
         });
     }
@@ -729,15 +771,15 @@ function initEventListeners() {
     const friendlyHeroCTA = document.getElementById('friendlyHeroCTA');
     if (friendlyHeroCTA) {
         friendlyHeroCTA.addEventListener('click', () => {
-            const intro = document.getElementById('introLobbySection');
-            const sec = document.getElementById('languageCountrySection');
-            if (intro && getComputedStyle(intro).display !== 'none') {
-                intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
+            const sec = document.getElementById('step-language-country');
             if (sec) {
                 sec.style.display = 'block';
-                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, '', '#step-language-country');
+                } else {
+                    window.location.hash = 'step-language-country';
+                }
+                scrollToSection('step-language-country');
             }
         });
     }
@@ -828,7 +870,7 @@ function initEventListeners() {
     const scrollIndicator = document.getElementById('scrollIndicator');
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
-            const languageCountrySection = document.getElementById('languageCountrySection');
+            const languageCountrySection = document.getElementById('step-language-country');
             if (languageCountrySection) {
                 languageCountrySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -841,7 +883,7 @@ function initEventListeners() {
         textRotation.addEventListener('click', (event) => {
             const target = event.target.closest('.rotating-cta-btn');
             if (!target) return;
-            const languageCountrySection = document.getElementById('languageCountrySection');
+            const languageCountrySection = document.getElementById('step-language-country');
             if (languageCountrySection) {
                 languageCountrySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -955,15 +997,13 @@ function initEventListeners() {
         if (postLearn) postLearn.addEventListener('click', () => scrollToId('storySectionHoney'));
         if (postWhy) postWhy.addEventListener('click', () => scrollToId('storySectionMessage'));
         const goLang = () => {
-            const intro = document.getElementById('introLobbySection');
-            const sec = document.getElementById('languageCountrySection');
-            if (sec) sec.style.display = 'none';
-            window.location.hash = 'introLobbySection';
-            if (intro) {
-                intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else if (sec) {
+            const sec = document.getElementById('step-language-country');
+            if (sec) {
                 sec.style.display = 'block';
-                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, '', '#step-language-country');
+                }
+                scrollToSection('step-language-country');
             }
         };
         const shop = document.getElementById('storyCtaBtnShop');
@@ -984,7 +1024,7 @@ function checkTranslateDom() {
     const container = document.getElementById('google_translate_element');
     const combo = document.querySelector('.goog-te-combo');
     const petitionContent = document.getElementById('petitionContent');
-    const petitionSection = document.getElementById('petitionSection');
+    const petitionSection = document.getElementById('petition');
     console.log('[Translate] DOM check:', {
         googleTranslateElement: !!container,
         googleTranslateCombo: !!combo,
@@ -1018,8 +1058,27 @@ function checkContinueButton() {
 }
 
 function handleContinue() {
-    selectedLanguage = document.getElementById('language').value;
-    selectedCountry = document.getElementById('country').value;
+    const languageSelect = document.getElementById('language');
+    const countrySelect = document.getElementById('country');
+    selectedLanguage = languageSelect ? languageSelect.value : '';
+    selectedCountry = countrySelect ? countrySelect.value : '';
+
+    if (!selectedLanguage) {
+        if (languageSelect) {
+            languageSelect.focus();
+            languageSelect.setAttribute('aria-invalid', 'true');
+        }
+        return;
+    }
+    if (!selectedCountry) {
+        if (countrySelect) {
+            countrySelect.focus();
+            countrySelect.setAttribute('aria-invalid', 'true');
+        }
+        return;
+    }
+    if (languageSelect) languageSelect.removeAttribute('aria-invalid');
+    if (countrySelect) countrySelect.removeAttribute('aria-invalid');
     
     // Hero ausblenden, Rollenabfrage anzeigen
     if (isPostDemoPhase()) {
@@ -1031,10 +1090,10 @@ function handleContinue() {
         const heroEl = document.getElementById('hero');
         if (heroEl) heroEl.style.display = 'none';
     }
-    document.getElementById('languageCountrySection').style.display = 'none';
-    document.getElementById('roleSection').style.display = 'block';
-    
-    // Counter wird erst erhöht, nachdem die Rolle ausgewählt wurde (in showContactsSection)
+    document.getElementById('step-language-country').style.display = 'none';
+    const roleSection = document.getElementById('step-role');
+    roleSection.style.display = 'block';
+    scrollToSection('step-role');
 }
 
 function toggleAllCountries() {
@@ -1104,8 +1163,8 @@ function initContactsFixedActions() {
 }
 
 function showContactsSection() {
-    document.getElementById('roleSection').style.display = 'none';
-    document.getElementById('contactsSection').style.display = 'block';
+    document.getElementById('step-role').style.display = 'none';
+    document.getElementById('mep-selection').style.display = 'block';
     document.getElementById('counterSection').style.display = 'block';
     
     // Sticky Share Bar erst nach Kontaktaktion oder ganz unten
@@ -1121,10 +1180,7 @@ function showContactsSection() {
         updateCounter();
         filterMandatare();
         showTextSuggestions();
-        const listEl = document.getElementById('mandatareList');
-        if (listEl) {
-            listEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        scrollToSection('mep-selection');
     }, 100);
 }
 
@@ -1243,7 +1299,7 @@ function displayMandatare(mandatareList) {
 }
 
 function openComposeForMandatar(m) {
-    const panel = document.getElementById('composePanel');
+    const panel = document.getElementById('message-editor');
     if (!panel || !m) return;
     const lang = selectedLanguage || detectBrowserLanguage();
     selectedComposeEmail = (m.email || '').trim();
@@ -1282,7 +1338,11 @@ function openComposeForMandatar(m) {
     });
 
     panel.hidden = false;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    scrollToSection('message-editor');
+    const subjectElFocus = document.getElementById('composeSubject');
+    if (subjectElFocus) {
+        requestAnimationFrame(() => subjectElFocus.focus({ preventScroll: true }));
+    }
 }
 
 function getTextSuggestions() {
@@ -1836,12 +1896,12 @@ function showPetitionSection() {
         if (ss) ss.style.display = 'none';
     }
     document.getElementById('counterSection').style.display = 'none';
-    document.getElementById('languageCountrySection').style.display = 'none';
-    document.getElementById('roleSection').style.display = 'none';
-    document.getElementById('contactsSection').style.display = 'none';
+    document.getElementById('step-language-country').style.display = 'none';
+    document.getElementById('step-role').style.display = 'none';
+    document.getElementById('mep-selection').style.display = 'none';
     
     // Petition-Section anzeigen
-    const petitionSection = document.getElementById('petitionSection');
+    const petitionSection = document.getElementById('petition');
     if (petitionSection) {
         petitionSection.style.display = 'block';
         updatePetitionTexts();
@@ -1850,7 +1910,7 @@ function showPetitionSection() {
         
         // Smooth scroll zur Section
         setTimeout(() => {
-            petitionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollToSection('petition');
         }, 100);
     }
 }
@@ -1858,10 +1918,10 @@ function showPetitionSection() {
 function showHomeSection() {
     const hero = document.getElementById('hero');
     const counterSection = document.getElementById('counterSection');
-    const languageCountrySection = document.getElementById('languageCountrySection');
-    const roleSection = document.getElementById('roleSection');
-    const contactsSection = document.getElementById('contactsSection');
-    const petitionSection = document.getElementById('petitionSection');
+    const languageCountrySection = document.getElementById('step-language-country');
+    const roleSection = document.getElementById('step-role');
+    const contactsSection = document.getElementById('mep-selection');
+    const petitionSection = document.getElementById('petition');
 
     if (isPostDemoPhase()) {
         const hp = document.getElementById('heroPostDemo');
@@ -1932,18 +1992,23 @@ function updatePetitionButtons() {
     if (petitionStatus === 'pending') {
         if (signTopBtn) {
             signTopBtn.disabled = true;
-            signTopBtn.removeAttribute('href');
+            signTopBtn.hidden = true;
+            signTopBtn.setAttribute('aria-hidden', 'true');
         }
         if (signBottomBtn) {
             signBottomBtn.disabled = true;
-            signBottomBtn.removeAttribute('href');
+            signBottomBtn.hidden = true;
+            signBottomBtn.setAttribute('aria-hidden', 'true');
         }
         if (pendingNotice) {
             pendingNotice.textContent = pendingLabel;
             pendingNotice.style.display = 'block';
+            pendingNotice.classList.add('petition-pending-notice--visible');
         }
     } else if (petitionStatus === 'approved') {
         if (signTopBtn) {
+            signTopBtn.hidden = false;
+            signTopBtn.removeAttribute('aria-hidden');
             signTopBtn.disabled = false;
             signTopBtn.textContent = getTranslation(lang, 'signNow');
             signTopBtn.onclick = () => {
@@ -1951,6 +2016,8 @@ function updatePetitionButtons() {
             };
         }
         if (signBottomBtn) {
+            signBottomBtn.hidden = false;
+            signBottomBtn.removeAttribute('aria-hidden');
             signBottomBtn.disabled = false;
             signBottomBtn.textContent = getTranslation(lang, 'sign');
             signBottomBtn.onclick = () => {

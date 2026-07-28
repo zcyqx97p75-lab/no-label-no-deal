@@ -73,7 +73,7 @@
             btnStartLobby.dataset.lobbyistBound = '1';
             btnStartLobby.addEventListener('click', function() {
                 const intro = document.getElementById('introLobbySection');
-                const langSection = document.getElementById('languageCountrySection');
+                const langSection = document.getElementById('step-language-country');
                 if (langSection) langSection.style.display = 'none';
                 closeOverlay();
                 window.location.hash = 'introLobbySection';
@@ -105,7 +105,7 @@
 
     // Scroll to target section (Sprache & Land)
     function scrollToTarget() {
-        const target = document.getElementById('languageCountrySection');
+        const target = document.getElementById('step-language-country');
         if (target) {
             target.style.display = 'block';
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });

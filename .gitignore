@@ -26,3 +26,10 @@ styles_temp.css
 
 # Plan files (optional - can be included if needed)
 .cursor/plans/
+
+# Node / Playwright
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
