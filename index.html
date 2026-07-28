@@ -8,38 +8,9 @@
     <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://www.no-label-no-deal.eu/">
     <title>no label no deal</title>
-    <link rel="stylesheet" href="styles.css?v=20260330">
-    <!-- Google Translate Widget -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            try {
-                console.log('[Translate] Init start');
-                if (typeof google === 'undefined' || !google.translate) {
-                    console.error('[Translate] Google Translate API not available on init');
-                    return;
-                }
-                const targetEl = document.getElementById('google_translate_element');
-                console.log('[Translate] Target element exists:', !!targetEl);
-                console.log('[Translate] Included languages:', 'de,en,fr,es,it,pl,nl,pt,cs,hu,sk,sl,hr,ro,bg,da,sv,fi,lt,lv,et,mt,el,ga');
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'de,en,fr,es,it,pl,nl,pt,cs,hu,sk,sl,hr,ro,bg,da,sv,fi,lt,lv,et,mt,el,ga',
-                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-                    autoDisplay: false
-                }, 'google_translate_element');
-                console.log('[Translate] Init done');
-                setTimeout(() => {
-                    const target = document.getElementById('google_translate_element');
-                    console.log('[Translate] Widget HTML:', target ? target.innerHTML : 'missing');
-                }, 300);
-            } catch (err) {
-                console.error('[Translate] Init error', err);
-            }
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" href="styles.css?v=20260728b">
 </head>
-<body>
+<body class="theme-friendly">
     <a href="/" id="homeFab" class="home-fab notranslate" aria-label="Home">Home</a>
     <!-- Hero-Bereich (Protest-/Kampagnenphase bis Umschaltung) -->
     <section class="hero notranslate hero--legacy" id="hero">
@@ -60,22 +31,55 @@
         </div>
     </section>
 
-    <!-- Hero nach Demo (ab 2.4.2026) -->
-    <section class="hero-post-demo notranslate" id="heroPostDemo" hidden aria-hidden="true">
-        <div class="hero-post-demo-inner">
-            <div class="hero-post-demo-text">
-                <h1 class="hero-post-demo-headline" id="postHeroHeadline"></h1>
-                <p class="hero-post-demo-subline" id="postHeroSubline"></p>
-                <p class="hero-post-demo-body" id="postHeroBody"></p>
-                <div class="hero-post-demo-buttons">
-                    <button type="button" class="btn-hero-post-demo" id="postHeroBtnLearn"></button>
-                    <button type="button" class="btn-hero-post-demo btn-hero-post-demo--outline" id="postHeroBtnWhy"></button>
-                </div>
+    <!-- Hero nach Demo (ab 2.4.2026) – freundlicher Einstieg -->
+    <section class="hero-friendly notranslate" id="heroPostDemo" hidden aria-hidden="true">
+        <div class="hero-friendly-inner">
+            <p class="hero-friendly-brand" id="friendlyBrand">NO LABEL – NO DEAL</p>
+            <h1 class="hero-friendly-headline" id="friendlyHeroHeadline">Du hast ein Recht zu wissen, woher dein Essen kommt.</h1>
+            <p class="hero-friendly-subline" id="friendlyHeroSubline">Schreib deinen EU-Abgeordneten und fordere eine verpflichtende Herkunftskennzeichnung für verarbeitete Lebensmittel.</p>
+            <button type="button" class="btn-friendly-primary" id="friendlyHeroCTA">Jetzt Abgeordneten kontaktieren</button>
+            <p class="hero-friendly-trust" id="friendlyHeroTrust">Keine Anmeldung · Keine Datensammlung · Direkt an die Politik</p>
+            <p class="hero-friendly-note" id="friendlyHeroNote">Ein unabhängiges Werkzeug für Bürger und Produzenten in der Europäischen Union.</p>
+            <p class="hero-friendly-mercosur" id="friendlyHeroMercosur">No Label – No Deal gilt für Mercosur und für alle Handelsabkommen, bei denen europäische Produzenten und Konsumenten ohne klare Herkunftsangaben im Dunkeln gelassen werden.</p>
+        </div>
+    </section>
+
+    <!-- Drei Schritte -->
+    <section class="how-steps-section notranslate" id="howStepsSection" hidden aria-hidden="true">
+        <div class="container">
+            <div class="how-steps-grid">
+                <article class="how-step-card">
+                    <span class="how-step-num" aria-hidden="true">1</span>
+                    <h2 class="how-step-title" id="howStep1Title">Land und Sprache wählen</h2>
+                    <p class="how-step-text" id="howStep1Text">Wir zeigen dir die passenden EU-Abgeordneten und Textvorschläge.</p>
+                </article>
+                <article class="how-step-card">
+                    <span class="how-step-num" aria-hidden="true">2</span>
+                    <h2 class="how-step-title" id="howStep2Title">Abgeordneten auswählen</h2>
+                    <p class="how-step-text" id="howStep2Text">Entscheide selbst, an wen du deine Nachricht senden möchtest.</p>
+                </article>
+                <article class="how-step-card">
+                    <span class="how-step-num" aria-hidden="true">3</span>
+                    <h2 class="how-step-title" id="howStep3Title">Nachricht versenden</h2>
+                    <p class="how-step-text" id="howStep3Text">Öffne dein eigenes E-Mail-Programm und sende die Nachricht direkt ab.</p>
+                </article>
             </div>
-            <div class="hero-post-demo-visual">
-                <div class="hero-post-demo-img-wrap">
-                    <img src="Honig.png" alt="" class="hero-post-demo-img" id="postHeroImg" width="640" height="640" loading="lazy">
-                </div>
+        </div>
+    </section>
+
+    <!-- Privacy Vorteil -->
+    <section class="privacy-advantage-section notranslate" id="privacyAdvantageSection" hidden aria-hidden="true">
+        <div class="container">
+            <div class="privacy-advantage-card">
+                <h2 id="privacyAdvTitle">Direkter Kontakt statt Datensammlung</h2>
+                <p id="privacyAdvText">No Label – No Deal verlangt keine Registrierung und speichert keine personenbezogenen Daten. Du entscheidest selbst, welchen Abgeordneten du kontaktierst, und versendest die Nachricht über dein eigenes E-Mail-Programm.</p>
+                <ul class="privacy-advantage-list">
+                    <li id="privacyAdv1">Keine Anmeldung</li>
+                    <li id="privacyAdv2">Kein Newsletter</li>
+                    <li id="privacyAdv3">Keine Weitergabe von Kontaktdaten</li>
+                    <li id="privacyAdv4">Direkte Nachricht an den gewählten Abgeordneten</li>
+                </ul>
+                <p class="privacy-gt-note" id="privacyGtNote">Für die automatische Übersetzung wird derzeit Google Translate verwendet. Dabei können technisch notwendige Cookies oder Datenübertragungen an Google erfolgen.</p>
             </div>
         </div>
     </section>
@@ -158,7 +162,7 @@
     <!-- Counter -->
     <section class="counter-section notranslate" id="counterSection" style="display: none;">
         <div class="container">
-            <p class="counter-text">Bereits <span id="counterValue">0</span> Menschen haben ihre EU-Abgeordneten erreicht.</p>
+            <p class="counter-text">Bereits <span id="counterValue">0</span> Kontaktaktionen über No Label – No Deal.</p>
             <p class="counter-text-detail" id="counterDetail" style="display: none;"></p>
         </div>
     </section>
@@ -166,6 +170,7 @@
     <!-- Sprache & Land Auswahl -->
     <section class="selection-section notranslate" id="languageCountrySection">
         <div class="container">
+            <p class="flow-progress" id="flowProgressLang" aria-live="polite">Schritt 1 von 3</p>
             <h2>Bitte wähle Sprache und Land</h2>
             <div class="selection-grid">
                 <div class="selection-group">
@@ -240,6 +245,7 @@
     <!-- Rollenabfrage -->
     <section class="role-section notranslate" id="roleSection" style="display: none;">
         <div class="container">
+            <p class="flow-progress" id="flowProgressRole" aria-live="polite">Schritt 2 von 3</p>
             <h2>In welcher Rolle sprichst du?</h2>
             <div class="role-buttons">
                 <button class="btn-role" data-role="farmer">Landwirt / Produzent</button>
@@ -252,12 +258,12 @@
     <!-- Kontaktseite -->
     <section class="contacts-section notranslate" id="contactsSection" style="display: none;">
         <div class="contacts-container">
+            <p class="flow-progress" id="flowProgressContacts" aria-live="polite">Schritt 3 von 3</p>
             <div class="contacts-header">
                 <h2>EU-Abgeordnete kontaktieren</h2>
                 <button id="toggleAllBtn" class="btn-toggle-country">Alle EU-Mandatare anzeigen</button>
             </div>
 
-            <!-- Fixer Bestandteil: Teilen & Drucken -->
             <div class="contacts-fixed-actions">
                 <div class="contacts-share-print-row">
                     <span class="contacts-share-title" id="contactsShareTitle"></span>
@@ -278,44 +284,68 @@
                 </div>
             </div>
 
-            <!-- Filter & Suche -->
-            <div class="filters">
-                <input type="text" id="searchInput" placeholder="Nach Name suchen..." class="search-input">
-                <select id="countryFilter" class="filter-select">
-                    <option value="">Alle Länder</option>
-                </select>
-                <select id="fractionFilter" class="filter-select">
-                    <option value="">Alle Fraktionen</option>
-                </select>
-                <select id="sortSelect" class="filter-select">
-                    <option value="name">Nach Name sortieren</option>
-                    <option value="country">Nach Land sortieren</option>
-                </select>
-            </div>
+            <details class="filters-accordion" id="filtersAccordion">
+                <summary id="filtersSummary">Filter &amp; Suche</summary>
+                <div class="filters">
+                    <label class="visually-hidden" for="searchInput">Name suchen</label>
+                    <input type="text" id="searchInput" placeholder="Name suchen" class="search-input">
+                    <label class="visually-hidden" for="countryFilter">Land</label>
+                    <select id="countryFilter" class="filter-select">
+                        <option value="">Alle Länder</option>
+                    </select>
+                    <label class="visually-hidden" for="fractionFilter">Fraktion</label>
+                    <select id="fractionFilter" class="filter-select">
+                        <option value="">Alle Fraktionen</option>
+                    </select>
+                    <label class="visually-hidden" for="sortSelect">Sortierung</label>
+                    <select id="sortSelect" class="filter-select">
+                        <option value="name">Nach Name sortieren</option>
+                        <option value="country">Nach Land sortieren</option>
+                    </select>
+                </div>
+            </details>
 
-            <!-- Action Bar -->
             <div class="action-bar">
                 <div class="action-bar-top">
                     <div class="email-warning-box" id="emailWarningBox">
-                        <p class="email-warning-text" id="emailWarningText">Wichtig: Pro E-Mail nur einen Empfänger auswählen, da Nachrichten mit mehreren Adressen oft blockiert werden.</p>
+                        <p class="email-warning-text" id="emailWarningText">Bitte kontaktiere die Abgeordneten einzeln. Nachrichten mit vielen Empfängern werden häufiger als Spam eingestuft.</p>
                         <p class="email-warning-text" id="emailRateLimitText" style="display: none;">Du kannst diesem Mandatar nur einmal innerhalb von 24 Stunden eine E-Mail senden. Bitte versuche es später erneut.</p>
                     </div>
                 </div>
                 <div class="action-bar-bottom">
                     <div class="email-buttons-container">
-                        <button id="copyEmailsBtn" class="btn-copy-primary">E-Mails kopieren</button>
+                        <button id="copyEmailsBtn" class="btn-copy-primary">E-Mail-Adresse kopieren</button>
                         <button id="showTextSuggestionsBtn" class="btn-copy-primary">Textvorschläge anzeigen</button>
-                        <button id="sendEmailBtn" class="btn-copy-primary">E-Mail senden</button>
+                        <button id="sendEmailBtn" class="btn-copy-primary">In meinem E-Mail-Programm öffnen</button>
                     </div>
                 </div>
             </div>
 
             <div id="copyFeedback" class="copy-feedback" style="display: none;">E-Mail-Adressen kopiert</div>
 
-            <!-- Mandatare Liste -->
-            <div id="mandatareList" class="mandatare-list"></div>
+            <!-- Compose Panel -->
+            <div class="compose-panel" id="composePanel" hidden>
+                <div class="compose-selected" id="composeSelected">
+                    <img src="assets/mep-placeholder.svg" alt="" class="compose-photo" id="composePhoto" width="72" height="72">
+                    <div>
+                        <p class="compose-name" id="composeName"></p>
+                        <p class="compose-meta" id="composeMeta"></p>
+                    </div>
+                </div>
+                <label for="composeSubject" id="composeSubjectLabel">Betreff</label>
+                <input type="text" id="composeSubject" class="compose-subject" value="NO LABEL NO DEAL">
+                <label for="composeBody" id="composeBodyLabel">Textvorschlag</label>
+                <textarea id="composeBody" class="compose-body" rows="8"></textarea>
+                <p class="compose-hint" id="composeHint">Die Nachricht wird nicht über No Label – No Deal versendet. Sie wird in deinem eigenen E-Mail-Programm geöffnet.</p>
+                <div class="compose-actions">
+                    <button type="button" class="btn-friendly-primary" id="composeOpenMail">In meinem E-Mail-Programm öffnen</button>
+                    <button type="button" class="btn-friendly-secondary" id="composeCopyText">Text kopieren</button>
+                    <button type="button" class="btn-friendly-secondary" id="composeCopyEmail">E-Mail-Adresse kopieren</button>
+                </div>
+            </div>
 
-            <!-- Textvorschläge -->
+            <div id="mandatareList" class="mandatare-list mandatare-grid"></div>
+
             <div class="text-suggestions-section">
                 <div class="text-suggestions-hint-small">
                     <p>💡 <strong>Hinweis:</strong> Unten findest du Textvorschläge zum Kopieren für deine E-Mail.</p>
@@ -329,14 +359,19 @@
     <section class="petition-section" id="petitionSection" style="display: none;">
         <div class="container">
             <div class="petition-container">
-                <h2 class="petition-title notranslate" id="petitionTitle">NO LABEL, NO DEAL – Mandatory Origin Labelling for Processed Foods in the EU</h2>
+                <h2 class="petition-title notranslate" id="petitionTitle">Petition beim Europäischen Parlament</h2>
+                <p class="petition-status-text notranslate" id="petitionStatusText">Die Petition für eine verpflichtende Herkunftskennzeichnung wurde beim Europäischen Parlament eingereicht und befindet sich derzeit in Prüfung. Sobald sie offiziell zur Unterstützung freigegeben ist, wird sie hier direkt verlinkt.</p>
                 <p class="petition-disclaimer notranslate" id="petitionDisclaimer" style="display: none;">Englische Version ist maßgeblich; andere Sprachen sind automatische Übersetzungen.</p>
                 
-                <button id="petitionSignTop" class="btn-petition-primary notranslate" disabled>Jetzt unterzeichnen</button>
-                <p class="petition-pending-notice notranslate" id="petitionPendingNotice" style="display: none;">Unterzeichnung möglich nach offizieller Freigabe</p>
+                <button id="petitionSignTop" class="btn-petition-primary notranslate" disabled>Unterstützung nach offizieller Freigabe möglich</button>
+                <p class="petition-pending-notice notranslate" id="petitionPendingNotice" style="display: none;">Unterstützung nach offizieller Freigabe möglich</p>
                 
-                <div id="google_translate_element" class="google-translate-hidden"></div>
-                <button id="translatePetitionBtn" class="btn-translate-petition notranslate">Text übersetzen</button>
+                <div class="google-translate-panel notranslate" id="googleTranslatePanel">
+                    <p class="google-translate-optin" id="googleTranslateOptin">Für die automatische Übersetzung kann Google Translate geladen werden. Dabei können Cookies oder Datenübertragungen an Google erfolgen.</p>
+                    <button type="button" id="enableGoogleTranslateBtn" class="btn-translate-petition">Automatische Übersetzung (Google) laden</button>
+                    <div id="google_translate_element" class="google-translate-hidden"></div>
+                </div>
+                <button id="translatePetitionBtn" class="btn-translate-petition notranslate" style="display:none;">Text übersetzen</button>
                 <a href="herkunftskennzeichnung-verarbeitete-lebensmittel.html" class="btn-translate-petition notranslate">Hintergrund zur Herkunftskennzeichnung bei verarbeiteten Lebensmitteln</a>
                 <a href="dossier-ehec-2011.html" class="btn-translate-petition notranslate">EHEC-Skandal: Warum Herkunft und Rückverfolgbarkeit entscheidend sind</a>
                 
@@ -344,7 +379,23 @@
                     <!-- Petitionstext wird hier eingefügt -->
                 </div>
                 
-                <button id="petitionSignBottom" class="btn-petition-secondary notranslate" disabled>Unterzeichnen</button>
+                <button id="petitionSignBottom" class="btn-petition-secondary notranslate" disabled>Unterstützung nach offizieller Freigabe möglich</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über die Initiative -->
+    <section class="about-section notranslate" id="aboutSection">
+        <div class="container">
+            <div class="about-card about-card--with-photo">
+                <div class="about-photo-wrap">
+                    <img src="assets/ewald-mayr.jpg" alt="Ewald Mayr" class="about-photo" id="aboutPhoto" width="320" height="568" loading="lazy" decoding="async">
+                </div>
+                <div class="about-copy">
+                    <h2 id="aboutTitle">Über die Initiative</h2>
+                    <p id="aboutP1">No Label – No Deal wurde vom österreichischen Gemüsebauern Ewald Mayr ins Leben gerufen. Die Initiative setzt sich für eine verpflichtende Herkunftskennzeichnung verarbeiteter Lebensmittel in der gesamten Europäischen Union ein.</p>
+                    <p id="aboutP2">Die Website ist kein Verein und kein Mitgliederportal. Sie stellt Bürgern und Produzenten ein kostenloses Werkzeug zur Verfügung, mit dem sie ihre politischen Vertreter direkt erreichen können.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -353,7 +404,7 @@
     <footer class="footer notranslate">
         <div class="container">
             <p><strong>Datenquelle:</strong> Europäisches Parlament (öffentlich)</p>
-            <p>Keine personenbezogenen Daten werden gespeichert.</p>
+            <p id="footerPrivacyLine">No Label – No Deal speichert keine personenbezogenen Daten und verlangt keine Registrierung.</p>
             <div class="footer-links">
                 <a href="/" class="footer-link" id="homeLink">Home</a>
                 <span class="footer-separator">|</span>
@@ -431,8 +482,8 @@
     <!-- Toast Notification -->
     <div id="toastNotification" class="toast-notification" style="display: none;"></div>
 
-    <script src="translations.js?v=20260329"></script>
-    <script src="script.js?v=20260330"></script>
+    <script src="translations.js?v=20260728b"></script>
+    <script src="script.js?v=20260728b"></script>
     <script src="victory-overlay.js?v=20260329"></script>
 </body>
 </html>

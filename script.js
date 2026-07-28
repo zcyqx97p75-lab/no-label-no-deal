@@ -136,10 +136,12 @@ function applyPostDemoUI(lang) {
 
 function initPostDemoPhaseLayout() {
     if (!isPostDemoPhase()) return;
-    document.body.classList.add('post-demo-phase');
+    document.body.classList.add('post-demo-phase', 'theme-friendly');
     const heroLegacy = document.getElementById('hero');
     const heroPost = document.getElementById('heroPostDemo');
     const story = document.getElementById('storySections');
+    const howSteps = document.getElementById('howStepsSection');
+    const privacyAdv = document.getElementById('privacyAdvantageSection');
     if (heroLegacy) {
         heroLegacy.hidden = true;
         heroLegacy.setAttribute('aria-hidden', 'true');
@@ -148,11 +150,26 @@ function initPostDemoPhaseLayout() {
         heroPost.hidden = false;
         heroPost.removeAttribute('aria-hidden');
     }
-    if (story) {
-        story.hidden = false;
-        story.removeAttribute('aria-hidden');
-    }
+    [howSteps, privacyAdv, story].forEach((el) => {
+        if (!el) return;
+        el.hidden = false;
+        el.removeAttribute('aria-hidden');
+    });
 }
+
+const COUNTRY_FLAGS = {
+    'Deutschland': '🇩🇪', 'Österreich': '🇦🇹', 'Belgien': '🇧🇪', 'Bulgarien': '🇧🇬',
+    'Dänemark': '🇩🇰', 'Estland': '🇪🇪', 'Finnland': '🇫🇮', 'Frankreich': '🇫🇷',
+    'Griechenland': '🇬🇷', 'Irland': '🇮🇪', 'Italien': '🇮🇹', 'Kroatien': '🇭🇷',
+    'Lettland': '🇱🇻', 'Litauen': '🇱🇹', 'Luxemburg': '🇱🇺', 'Malta': '🇲🇹',
+    'Niederlande': '🇳🇱', 'Polen': '🇵🇱', 'Portugal': '🇵🇹', 'Rumänien': '🇷🇴',
+    'Schweden': '🇸🇪', 'Slowakei': '🇸🇰', 'Slowenien': '🇸🇮', 'Spanien': '🇪🇸',
+    'Tschechien': '🇨🇿', 'Ungarn': '🇭🇺', 'Zypern': '🇨🇾'
+};
+
+const MEP_PLACEHOLDER = 'assets/mep-placeholder.svg';
+let selectedComposeEmail = '';
+let googleTranslateLoaded = false;
 
 // Petition-Konfiguration
 const petitionStatus = 'pending'; // 'pending' oder 'approved'
@@ -501,6 +518,7 @@ function updateUITexts(lang) {
     if (isPostDemoPhase()) {
         applyPostDemoUI(lang);
     }
+    applyFriendlyStaticTexts(lang);
 }
 
 // Initialisierung
@@ -574,6 +592,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Counter bereits beim Laden anzeigen
     document.getElementById('counterSection').style.display = 'block';
 
+    const filtersAccordion = document.getElementById('filtersAccordion');
+    if (filtersAccordion && window.matchMedia('(min-width: 800px)').matches) {
+        filtersAccordion.open = true;
+    }
+
     // Rate-Limit UI alle 60s aktualisieren
     setInterval(updateRateLimitUI, 60000);
 });
@@ -592,12 +615,16 @@ async function loadMandatare() {
             
             const parts = line.split(';');
             if (parts.length >= 7) {
+                const epId = (parts[7] || '').trim();
+                const photoUrl = (parts[8] || '').trim();
                 mandatare.push({
                     vorname: parts[2] || '',
                     name: parts[3] || '',
                     land: parts[4] || '',
                     fraktion: parts[5] || '',
-                    email: parts[6] || ''
+                    email: parts[6] || '',
+                    epId,
+                    photoUrl: photoUrl || (epId ? `https://www.europarl.europa.eu/mepphoto/${epId}.jpg` : '')
                 });
             }
         }
@@ -663,6 +690,64 @@ function initEventListeners() {
             if (sec) {
                 sec.style.display = 'block';
                 sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+    const friendlyHeroCTA = document.getElementById('friendlyHeroCTA');
+    if (friendlyHeroCTA) {
+        friendlyHeroCTA.addEventListener('click', () => {
+            const intro = document.getElementById('introLobbySection');
+            const sec = document.getElementById('languageCountrySection');
+            if (intro && getComputedStyle(intro).display !== 'none') {
+                intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+            if (sec) {
+                sec.style.display = 'block';
+                sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+    const enableGtBtn = document.getElementById('enableGoogleTranslateBtn');
+    if (enableGtBtn) {
+        enableGtBtn.addEventListener('click', () => loadGoogleTranslateOnDemand());
+    }
+
+    const composeOpenMail = document.getElementById('composeOpenMail');
+    if (composeOpenMail) composeOpenMail.addEventListener('click', openMailtoFromCompose);
+    const composeCopyText = document.getElementById('composeCopyText');
+    if (composeCopyText) {
+        composeCopyText.addEventListener('click', () => {
+            const text = (document.getElementById('composeBody') || {}).value || '';
+            const lang = selectedLanguage || detectBrowserLanguage();
+            const feedback = document.getElementById('copyFeedback');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    if (feedback) {
+                        feedback.textContent = getTranslation(lang, 'sentencesCopied');
+                        feedback.style.display = 'block';
+                        setTimeout(() => { feedback.style.display = 'none'; }, 2500);
+                    }
+                });
+            }
+        });
+    }
+    const composeCopyEmail = document.getElementById('composeCopyEmail');
+    if (composeCopyEmail) {
+        composeCopyEmail.addEventListener('click', () => {
+            if (!selectedComposeEmail) return;
+            const lang = selectedLanguage || detectBrowserLanguage();
+            const feedback = document.getElementById('copyFeedback');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(selectedComposeEmail).then(() => {
+                    if (feedback) {
+                        feedback.textContent = getTranslation(lang, 'emailsCopied');
+                        feedback.style.display = 'block';
+                        setTimeout(() => { feedback.style.display = 'none'; }, 2500);
+                    }
+                });
             }
         });
     }
@@ -1062,51 +1147,145 @@ function displayMandatare(mandatareList) {
         return;
     }
     container.innerHTML = '';
-    
-    console.log('Anzeige von Mandataren:', mandatareList.length);
+    container.classList.add('mandatare-grid');
     
     const lang = selectedLanguage || detectBrowserLanguage();
-    const sendEmailText = getTranslation(lang, 'sendEmail');
+    const writeMsg = getTranslation(lang, 'writeMessage') || getTranslation(lang, 'sendEmail');
     
     mandatareList.forEach((m, index) => {
-        const item = document.createElement('div');
-        item.className = 'mandatar-item';
+        const item = document.createElement('article');
+        item.className = 'mandatar-card';
         const email = (m.email || '').trim();
+        const fullName = `${m.vorname} ${m.name}`.trim();
         const remainingMs = email ? getRemainingRateLimitMs(email) : 0;
         const rateLimited = remainingMs > 0;
-        const buttonClass = rateLimited ? 'mandatar-email-send-btn is-disabled' : 'mandatar-email-send-btn';
+        const buttonClass = rateLimited ? 'mandatar-email-send-btn btn-card-message is-disabled' : 'mandatar-email-send-btn btn-card-message';
         const buttonDisabled = rateLimited ? 'disabled' : '';
-        const buttonTitle = rateLimited ? getRateLimitMessage(lang, remainingMs) : sendEmailText;
-        // Mandatare werden nicht mehr automatisch vorausgewählt
-        const emailDisplay = email ? `
-            <div class="mandatar-email-container">
-                <div class="mandatar-email">${email}</div>
-                <button class="${buttonClass}" ${buttonDisabled} data-email="${email.replace(/"/g, '&quot;')}" title="${buttonTitle}">${sendEmailText}</button>
-            </div>
-        ` : '<div class="mandatar-email">-</div>';
+        const buttonTitle = rateLimited ? getRateLimitMessage(lang, remainingMs) : writeMsg;
+        const flag = COUNTRY_FLAGS[m.land] || '🇪🇺';
+        const fraction = getFractionDisplayName(m.fraktion, lang);
+        const photoSrc = m.photoUrl || MEP_PLACEHOLDER;
         
         item.innerHTML = `
-            <input type="checkbox" id="mandatar-${index}" data-email="${email.replace(/"/g, '&quot;')}">
-            <div class="mandatar-info">
-                <div class="mandatar-name">${m.vorname} ${m.name}</div>
-                <div class="mandatar-details">${m.land} • ${getFractionDisplayName(m.fraktion, selectedLanguage || detectBrowserLanguage())}</div>
-                ${emailDisplay}
-            </div>
+            <label class="mandatar-card-select">
+                <input type="checkbox" id="mandatar-${index}" data-email="${email.replace(/"/g, '&quot;')}" aria-label="${fullName}">
+                <span class="visually-hidden">${fullName}</span>
+            </label>
+            <img class="mandatar-photo" src="${photoSrc.replace(/"/g, '&quot;')}" alt="${fullName.replace(/"/g, '&quot;')}" width="120" height="120" loading="lazy" decoding="async" data-fallback="${MEP_PLACEHOLDER}">
+            <h3 class="mandatar-name">${fullName}</h3>
+            <p class="mandatar-country"><span aria-hidden="true">${flag}</span> ${m.land || ''}</p>
+            <p class="mandatar-fraction">${fraction}</p>
+            ${email ? `<button type="button" class="${buttonClass}" ${buttonDisabled} data-email="${email.replace(/"/g, '&quot;')}" title="${buttonTitle}">${writeMsg}</button>` : ''}
         `;
         container.appendChild(item);
+
+        const img = item.querySelector('.mandatar-photo');
+        if (img) {
+            img.addEventListener('error', () => {
+                img.onerror = null;
+                img.src = MEP_PLACEHOLDER;
+            });
+        }
         
-        // Event Listener für den individuellen E-Mail-Button
         if (email) {
             const sendBtn = item.querySelector('.mandatar-email-send-btn');
             if (sendBtn) {
                 sendBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    sendEmailToSingleRecipient(email, sendBtn);
+                    openComposeForMandatar(m);
+                });
+            }
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            if (checkbox) {
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        document.querySelectorAll('#mandatareList input[type="checkbox"]').forEach((cb) => {
+                            if (cb !== checkbox) cb.checked = false;
+                        });
+                        openComposeForMandatar(m);
+                    }
                 });
             }
         }
     });
+}
+
+function openComposeForMandatar(m) {
+    const panel = document.getElementById('composePanel');
+    if (!panel || !m) return;
+    const lang = selectedLanguage || detectBrowserLanguage();
+    selectedComposeEmail = (m.email || '').trim();
+    const fullName = `${m.vorname} ${m.name}`.trim();
+    const photo = document.getElementById('composePhoto');
+    const nameEl = document.getElementById('composeName');
+    const metaEl = document.getElementById('composeMeta');
+    const bodyEl = document.getElementById('composeBody');
+    const subjectEl = document.getElementById('composeSubject');
+
+    if (photo) {
+        photo.src = m.photoUrl || MEP_PLACEHOLDER;
+        photo.alt = fullName;
+        photo.onerror = () => { photo.onerror = null; photo.src = MEP_PLACEHOLDER; };
+    }
+    if (nameEl) nameEl.textContent = fullName;
+    if (metaEl) {
+        const flag = COUNTRY_FLAGS[m.land] || '🇪🇺';
+        metaEl.textContent = `${flag} ${m.land || ''} · ${getFractionDisplayName(m.fraktion, lang)}`;
+    }
+    if (subjectEl && !subjectEl.value) subjectEl.value = 'NO LABEL NO DEAL';
+    if (bodyEl) {
+        const checkedSentences = document.querySelectorAll('#sentenceList input[type="checkbox"]:checked');
+        const sentences = Array.from(checkedSentences).map(cb => cb.dataset.sentence.replace(/&quot;/g, '"'));
+        if (sentences.length > 0) {
+            bodyEl.value = sentences.join('\n');
+        } else if (!bodyEl.value) {
+            const suggestions = getTextSuggestions();
+            bodyEl.value = suggestions[0] || '';
+        }
+    }
+
+    // sync checkbox selection to this MEP only
+    document.querySelectorAll('#mandatareList input[type="checkbox"]').forEach((cb) => {
+        cb.checked = cb.dataset.email === selectedComposeEmail;
+    });
+
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function getTextSuggestions() {
+    const lang = selectedLanguage || detectBrowserLanguage();
+    const langData = translations[lang] || translations.en;
+    const roleKey = selectedRole === 'farmer' ? 'farmer' : 'consumer';
+    const list = langData[roleKey] || translations.en[roleKey] || [];
+    return Array.isArray(list) ? list : [];
+}
+
+function openMailtoFromCompose() {
+    const email = selectedComposeEmail;
+    if (!email) {
+        const lang = selectedLanguage || detectBrowserLanguage();
+        alert(getTranslation(lang, 'selectMandatar'));
+        return;
+    }
+    const lang = selectedLanguage || detectBrowserLanguage();
+    const remainingMs = getRemainingRateLimitMs(email);
+    if (remainingMs > 0) {
+        alert(getRateLimitMessage(lang, remainingMs));
+        return;
+    }
+    const subject = encodeURIComponent((document.getElementById('composeSubject') || {}).value || 'NO LABEL NO DEAL');
+    const bodyText = (document.getElementById('composeBody') || {}).value || '';
+    const body = encodeURIComponent(bodyText);
+    if (selectedRole === 'farmer') counterFarmer++;
+    else if (selectedRole === 'consumer') counterConsumer++;
+    counter++;
+    saveCounter();
+    updateCounter();
+    setEmailRateLimit(email);
+    updateRateLimitUI();
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 }
 
 // selectAllVisible Funktion entfernt - nicht mehr benötigt
@@ -1676,7 +1855,7 @@ function updatePetitionTexts() {
     // Titel - kann übersetzt werden (UI-Label), aber Content bleibt Englisch
     const title = document.getElementById('petitionTitle');
     if (title) {
-        title.textContent = getTranslation(lang, 'petitionTitle');
+        title.textContent = getTranslation(lang, 'petitionSectionTitle') || 'Petition beim Europäischen Parlament';
     }
     
     // Hero CTA - UI-Label, wird übersetzt
@@ -1693,16 +1872,10 @@ function updatePetitionTexts() {
         // disclaimer.style.display = 'block';
     }
     
-    // Translate Button
+    // Translate Button bleibt versteckt, bis Google Translate per Opt-in geladen wurde
     const translateBtn = document.getElementById('translatePetitionBtn');
-    if (translateBtn) {
-        translateBtn.textContent = getTranslation(lang, 'translateText');
-        // Button nur anzeigen, wenn Sprache nicht Englisch ist
-        if (lang === 'en') {
-            translateBtn.style.display = 'none';
-        } else {
-            translateBtn.style.display = 'flex';
-        }
+    if (translateBtn && !googleTranslateLoaded) {
+        translateBtn.style.display = 'none';
     }
     
     // Petitionstext bleibt IMMER auf Englisch (Originalfassung)
@@ -1714,17 +1887,17 @@ function updatePetitionButtons() {
     const signTopBtn = document.getElementById('petitionSignTop');
     const signBottomBtn = document.getElementById('petitionSignBottom');
     const pendingNotice = document.getElementById('petitionPendingNotice');
+    const pendingLabel = getTranslation(lang, 'petitionSupportLater') || getTranslation(lang, 'petitionPendingNotice');
     
     if (signTopBtn) {
-        signTopBtn.textContent = getTranslation(lang, 'signNow');
+        signTopBtn.textContent = pendingLabel;
     }
     
     if (signBottomBtn) {
-        signBottomBtn.textContent = getTranslation(lang, 'sign');
+        signBottomBtn.textContent = pendingLabel;
     }
     
     if (petitionStatus === 'pending') {
-        // Buttons deaktivieren
         if (signTopBtn) {
             signTopBtn.disabled = true;
             signTopBtn.removeAttribute('href');
@@ -1733,29 +1906,113 @@ function updatePetitionButtons() {
             signBottomBtn.disabled = true;
             signBottomBtn.removeAttribute('href');
         }
-        // Hinweis anzeigen
         if (pendingNotice) {
-            pendingNotice.textContent = getTranslation(lang, 'petitionPendingNotice');
+            pendingNotice.textContent = pendingLabel;
             pendingNotice.style.display = 'block';
         }
     } else if (petitionStatus === 'approved') {
-        // Buttons aktivieren
         if (signTopBtn) {
             signTopBtn.disabled = false;
+            signTopBtn.textContent = getTranslation(lang, 'signNow');
             signTopBtn.onclick = () => {
                 window.open(PETITION_SIGNATURE_URL, '_blank', 'noopener,noreferrer');
             };
         }
         if (signBottomBtn) {
             signBottomBtn.disabled = false;
+            signBottomBtn.textContent = getTranslation(lang, 'sign');
             signBottomBtn.onclick = () => {
                 window.open(PETITION_SIGNATURE_URL, '_blank', 'noopener,noreferrer');
             };
         }
-        // Hinweis verstecken
         if (pendingNotice) {
             pendingNotice.style.display = 'none';
         }
+    }
+}
+
+function loadGoogleTranslateOnDemand() {
+    if (googleTranslateLoaded) return;
+    googleTranslateLoaded = true;
+    window.googleTranslateElementInit = function googleTranslateElementInit() {
+        try {
+            if (typeof google === 'undefined' || !google.translate) return;
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'de,en,fr,es,it,pl,nl,pt,cs,hu,sk,sl,hr,ro,bg,da,sv,fi,lt,lv,et,mt,el,ga',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                autoDisplay: false
+            }, 'google_translate_element');
+            const el = document.getElementById('google_translate_element');
+            if (el) el.classList.remove('google-translate-hidden');
+            const btn = document.getElementById('enableGoogleTranslateBtn');
+            if (btn) btn.style.display = 'none';
+            const translateBtn = document.getElementById('translatePetitionBtn');
+            if (translateBtn) translateBtn.style.display = 'flex';
+        } catch (err) {
+            console.error('[Translate] Init error', err);
+        }
+    };
+    const script = document.createElement('script');
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
+}
+
+function applyFriendlyStaticTexts(lang) {
+    const map = [
+        ['friendlyHeroHeadline', 'friendlyHeroHeadline'],
+        ['friendlyHeroSubline', 'friendlyHeroSubline'],
+        ['friendlyHeroCTA', 'friendlyHeroCTA'],
+        ['friendlyHeroTrust', 'friendlyHeroTrust'],
+        ['friendlyHeroNote', 'friendlyHeroNote'],
+        ['friendlyHeroMercosur', 'friendlyHeroMercosur'],
+        ['howStep1Title', 'howStep1Title'],
+        ['howStep1Text', 'howStep1Text'],
+        ['howStep2Title', 'howStep2Title'],
+        ['howStep2Text', 'howStep2Text'],
+        ['howStep3Title', 'howStep3Title'],
+        ['howStep3Text', 'howStep3Text'],
+        ['privacyAdvTitle', 'privacyAdvTitle'],
+        ['privacyAdvText', 'privacyAdvText'],
+        ['privacyAdv1', 'privacyAdv1'],
+        ['privacyAdv2', 'privacyAdv2'],
+        ['privacyAdv3', 'privacyAdv3'],
+        ['privacyAdv4', 'privacyAdv4'],
+        ['privacyGtNote', 'privacyGtNote'],
+        ['aboutTitle', 'aboutTitle'],
+        ['aboutP1', 'aboutP1'],
+        ['aboutP2', 'aboutP2'],
+        ['petitionStatusText', 'petitionStatusText'],
+        ['composeHint', 'composeHint'],
+        ['composeOpenMail', 'openInEmailApp'],
+        ['composeCopyText', 'copyMessageText'],
+        ['composeCopyEmail', 'copyEmailAddress'],
+        ['composeSubjectLabel', 'emailSubjectLabel'],
+        ['composeBodyLabel', 'emailBodyLabel'],
+        ['filtersSummary', 'filtersSummary'],
+        ['enableGoogleTranslateBtn', 'enableGoogleTranslate'],
+        ['googleTranslateOptin', 'googleTranslateOptin'],
+        ['footerPrivacyLine', 'footerPrivacyLine'],
+        ['flowProgressLang', 'stepOf', { step: 1, total: 3 }],
+        ['flowProgressRole', 'stepOf', { step: 2, total: 3 }],
+        ['flowProgressContacts', 'stepOf', { step: 3, total: 3 }]
+    ];
+    map.forEach((entry) => {
+        const [id, key, vars] = entry;
+        const el = document.getElementById(id);
+        if (!el) return;
+        const normalizedVars = {};
+        Object.entries(vars || {}).forEach(([k, v]) => {
+            normalizedVars[k] = String(v);
+        });
+        const text = getTranslation(lang, key, normalizedVars);
+        if (text && text !== key) el.textContent = text;
+    });
+    const aboutPhoto = document.getElementById('aboutPhoto');
+    if (aboutPhoto) {
+        const alt = getTranslation(lang, 'aboutPhotoAlt');
+        if (alt && alt !== 'aboutPhotoAlt') aboutPhoto.alt = alt;
     }
 }
 
