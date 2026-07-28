@@ -1,0 +1,9 @@
+e2e
+node_modules
+.git
+.cursor
+test-results
+playwright-report
+blob-report
+*.log
+.DS_Store

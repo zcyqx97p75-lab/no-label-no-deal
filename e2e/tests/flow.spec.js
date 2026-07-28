@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
-const SCREEN_DIR = path.join(__dirname, '..', 'docs', 'screenshots');
+const SCREEN_DIR = path.join(__dirname, '..', '..', 'docs', 'screenshots');
 
 test.describe('No Label No Deal flow', () => {
   test.beforeAll(() => {
