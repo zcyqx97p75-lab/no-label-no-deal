@@ -1180,6 +1180,51 @@ body {
     transition: border-color 0.3s;
 }
 
+.theme-friendly .sentence-item,
+.theme-friendly .text-suggestions,
+.theme-friendly .text-suggestions-section {
+    background-color: #ffffff;
+    color: var(--text-main);
+    border-color: var(--border-soft);
+}
+
+.theme-friendly .sentence-item {
+    background-color: #f8fafc;
+    border: 1px solid #d9e2ec;
+    border-radius: 12px;
+    color: #1f2933;
+}
+
+.theme-friendly .sentence-item:hover {
+    border-color: #7b9bb8;
+    background-color: #f1f5f9;
+}
+
+.theme-friendly .sentence-text {
+    color: #1f2933;
+}
+
+.theme-friendly .text-suggestions h3,
+.theme-friendly .text-suggestions .hint-text,
+.theme-friendly .text-suggestions-hint-small p {
+    color: var(--text-soft);
+}
+
+.theme-friendly .share-bar {
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid var(--border-soft);
+    box-shadow: 0 -8px 24px rgba(31, 41, 51, 0.12);
+}
+
+.theme-friendly .share-bar-title {
+    color: var(--text-main);
+}
+
+.share-bar[hidden],
+.share-bar.is-hidden {
+    display: none !important;
+}
+
 .sentence-item:hover {
     border-color: var(--text-light);
 }

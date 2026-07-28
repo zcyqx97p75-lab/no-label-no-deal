@@ -50,8 +50,6 @@
         // Nach 2.4.2026: Protest-Overlay nicht mehr (Hero + Story auf der Seite)
         if (typeof window.isPostDemoPhase === 'function' && window.isPostDemoPhase()) {
             overlay.style.display = 'none';
-            const shareBar = document.getElementById('shareBar');
-            if (shareBar) shareBar.style.display = 'flex';
             return;
         }
 
@@ -100,10 +98,8 @@
         if (overlay) {
             overlay.style.display = 'none';
         }
-        // Ensure Share Bar is visible after closing overlay
-        const shareBar = document.getElementById('shareBar');
-        if (shareBar) {
-            shareBar.style.display = 'flex';
+        if (typeof window.refreshShareBarVisibility === 'function') {
+            window.refreshShareBarVisibility();
         }
     }
 
@@ -177,111 +173,71 @@
         }, 3000);
     }
 
-    // Initialize Share Bar
+    // Initialize Share Bar – standardmäßig ausgeblendet;
+    // sichtbar nur nach Kontaktaktion oder wenn der Nutzer ganz unten ist.
     function initShareBar() {
         const shareBar = document.getElementById('shareBar');
         if (!shareBar) {
             console.warn('Share Bar element not found');
             return;
         }
-        
-        const contactsSection = document.getElementById('contactsSection');
-        const onContactsPage = contactsSection && contactsSection.style.display !== 'none';
-        shareBar.style.display = onContactsPage ? 'none' : 'flex';
-        console.log('Share Bar initialized, display:', shareBar.style.display);
 
         const title = document.getElementById('shareBarTitle');
         const shareBtn = document.getElementById('shareWhatsAppMain');
         const copyBtn = document.getElementById('copyLinkMain');
         const viberBtnShareBar = document.getElementById('btnViberChannelShareBar');
-        
-        console.log('Share Bar elements found:', {
-            title: !!title,
-            shareBtn: !!shareBtn,
-            copyBtn: !!copyBtn,
-            viberBtn: !!viberBtnShareBar
-        });
 
         if (title) {
             title.textContent = getVictoryTranslation('shareBarTitle');
-            console.log('Share Bar Title set:', title.textContent);
-        } else {
-            console.warn('Share Bar Title element not found');
         }
         
         if (shareBtn) {
             const span = shareBtn.querySelector('span');
-            if (span) {
-                span.textContent = getVictoryTranslation('shareWhatsAppMain');
-                console.log('WhatsApp button text set:', span.textContent);
-            } else {
-                console.warn('WhatsApp button span not found');
-            }
-            // Remove old listener if exists, then add new one
+            if (span) span.textContent = getVictoryTranslation('shareWhatsAppMain');
             shareBtn.onclick = null;
             shareBtn.addEventListener('click', shareOnWhatsApp);
-        } else {
-            console.warn('WhatsApp button not found');
         }
         
         if (copyBtn) {
             const span = copyBtn.querySelector('span');
-            if (span) {
-                span.textContent = getVictoryTranslation('copyLinkMain');
-                console.log('Copy Link button text set:', span.textContent);
-            } else {
-                console.warn('Copy Link button span not found');
-            }
-            // Remove old listener if exists, then add new one
+            if (span) span.textContent = getVictoryTranslation('copyLinkMain');
             copyBtn.onclick = null;
             copyBtn.addEventListener('click', copyLink);
-        } else {
-            console.warn('Copy Link button not found');
         }
         
         if (viberBtnShareBar) {
             const span = viberBtnShareBar.querySelector('span');
-            if (span) {
-                span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
-                console.log('Viber button text set:', span.textContent);
-            } else {
-                console.warn('Viber button span not found');
-            }
-            // Remove old listener if exists, then add new one
+            if (span) span.textContent = getVictoryTranslation('BTN_VIBER_CHANNEL');
             viberBtnShareBar.onclick = null;
             viberBtnShareBar.addEventListener('click', () => {
                 window.open(VIBER_CHANNEL_URL, '_blank', 'noopener,noreferrer');
             });
-        } else {
-            console.warn('Viber button not found');
         }
 
-        // Share Bar ausblenden, wenn Footer im Viewport ist – aber nie auf der Mandatare-Kontaktseite anzeigen
+        if (typeof window.refreshShareBarVisibility === 'function') {
+            window.refreshShareBarVisibility();
+        } else {
+            shareBar.style.display = 'none';
+            shareBar.hidden = true;
+            shareBar.setAttribute('aria-hidden', 'true');
+        }
+
         setTimeout(() => {
             const footer = document.querySelector('.footer');
-            const contactsSection = document.getElementById('contactsSection');
-            if (footer) {
-                const observer = new IntersectionObserver((entries) => {
-                    const onContactsPage = contactsSection && contactsSection.style.display !== 'none';
-                    if (onContactsPage) {
-                        shareBar.style.display = 'none';
-                        return;
+            if (!footer) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    window.__shareBarNearBottom = !!entry.isIntersecting;
+                    if (typeof window.refreshShareBarVisibility === 'function') {
+                        window.refreshShareBarVisibility();
                     }
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            shareBar.style.display = 'none';
-                        } else {
-                            shareBar.style.display = 'flex';
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
                 });
-
-                observer.observe(footer);
-            }
-        }, 500);
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px 0px 0px'
+            });
+            observer.observe(footer);
+        }, 300);
     }
 
     // Initialize Viber CTA on main page

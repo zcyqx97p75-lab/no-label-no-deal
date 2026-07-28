@@ -170,6 +170,36 @@ const COUNTRY_FLAGS = {
 const MEP_PLACEHOLDER = 'assets/mep-placeholder.svg';
 let selectedComposeEmail = '';
 let googleTranslateLoaded = false;
+let shareBarUnlocked = false;
+window.__shareBarNearBottom = false;
+
+function setShareBarVisible(visible) {
+    const shareBar = document.getElementById('shareBar');
+    if (!shareBar) return;
+    if (visible) {
+        shareBar.hidden = false;
+        shareBar.style.display = 'flex';
+        shareBar.removeAttribute('aria-hidden');
+        shareBar.classList.remove('is-hidden');
+    } else {
+        shareBar.hidden = true;
+        shareBar.style.display = 'none';
+        shareBar.setAttribute('aria-hidden', 'true');
+        shareBar.classList.add('is-hidden');
+    }
+}
+
+function refreshShareBarVisibility() {
+    const shouldShow = !!shareBarUnlocked || !!window.__shareBarNearBottom;
+    setShareBarVisible(shouldShow);
+}
+window.refreshShareBarVisibility = refreshShareBarVisibility;
+
+function unlockShareBarAfterContact() {
+    shareBarUnlocked = true;
+    setShareBarVisible(true);
+}
+window.unlockShareBarAfterContact = unlockShareBarAfterContact;
 
 // Petition-Konfiguration
 const petitionStatus = 'pending'; // 'pending' oder 'approved'
@@ -596,6 +626,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filtersAccordion && window.matchMedia('(min-width: 800px)').matches) {
         filtersAccordion.open = true;
     }
+
+    refreshShareBarVisibility();
 
     // Rate-Limit UI alle 60s aktualisieren
     setInterval(updateRateLimitUI, 60000);
@@ -1076,9 +1108,8 @@ function showContactsSection() {
     document.getElementById('contactsSection').style.display = 'block';
     document.getElementById('counterSection').style.display = 'block';
     
-    // Sticky Share Bar („Teilen & Druck machen“) auf der Mandatare-Seite ausblenden
-    const shareBar = document.getElementById('shareBar');
-    if (shareBar) shareBar.style.display = 'none';
+    // Sticky Share Bar erst nach Kontaktaktion oder ganz unten
+    refreshShareBarVisibility();
     
     // Counter wird jetzt nur noch beim E-Mail-Versand erhöht, nicht mehr beim Öffnen der Kontaktseite
     
@@ -1285,6 +1316,7 @@ function openMailtoFromCompose() {
     updateCounter();
     setEmailRateLimit(email);
     updateRateLimitUI();
+    unlockShareBarAfterContact();
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 }
 
@@ -1405,6 +1437,7 @@ function sendEmail() {
     // Rate-Limit setzen (clientseitig)
     setEmailRateLimit(email);
     updateRateLimitUI();
+    unlockShareBarAfterContact();
     
     // Standard-Mailprogramm öffnen
     window.location.href = mailtoLink;
@@ -1459,6 +1492,7 @@ function sendEmailToSingleRecipient(email, sendBtn) {
         sendBtn.classList.toggle('is-disabled', updatedRemaining > 0);
         sendBtn.title = updatedRemaining > 0 ? getRateLimitMessage(lang, updatedRemaining) : getTranslation(lang, 'sendEmail');
     }
+    unlockShareBarAfterContact();
     
     window.location.href = mailtoLink;
 }
@@ -1812,8 +1846,7 @@ function showPetitionSection() {
         petitionSection.style.display = 'block';
         updatePetitionTexts();
         updatePetitionButtons();
-        const shareBar = document.getElementById('shareBar');
-        if (shareBar) shareBar.style.display = 'flex';
+        refreshShareBarVisibility();
         
         // Smooth scroll zur Section
         setTimeout(() => {
@@ -1843,8 +1876,7 @@ function showHomeSection() {
     if (roleSection) roleSection.style.display = 'none';
     if (contactsSection) contactsSection.style.display = 'none';
     if (petitionSection) petitionSection.style.display = 'none';
-    const shareBar = document.getElementById('shareBar');
-    if (shareBar) shareBar.style.display = 'flex';
+    refreshShareBarVisibility();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
